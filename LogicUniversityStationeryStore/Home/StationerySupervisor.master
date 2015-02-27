@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StationerySupervisor.master.cs" Inherits="LogicUniversityStationeryStore.Home.StationerySupervisor" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="nav">
+          <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Width="100%">
+              <Items>
+                  <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                  <asp:MenuItem Text="Generate" Value="Generate">
+                      <asp:MenuItem Text="Requisition Trend Analysis" Value="Requisition Trend Analysis"></asp:MenuItem>
+                      <asp:MenuItem Text="Reorder Trend Analysis" Value="Reorder Trend Analysis"></asp:MenuItem>
+                  </asp:MenuItem>
+                  <asp:MenuItem Text="Report" Value="Report">
+                      <asp:MenuItem Text="Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                  </asp:MenuItem>
+              </Items>
+          </asp:Menu>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>

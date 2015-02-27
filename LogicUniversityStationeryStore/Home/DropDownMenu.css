@@ -1,0 +1,39 @@
+﻿ #nav{
+        margin:0;
+        text-align:center;
+        width:100%;
+        vertical-align:central;
+    }
+    #nav ul{
+        padding:0;
+        list-style:none;
+        width:100%;
+    }
+    #nav ul li {
+        float:right;
+        text-align:center;
+        width:300px;
+	    white-space: nowrap;
+        margin:1px;
+      
+    }
+    #nav ul li a {
+        color:whitesmoke;
+        text-decoration:none;
+        display:block;
+        font-family:Calibri;
+        font-size:medium
+        padding:10px;
+        background:#2d82ea;
+        
+    }
+    #nav ul li a:hover {
+        background:#0015ff;
+        color:white;
+    }
+    #nav ul li ul{
+        display:none;
+    }
+    #nav ul li:hover ul{
+        display:block;
+    }

@@ -1,0 +1,6 @@
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll.config
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.pdb
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Debug\WebService.dll
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Debug\WebService.pdb

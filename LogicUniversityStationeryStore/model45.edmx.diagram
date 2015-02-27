@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2c04796c9cb4acda3f2a873e6de8323" Name="Diagram1">
+        <EntityTypeShape EntityType="LogicUniversityModel.CollectionPoint" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Department" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.DisbursementList" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Employee" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.GCM" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Inventory" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.PurchaseOrder" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.PurchaseOrderDetail" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Request" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.RequestDetail" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Stationery" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.StockAdjustment" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.StockAdjustmentDetail" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.Supplier" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicUniversityModel.sysdiagram" Width="1.5" PointX="10.75" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Disbursem__colle__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Departmen__deptH__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Departmen__deptR__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Disbursem__deptC__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Employee__deptCo__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Request__deptCod__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Disbursem__clerk__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Request__deliver__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__GCM__empNo__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__PurchaseO__empNo__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Request__empNo__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__revie__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__submi__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Inventory__stati__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__PurchaseO__order__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__PurchaseO__suppl__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__PurchaseO__stati__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__RequestDe__reque__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__RequestDe__stati__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__stati__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__repor__29572725" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

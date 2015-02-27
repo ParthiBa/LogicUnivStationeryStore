@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StationeryClerk.master.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryClerk" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div id="nav">
+              <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px">
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem Text="Generate" Value="Generate">
+                        <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Report" Value="Report">
+                        <asp:MenuItem Text="Stock Discrepencies" Value="Stock Discrepencies" NavigateUrl="~/Store/StockAdjustment/CreateDiscrepUI.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Supply" Value="Supply">
+                        <asp:MenuItem Text="Order" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurOrdUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Confirm Stock Received" Value="Confirm Stock Received" NavigateUrl="~/Store/PurchaseOrder/ConfirmPurchaseOrder.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/PurchaseOrderList.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
+                    </asp:MenuItem>
+                </Items>
+            </asp:Menu>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>
