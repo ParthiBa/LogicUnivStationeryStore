@@ -2,7 +2,7 @@
 <%--need to add the jquery ui in page it is used--%>
 <script type="text/javascript">
     function setLimit<%=uniqueKey%>(min, max) {
-
+        debugger;
         var id = $("#<%=txtNumber.ClientID %>");
         id.attr("min", min);
         id.attr("max", max);
@@ -13,6 +13,6 @@
 
 
 
-<asp:TextBox ID="txtNumber" runat="server" type="number" Width="57px"></asp:TextBox>
+<asp:TextBox ID="txtNumber" runat="server" type="number" Width="57px" OnTextChanged="txtNumber_TextChanged"></asp:TextBox><br />
 <asp:RangeValidator ID="setRange" runat="server" ControlToValidate="txtNumber" ErrorMessage="RangeValidator" Type="Integer"></asp:RangeValidator>
 

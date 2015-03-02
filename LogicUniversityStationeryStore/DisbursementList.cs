@@ -17,6 +17,7 @@ namespace LogicUniversityStationeryStore
         public DisbursementList()
         {
             this.Requests = new HashSet<Request>();
+            this.RequestByDepts = new HashSet<RequestByDept>();
         }
     
         public int id { get; set; }
@@ -24,10 +25,12 @@ namespace LogicUniversityStationeryStore
         public Nullable<int> collectionPt { get; set; }
         public System.DateTime deliveryDate { get; set; }
         public string clerkEmpNo { get; set; }
+        public string status { get; set; }
     
         public virtual CollectionPoint CollectionPoint { get; set; }
         public virtual Department Department { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<RequestByDept> RequestByDepts { get; set; }
     }
 }

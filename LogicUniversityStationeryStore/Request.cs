@@ -26,6 +26,7 @@ namespace LogicUniversityStationeryStore
         public string status { get; set; }
         public Nullable<System.DateTime> lastUpdate { get; set; }
         public Nullable<int> deliveryID { get; set; }
+        public string rejectedReason { get; set; }
     
         public virtual Department Department { get; set; }
         public virtual DisbursementList DisbursementList { get; set; }

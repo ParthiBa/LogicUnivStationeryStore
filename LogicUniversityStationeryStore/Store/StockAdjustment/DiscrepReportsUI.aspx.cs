@@ -17,7 +17,7 @@ namespace LogicUniversityStationeryStore.Dep
 
         protected void Page_Load(object sender, EventArgs e)
         {
- var q = (from x in EntityBroker.getMyEntites().StockAdjustments
+ var q = (from x in EntityBroker.getMyEntities().StockAdjustments
                                        where x.Employee1.empNo == clientid
                                        select new { x.id, x.status }).ToList();
 
@@ -25,7 +25,7 @@ namespace LogicUniversityStationeryStore.Dep
  //         where x.Employee.empNo == clientid
  //         select new { x.id, x.status }).ToList<StockAdjustment>();
 
- List<StockAdjustment> list =  EntityBroker.getMyEntites().StockAdjustments.Where(x => x.Employee1.empNo == clientid).ToList<StockAdjustment>();
+ List<StockAdjustment> list =  EntityBroker.getMyEntities().StockAdjustments.Where(x => x.Employee1.empNo == clientid).ToList<StockAdjustment>();
 
            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+list);
            grdListOfOrderCLrk.DataSource = q;

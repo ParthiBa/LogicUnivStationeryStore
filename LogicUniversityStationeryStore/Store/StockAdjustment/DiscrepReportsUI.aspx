@@ -6,10 +6,25 @@
 <head runat="server">
     <title></title>
  <link rel="stylesheet" href="../../Content/bootstrap.css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 89px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="height: 233px">
+    
+        <table class="nav-justified">
+            <tr>
+                <td class="auto-style1">
+                    <asp:Button ID="btnCreateNewOrder" runat="server" Text="Create New Discrepencies" Width="265px" />
+                </td>
+                <td class="auto-style1"></td>
+            </tr>
+            <tr>
+                <td>
     
         <asp:GridView ID="grdListOfOrderCLrk" runat="server"  CssClass="table table-hover table-striped"  AutoGenerateColumns="False">
             <Columns>
@@ -22,6 +37,11 @@
                 <asp:TemplateField > <ItemTemplate> <asp:HyperLink ID="Component1" runat="server" NavigateUrl='<%# "~/Store/StockAdjustment/CreateDiscrepUI.aspx?id="+Eval("id") %>' Text='<%# "Click for Order "+Eval("id") %>' > </asp:HyperLink></ItemTemplate></asp:TemplateField>
             </Columns>
         </asp:GridView>
+    
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     
     </div>
     </form>

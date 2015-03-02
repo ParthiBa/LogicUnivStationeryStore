@@ -1,9 +1,11 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="DeptEmp.master.cs" Inherits="LogicUniversityStationeryStore.Home.DeptEmp" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   
+<asp:Content ID="Content1" ContentPlaceHolderID="Mainhead" runat="server">
+    <asp:ContentPlaceHolder ID="headDepEmp" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="nav">
-        <asp:Menu ID="Menu1" runat="server">
+        <asp:Menu ID="DeptEmpMenu" runat="server">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmp.aspx"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
@@ -12,4 +14,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+       <asp:ContentPlaceHolder ID="bodyDepEmp" runat="server"></asp:ContentPlaceHolder>
+
 </asp:Content>

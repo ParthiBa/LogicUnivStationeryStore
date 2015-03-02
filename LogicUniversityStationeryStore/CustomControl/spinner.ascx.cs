@@ -12,8 +12,18 @@ namespace LogicUniversityStationeryStore.CustomControl
 
         private string Max;
         private string Min;
-        public string uniqueKey;
+        public string uniqueKey,tempUniqueKey;
+        public event EventHandler txtSpinChanged;
        
+
+        public string getValue()
+        {
+            return txtNumber.Text;
+        }
+        public int getValueInt()
+        {
+            return Convert.ToInt32(txtNumber.Text);
+        }
         public void setLimit (string minum, string maxium)
         {
             this.setRange.MaximumValue = maxium;
@@ -21,13 +31,35 @@ namespace LogicUniversityStationeryStore.CustomControl
             Max=maxium;
             Min=minum;
             this.setRange.ErrorMessage = "Enter between " + minum + "and " + maxium;
+         //   Page.ClientScript.RegisterClientScriptBlock(this.GetType(), uniqueKey, "setLimit" + uniqueKey + "(" + minum + "," + maxium + ");", true);
+          Page.ClientScript.RegisterStartupScript(this.GetType(), uniqueKey, "setLimit" + uniqueKey + "(" + minum + "," + maxium + ");", true);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            uniqueKey = Guid.NewGuid().ToString("N");
-            Page.ClientScript.RegisterStartupScript(this.GetType(),uniqueKey,"setLimit"+uniqueKey+"("+Min+","+Max+");",true);
+           // uniqueKey = Guid.NewGuid().ToString("N");
+
+            if (!IsPostBack)
+            {
+
+                uniqueKey = tempUniqueKey;
+                Console.WriteLine(">>>>>> " + uniqueKey);
+               // Page.ClientScript.RegisterStartupScript(this.GetType(), uniqueKey, "setLimit" + uniqueKey + "(" + Min + "," + Max + ");", true);
+            }
+            else
+            {
+                uniqueKey = Guid.NewGuid().ToString("N");
+                tempUniqueKey = uniqueKey;
+               // Page.ClientScript.RegisterStartupScript(this.GetType(), uniqueKey, "setLimit" + uniqueKey + "(" + Min + "," + Max + ");", true);
+            }
+           
+               
           
+        }
+
+        protected void txtNumber_TextChanged(object sender, EventArgs e)
+        {
+            txtSpinChanged(sender, e);
         }
     }
 }

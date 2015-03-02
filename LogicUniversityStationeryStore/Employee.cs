@@ -16,6 +16,7 @@ namespace LogicUniversityStationeryStore
     {
         public Employee()
         {
+            this.CollectionPoints = new HashSet<CollectionPoint>();
             this.Departments = new HashSet<Department>();
             this.Departments1 = new HashSet<Department>();
             this.DisbursementLists = new HashSet<DisbursementList>();
@@ -37,6 +38,7 @@ namespace LogicUniversityStationeryStore
         public Nullable<System.DateTime> authorizeStart { get; set; }
         public Nullable<System.DateTime> authorizeEnd { get; set; }
     
+        public virtual ICollection<CollectionPoint> CollectionPoints { get; set; }
         public virtual ICollection<Department> Departments { get; set; }
         public virtual ICollection<Department> Departments1 { get; set; }
         public virtual Department Department { get; set; }

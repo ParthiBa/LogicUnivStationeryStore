@@ -1,9 +1,9 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="DeptRep.master.cs" Inherits="LogicUniversityStationeryStore.Home.DeptRep1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="nav">
-        <asp:Menu ID="Menu1" runat="server">
+        <asp:Menu ID="DeptRepMenu" runat="server" OnMenuItemClick="DeptRepMenu_MenuItemClick">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                 <asp:MenuItem Text="Confirm" Value="Confirm">

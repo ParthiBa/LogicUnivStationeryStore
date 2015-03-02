@@ -31,13 +31,67 @@ namespace LogicUniversityStationeryStore.Dep {
         protected global::System.Web.UI.WebControls.Label lblDate;
         
         /// <summary>
+        /// lblTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTest;
+        
+        /// <summary>
         /// StationeryDropDown1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::LogicUniversityStationeryStore.CustomControl.StationeryDropDown StationeryDropDown1;
+        //protected global::LogicUniversityStationeryStore.CustomControl.StationeryDropDown StationeryDropDown1;
+        
+        /// <summary>
+        /// ddlStationarItemsbyCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStationarItemsbyCat;
+        
+        /// <summary>
+        /// txtReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReason;
+        
+        /// <summary>
+        /// RegexReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexReason;
+        
+        /// <summary>
+        /// spin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::LogicUniversityStationeryStore.CustomControl.WebUserControl1 spin;
+        
+        /// <summary>
+        /// lblUom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUom;
         
         /// <summary>
         /// btnSubmitItem control.
@@ -49,21 +103,21 @@ namespace LogicUniversityStationeryStore.Dep {
         protected global::System.Web.UI.WebControls.Button btnSubmitItem;
         
         /// <summary>
-        /// GridView1 control.
+        /// GrdDiscrepDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GrdDiscrepDetails;
         
         /// <summary>
-        /// EntityDataSource1 control.
+        /// lblAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblAmount;
     }
 }

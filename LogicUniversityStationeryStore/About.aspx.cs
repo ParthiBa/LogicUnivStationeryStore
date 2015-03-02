@@ -11,13 +11,13 @@ namespace LogicUniversityStationeryStore
     public partial class About : Page
     {
 
-        LogicUniversityEntities cte = new LogicUniversityEntities();
+    //    LogicUniversityEntities cte = new LogicUniversityEntities();
      
         protected void Page_Load(object sender, EventArgs e)
         {
-            var query= from x in EntityBroker.getMyEntites().Suppliers 
-                       select x;
-            lblValue.Text = query.First<Supplier>().supplierName;
+         //   var query= from x in EntityBroker.getMyEntities().Suppliers 
+         //              select x;
+        //    lblValue.Text = query.First<Supplier>().supplierName;
         }
     }
 }

@@ -11,6 +11,12 @@ namespace LogicUniversityStationeryStore.Home
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DeptRepMenu.Visible = false;
+
+        }
+
+        protected void DeptRepMenu_MenuItemClick(object sender, MenuEventArgs e)
+        {
 
         }
     }

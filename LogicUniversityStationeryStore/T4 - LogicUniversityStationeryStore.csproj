@@ -127,12 +127,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="CustomControl\MonthYearControl.ascx" />
     <Content Include="CustomControl\spinner.ascx" />
-    <Content Include="CustomControl\StationeryDropDown.ascx" />
+    <Content Include="CustomControl\Spinner2.ascx" />
+    <Content Include="CustomControl\StatDropdown2.ascx" />
+    <Content Include="CustomControl\StationeryDropDown1.ascx" />
     <Content Include="Dep\Delegation\AuthorisedListing.aspx" />
     <Content Include="Dep\Delegation\DelegateAuthorityUI.aspx" />
     <Content Include="Dep\Requisition\ApproveRequisition.aspx" />
     <Content Include="Dep\Requisition\CreateRequisition.aspx" />
-    <Content Include="Dep\Requisition\RequisitionListUI.aspx" />
+    <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
+    <Content Include="Dep\Requisition\denote list of Orders.aspx" />
+    <Content Include="Dep\Requisition\RequstitionListUI.aspx" />
     <Content Include="Home\DropDownMenu.css" />
     <Content Include="icons\1273404841_tick_16.png" />
     <Content Include="icons\Amex-56.png" />
@@ -196,23 +200,6 @@
     <Content Include="images\msdropdown\skin1\title-bg.gif" />
     <Content Include="LogInUI.aspx" />
     <Content Include="icons\Thumbs.db" />
-    <EntityDeploy Include="model45.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>model45.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="model45.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>model45.edmx</DependentUpon>
-      <LastGenOutput>model45.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="model45.edmx.diagram">
-      <DependentUpon>model45.edmx</DependentUpon>
-    </Content>
-    <Content Include="model45.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>model45.edmx</DependentUpon>
-      <LastGenOutput>model45.cs</LastGenOutput>
-    </Content>
     <Content Include="Home\DeptEmp.master" />
     <Content Include="Home\DeptHead.master" />
     <Content Include="Home\DeptRep.master" />
@@ -220,6 +207,24 @@
     <Content Include="Home\StationeryManager.master" />
     <Content Include="Home\StationerySupervisor.master" />
     <Content Include="MasterPage.Master" />
+    <Content Include="Home\Department.master" />
+    <EntityDeploy Include="Model908.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model908.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model908.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model908.edmx</DependentUpon>
+      <LastGenOutput>Model908.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model908.edmx.diagram">
+      <DependentUpon>Model908.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model908.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model908.edmx</DependentUpon>
+      <LastGenOutput>Model908.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -249,8 +254,10 @@
     <Content Include="Scripts\JqueryUI\jquery-ui.structure.min.css" />
     <Content Include="Scripts\JqueryUI\jquery-ui.theme.css" />
     <Content Include="Scripts\JqueryUI\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\JqueryUI\jquery.dd.js" />
     <Content Include="Scripts\JqueryUI\jquery.dd.min.js" />
     <Content Include="Scripts\ProJs\loadDatePick.js" />
+    <Content Include="Scripts\ProJs\loadStationeryDropdown.js" />
     <Content Include="Store\CRUD\Department\CreateDepartment.aspx" />
     <Content Include="Store\CRUD\Department\DepartmentList.aspx" />
     <Content Include="Store\CRUD\Department\ManageDepartment.aspx" />
@@ -272,6 +279,7 @@
     <Content Include="Store\StockAdjustment\ApproveVoucherUI.aspx" />
     <Content Include="Store\StockAdjustment\CreateDiscrepUI.aspx" />
     <Content Include="Store\PurchaseOrder\CreatePurOrdUI.aspx" />
+    <Content Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx" />
     <Content Include="Store\StockAdjustment\DiscrepReportsUI.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -309,7 +317,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="test.aspx" />
+    <Content Include="Store\StockAdjustment\ListOfStockAdjustmentUI.aspx" />
+    <Content Include="test1.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -335,7 +344,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CollectionPoint.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -373,12 +382,26 @@
     <Compile Include="CustomControl\spinner.ascx.designer.cs">
       <DependentUpon>spinner.ascx</DependentUpon>
     </Compile>
-    <Compile Include="CustomControl\StationeryDropDown.ascx.cs">
-      <DependentUpon>StationeryDropDown.ascx</DependentUpon>
+    <Compile Include="CustomControl\Spinner2.ascx.cs">
+      <DependentUpon>Spinner2.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomControl\StationeryDropDown.ascx.designer.cs">
-      <DependentUpon>StationeryDropDown.ascx</DependentUpon>
+    <Compile Include="CustomControl\Spinner2.ascx.designer.cs">
+      <DependentUpon>Spinner2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\StatDropdown2.ascx.cs">
+      <DependentUpon>StatDropdown2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControl\StatDropdown2.ascx.designer.cs">
+      <DependentUpon>StatDropdown2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\StationeryDropDown1.ascx.cs">
+      <DependentUpon>StationeryDropDown1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomControl\StationeryDropDown1.ascx.designer.cs">
+      <DependentUpon>StationeryDropDown1.ascx</DependentUpon>
     </Compile>
     <Compile Include="DAO\EntityBroker.cs" />
     <Compile Include="Default.aspx.cs">
@@ -389,7 +412,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Dep\Delegation\AuthorisedListing.aspx.cs">
       <DependentUpon>AuthorisedListing.aspx</DependentUpon>
@@ -419,61 +442,89 @@
     <Compile Include="Dep\Requisition\CreateRequisition.aspx.designer.cs">
       <DependentUpon>CreateRequisition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dep\Requisition\RequisitionListUI.aspx.cs">
-      <DependentUpon>RequisitionListUI.aspx</DependentUpon>
+    <Compile Include="Dep\Requisition\CreateRequsistionUI.aspx.cs">
+      <DependentUpon>CreateRequsistionUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dep\Requisition\RequisitionListUI.aspx.designer.cs">
-      <DependentUpon>RequisitionListUI.aspx</DependentUpon>
+    <Compile Include="Dep\Requisition\CreateRequsistionUI.aspx.designer.cs">
+      <DependentUpon>CreateRequsistionUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dep\Requisition\denote list of Orders.aspx.cs">
+      <DependentUpon>denote list of Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\Requisition\denote list of Orders.aspx.designer.cs">
+      <DependentUpon>denote list of Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dep\Requisition\RequstitionListUI.aspx.cs">
+      <DependentUpon>RequstitionListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\Requisition\RequstitionListUI.aspx.designer.cs">
+      <DependentUpon>RequstitionListUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="DisbursementList.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="GCM.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\LinqHelper.cs" />
+    <Compile Include="Home\Department.master.cs">
+      <DependentUpon>Department.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Department.master.designer.cs">
+      <DependentUpon>Department.master</DependentUpon>
     </Compile>
     <Compile Include="Helper\NotificationHelper.cs" />
     <Compile Include="Home\DeptEmp.master.cs">
       <DependentUpon>DeptEmp.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\DeptEmp.master.designer.cs">
       <DependentUpon>DeptEmp.master</DependentUpon>
     </Compile>
     <Compile Include="Home\DeptHead.master.cs">
       <DependentUpon>DeptHead.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\DeptHead.master.designer.cs">
       <DependentUpon>DeptHead.master</DependentUpon>
     </Compile>
     <Compile Include="Home\DeptRep.master.cs">
       <DependentUpon>DeptRep.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\DeptRep.master.designer.cs">
       <DependentUpon>DeptRep.master</DependentUpon>
     </Compile>
     <Compile Include="Home\StationeryClerk.master.cs">
       <DependentUpon>StationeryClerk.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\StationeryClerk.master.designer.cs">
       <DependentUpon>StationeryClerk.master</DependentUpon>
     </Compile>
     <Compile Include="Home\StationeryManager.master.cs">
       <DependentUpon>StationeryManager.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\StationeryManager.master.designer.cs">
       <DependentUpon>StationeryManager.master</DependentUpon>
     </Compile>
     <Compile Include="Home\StationerySupervisor.master.cs">
       <DependentUpon>StationerySupervisor.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home\StationerySupervisor.master.designer.cs">
       <DependentUpon>StationerySupervisor.master</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInUI.aspx.cs">
       <DependentUpon>LogInUI.aspx</DependentUpon>
@@ -484,45 +535,49 @@
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="model45.Context.cs">
+    <Compile Include="Model908.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>model45.Context.tt</DependentUpon>
+      <DependentUpon>Model908.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="model45.cs">
+    <Compile Include="Model908.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
-    <Compile Include="model45.Designer.cs">
+    <Compile Include="Model908.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>model45.edmx</DependentUpon>
+      <DependentUpon>Model908.edmx</DependentUpon>
     </Compile>
     <Compile Include="PurchaseOrder.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="PurchaseOrderDetail.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Request.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestByDept.cs">
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="RequestDetail.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Stationery.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="StockAdjustment.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="StockAdjustmentDetail.cs">
-      <DependentUpon>model45.tt</DependentUpon>
+      <DependentUpon>Model908.tt</DependentUpon>
     </Compile>
     <Compile Include="Store\CRUD\Department\CreateDepartment.aspx.cs">
       <DependentUpon>CreateDepartment.aspx</DependentUpon>
@@ -589,18 +644,21 @@
     </Compile>
     <Compile Include="Store\Disbursement\CreateDisburListUI.aspx.cs">
       <DependentUpon>CreateDisburListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Disbursement\CreateDisburListUI.aspx.designer.cs">
       <DependentUpon>CreateDisburListUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Disbursement\RetrievalDetailUI.aspx.cs">
       <DependentUpon>RetrievalDetailUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Disbursement\RetrievalDetailUI.aspx.designer.cs">
       <DependentUpon>RetrievalDetailUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Disbursement\RetrievalListUI.aspx.cs">
       <DependentUpon>RetrievalListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Disbursement\RetrievalListUI.aspx.designer.cs">
       <DependentUpon>RetrievalListUI.aspx</DependentUpon>
@@ -621,24 +679,28 @@
     </Compile>
     <Compile Include="Store\Report\ReorderAnalysisUI.aspx.cs">
       <DependentUpon>ReorderAnalysisUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Report\ReorderAnalysisUI.aspx.designer.cs">
       <DependentUpon>ReorderAnalysisUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Report\ReorderReportUI.aspx.cs">
       <DependentUpon>ReorderReportUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Report\ReorderReportUI.aspx.designer.cs">
       <DependentUpon>ReorderReportUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Report\RequisitionAnalysisUI.aspx.cs">
       <DependentUpon>RequisitionAnalysisUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Report\RequisitionAnalysisUI.aspx.designer.cs">
       <DependentUpon>RequisitionAnalysisUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Report\RequisitionReportUI.aspx.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Report\RequisitionReportUI.aspx.designer.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
@@ -663,6 +725,13 @@
     </Compile>
     <Compile Include="Store\PurchaseOrder\CreatePurOrdUI.aspx.designer.cs">
       <DependentUpon>CreatePurOrdUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx.cs">
+      <DependentUpon>CreateStockAdjustmentReportUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx.designer.cs">
+      <DependentUpon>CreateStockAdjustmentReportUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\StockAdjustment\DiscrepReportsUI.aspx.cs">
       <DependentUpon>DiscrepReportsUI.aspx</DependentUpon>
@@ -696,18 +765,22 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs">
-      <DependentUpon>model45.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>model45.tt</DependentUpon>
-    </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Store\StockAdjustment\ListOfStockAdjustmentUI.aspx.cs">
+      <DependentUpon>ListOfStockAdjustmentUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Store\StockAdjustment\ListOfStockAdjustmentUI.aspx.designer.cs">
+      <DependentUpon>ListOfStockAdjustmentUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>Model908.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

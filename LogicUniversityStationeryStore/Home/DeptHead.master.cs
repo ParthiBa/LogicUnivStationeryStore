@@ -13,5 +13,10 @@ namespace LogicUniversityStationeryStore.Home
         {
 
         }
+
+        protected void DeptHeadMenu_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
+        }
     }
 }

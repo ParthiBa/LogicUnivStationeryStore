@@ -17,7 +17,8 @@ namespace LogicUniversityStationeryStore
         public int id { get; set; }
         public int orderID { get; set; }
         public string stationeryCode { get; set; }
-        public int quantity { get; set; }
+        public int requestedQuantity { get; set; }
+        public Nullable<int> receivedQuantity { get; set; }
         public decimal amount { get; set; }
     
         public virtual PurchaseOrder PurchaseOrder { get; set; }

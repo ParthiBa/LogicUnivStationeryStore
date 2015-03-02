@@ -19,10 +19,12 @@ namespace LogicUniversityStationeryStore
             this.DisbursementLists = new HashSet<DisbursementList>();
         }
     
+        public int id { get; set; }
         public string place { get; set; }
         public System.TimeSpan timeSlot { get; set; }
-        public int id { get; set; }
+        public string clerkEmpNo { get; set; }
     
+        public virtual Employee Employee { get; set; }
         public virtual ICollection<DisbursementList> DisbursementLists { get; set; }
     }
 }

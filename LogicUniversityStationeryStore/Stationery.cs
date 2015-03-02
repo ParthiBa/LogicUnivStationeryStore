@@ -17,6 +17,7 @@ namespace LogicUniversityStationeryStore
         public Stationery()
         {
             this.PurchaseOrderDetails = new HashSet<PurchaseOrderDetail>();
+            this.RequestByDepts = new HashSet<RequestByDept>();
             this.RequestDetails = new HashSet<RequestDetail>();
             this.StockAdjustmentDetails = new HashSet<StockAdjustmentDetail>();
         }
@@ -36,6 +37,7 @@ namespace LogicUniversityStationeryStore
     
         public virtual Inventory Inventory { get; set; }
         public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
+        public virtual ICollection<RequestByDept> RequestByDepts { get; set; }
         public virtual ICollection<RequestDetail> RequestDetails { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual Supplier Supplier4 { get; set; }
