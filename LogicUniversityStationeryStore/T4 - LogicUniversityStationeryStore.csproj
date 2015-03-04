@@ -132,6 +132,7 @@
     <Content Include="CustomControl\StationeryDropDown1.ascx" />
     <Content Include="Dep\Delegation\AuthorisedListing.aspx" />
     <Content Include="Dep\Delegation\DelegateAuthorityUI.aspx" />
+    <Content Include="Dep\Requisition\ApproveRequisistionUI.aspx" />
     <Content Include="Dep\Requisition\ApproveRequisition.aspx" />
     <Content Include="Dep\Requisition\CreateRequisition.aspx" />
     <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
@@ -256,6 +257,7 @@
     <Content Include="Scripts\JqueryUI\jquery-ui.theme.min.css" />
     <Content Include="Scripts\JqueryUI\jquery.dd.js" />
     <Content Include="Scripts\JqueryUI\jquery.dd.min.js" />
+    <Content Include="Scripts\ProJs\DelgationDatePicker.js" />
     <Content Include="Scripts\ProJs\loadDatePick.js" />
     <Content Include="Scripts\ProJs\loadStationeryDropdown.js" />
     <Content Include="Store\CRUD\Department\CreateDepartment.aspx" />
@@ -319,6 +321,7 @@
     <Content Include="Site.Master" />
     <Content Include="Store\StockAdjustment\ListOfStockAdjustmentUI.aspx" />
     <Content Include="test1.aspx" />
+    <Content Include="test2.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -353,6 +356,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ApproveRequestController.cs" />
     <Compile Include="Controller\DelegationController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\DisbursementController.cs" />
@@ -427,6 +431,13 @@
     </Compile>
     <Compile Include="Dep\Delegation\DelegateAuthorityUI.aspx.designer.cs">
       <DependentUpon>DelegateAuthorityUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dep\Requisition\ApproveRequisistionUI.aspx.cs">
+      <DependentUpon>ApproveRequisistionUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\Requisition\ApproveRequisistionUI.aspx.designer.cs">
+      <DependentUpon>ApproveRequisistionUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dep\Requisition\ApproveRequisition.aspx.cs">
       <DependentUpon>ApproveRequisition.aspx</DependentUpon>
@@ -781,6 +792,13 @@
     </Compile>
     <Compile Include="test1.aspx.designer.cs">
       <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test2.aspx.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test2.aspx.designer.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

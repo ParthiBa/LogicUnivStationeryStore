@@ -15,6 +15,11 @@ namespace LogicUniversityStationeryStore.CustomControl
         public string uniqueKey,tempUniqueKey;
         public event EventHandler txtSpinChanged;
        
+        public void setValue(string text)
+        {
+            txtNumber.Text = text;
+        }
+
 
         public string getValue()
         {
@@ -59,7 +64,7 @@ namespace LogicUniversityStationeryStore.CustomControl
 
         protected void txtNumber_TextChanged(object sender, EventArgs e)
         {
-            txtSpinChanged(sender, e);
+         //   txtSpinChanged(sender, e);
         }
     }
 }

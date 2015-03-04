@@ -5,9 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="Scripts/jquery-2.1.3.js">
-    
-    </script>
+
+
+    <script src="Scripts/jquery-2.1.3.js"></script>
+     <link rel="stylesheet" href="Scripts/JqueryUI/dotluv.css" />
+     <script src="Scripts/JqueryUI/jquery-ui.js"></script>
+
+
     <link rel="stylesheet" href="Scripts/JqueryUI/dd.css"></link>
     <script src="Scripts/JqueryUI/jquery.dd.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
