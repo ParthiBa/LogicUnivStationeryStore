@@ -7,9 +7,8 @@ namespace LogicUniversityStationeryStore.DAO
 {
     public class EntityBroker 
     {
-
-        private static  LogicUniversityEntities1mine ctx = new  LogicUniversityEntities1mine();
-        public static  LogicUniversityEntities1mine getMyEntities()
+        private static  LogicUniversityEntities112323aa ctx = new  LogicUniversityEntities112323aa();
+        public static  LogicUniversityEntities112323aa getMyEntities()
         {
             return ctx;
         }

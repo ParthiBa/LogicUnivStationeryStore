@@ -25,7 +25,6 @@ namespace LogicUniversityStationeryStore
         public Nullable<System.DateTime> dateOfDelivery { get; set; }
         public string empNo { get; set; }
         public string supplierCode { get; set; }
-        public Nullable<decimal> totalAmount { get; set; }
         public string status { get; set; }
     
         public virtual Employee Employee { get; set; }

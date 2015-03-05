@@ -18,7 +18,6 @@ namespace LogicUniversityStationeryStore
         public int requestID { get; set; }
         public string stationeryCode { get; set; }
         public int neededQuantity { get; set; }
-        public Nullable<int> actualQuantity { get; set; }
     
         public virtual Request Request { get; set; }
         public virtual Stationery Stationery { get; set; }

@@ -23,6 +23,11 @@ namespace LogicUniversityStationeryStore.CustomControl
 
         public string getValue()
         {
+            if(txtNumber.Text=="")
+            {
+                txtNumber.Text = "1";
+            }
+
             return txtNumber.Text;
         }
         public int getValueInt()
