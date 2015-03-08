@@ -16,7 +16,7 @@
             </asp:TemplateField>
          
 
-            <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+            <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="False" />
         </Columns>
     </asp:GridView>
 

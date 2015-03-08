@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master"  AutoEventWireup="true" CodeBehind="RetrievalListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalListUI" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home/StationeryClerk.master"  AutoEventWireup="true" CodeBehind="RetrievalListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalListUI" %>
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -71,7 +71,7 @@
 </asp:Content>
 
 
-<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content2" runat="server" contentplaceholderid="stationeryClerkHeadPlaceHolder">
     <style type="text/css">
         .auto-style1 {
             width: 100%;

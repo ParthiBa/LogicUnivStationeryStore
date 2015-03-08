@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CollectionPoint">
           <Key>
             <PropertyRef Name="id" />
@@ -25,7 +25,7 @@
           <Property Name="contactName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="telNo" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="faxNo" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="collectionPt" Type="nvarchar" MaxLength="50" />
+          <Property Name="collectionPt" Type="int" />
         </EntityType>
         <EntityType Name="DisbursementList">
           <Key>
@@ -627,7 +627,8 @@
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LogicUniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1182,7 +1183,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LogicUniversityEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LogicUniversityEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CollectionPoints" EntityType="Self.CollectionPoint" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="DisbursementLists" EntityType="Self.DisbursementList" />
@@ -1312,7 +1313,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LogicUniversityModelStoreContainer" CdmEntityContainer="LogicUniversityEntities1">
+        <EntityContainerMapping StorageEntityContainer="LogicUniversityModelStoreContainer" CdmEntityContainer="LogicUniversityEntities3">
           <EntitySetMapping Name="CollectionPoints">
             <EntityTypeMapping TypeName="LogicUniversityModel.CollectionPoint">
               <MappingFragment StoreEntitySet="CollectionPoint">

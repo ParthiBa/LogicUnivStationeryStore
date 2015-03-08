@@ -10,13 +10,20 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
 {
     public partial class RequstitionListUI : System.Web.UI.Page
     {
-        string id = "E00151";
+
+
+        string empid = "";
         ApproveRequestController ARcontroller = new ApproveRequestController();
         bool isHead;
         protected void Page_Load(object sender, EventArgs e)
         {
-             isHead = ARcontroller.checkhead(id);
-             var q = ARcontroller.ListofRequests(id);
+
+            if (Request.Cookies["User"] != null)
+            {
+                empid = Request.Cookies["User"].Value.ToString();
+            }
+            isHead = ARcontroller.checkhead(empid);
+            var q = ARcontroller.ListofRequests(empid);
              grdPendingRequest.DataSource = q;
              grdPendingRequest.DataBind();
         }

@@ -104,7 +104,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
               }
 
 
-              ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Request has been approved')", true);
+              ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request has been Approved!'); window.location = '" + Page.ResolveUrl("~/Home/DeptHeadHome.aspx") + "';", true);
 
          //     Response.Redirect();
 
@@ -123,7 +123,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
 
 
             ARController.rejectCurrentRequest(TxtReason.Text);
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request has been rejected!'); window.location = '" + Page.ResolveUrl("~/Dep/RequstitionListUI.aspx") + "';", true);
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request has been rejected!'); window.location = '" + Page.ResolveUrl("~/Home/DeptHeadHome.aspx") + "';", true);
 
          //   ClientScript.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Request has been rejected'); window.location='" + Page.ResolveUrl(" ~/Dep/RequstitionListUI.aspx"), true);
 

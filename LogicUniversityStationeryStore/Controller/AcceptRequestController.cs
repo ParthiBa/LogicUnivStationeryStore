@@ -134,11 +134,14 @@ namespace LogicUniversityStationeryStore.Controller
         }
 
         public void CreateRBD(int ID)
-        {  
-            var create = (from x in EntityBroker.getMyEntities().Requests
+        {
+            var sum = (from x in EntityBroker.getMyEntities().Requests
                           where x.status == "Accepted" && x.deliveryID == ID
                           join xd in EntityBroker.getMyEntities().RequestDetails on x.id equals xd.requestID
-                          select new ReqByDept() { StationeryCode = xd.stationeryCode, DeliveryID = x.deliveryID.Value, NeededQuantity = xd.neededQuantity }).Distinct();
+                          group new { x, xd } by new { xd.stationeryCode, x.deliveryID, xd.neededQuantity } into ng
+                          select new ReqByDept() { StationeryCode = ng.Key.stationeryCode, DeliveryID = ng.Key.deliveryID.Value, NeededQuantity = ng.Sum(y => y.xd.neededQuantity) }).Distinct();
+            var create = (from row in sum
+                          select new ReqByDept() { StationeryCode = row.StationeryCode, DeliveryID = row.DeliveryID, NeededQuantity = sum.Where(y => y.StationeryCode == row.StationeryCode).Sum(y => y.NeededQuantity) }).Distinct();
             List<ReqByDept> lrbd = create.ToList();
             if (lrbd != null)
             {

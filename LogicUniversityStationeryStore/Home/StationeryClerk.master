@@ -1,5 +1,18 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StationeryClerk.master.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryClerk" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Mainhead" runat="server">
+     <style type="text/css">
+        .auto-style2 {
+            width: 500px;
+        }
+        .auto-style3 {
+            width: 500px;
+        }
+    </style>
+    <script  type="text/javascript">
+            $(function() {
+                $(".datepicker").datepicker({minDate:+1});
+            });
+    </script>
     <asp:ContentPlaceHolder ID="stationeryClerkHeadPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -10,6 +23,7 @@
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                     <asp:MenuItem Text="Generate" Value="Generate">
+                        <asp:MenuItem NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx" Text="Check and Accept Request" Value="Check and Accept Request"></asp:MenuItem>
                         <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
                     </asp:MenuItem>

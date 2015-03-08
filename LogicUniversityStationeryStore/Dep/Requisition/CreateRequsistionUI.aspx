@@ -63,7 +63,7 @@
             <br />
             <br />
             <asp:Label ID="lblCategory0" runat="server" Text="Choose Items"></asp:Label>
-    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True" Width="74px"></asp:DropDownList>
         </td>
         <td class="auto-style7">
     &nbsp;&nbsp;<span>

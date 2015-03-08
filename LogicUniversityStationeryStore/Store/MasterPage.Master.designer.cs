@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogicUniversityStationeryStore {
+namespace WebApplication3 {
     
     
     public partial class MasterPage {
@@ -58,22 +58,13 @@ namespace LogicUniversityStationeryStore {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lblLoginName control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoginName;
-        
-        /// <summary>
-        /// lbLogOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbLogOut;
+        protected global::System.Web.UI.WebControls.Label UserName;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
@@ -92,14 +83,5 @@ namespace LogicUniversityStationeryStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
-        
-        /// <summary>
-        /// ContentPlaceHolder3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder3;
     }
 }

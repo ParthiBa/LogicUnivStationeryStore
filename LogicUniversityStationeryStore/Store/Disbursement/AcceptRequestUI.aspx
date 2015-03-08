@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryClerk.master" AutoEventWireup="true" CodeBehind="AcceptRequestUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.AcceptRequestUI" %>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br /><br />
      <table>
         <tr>

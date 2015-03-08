@@ -16,106 +16,106 @@ namespace LogicUniversityStationeryStore.Controller
     {
 
 
-        LogicUniversityEntities1 db = new LogicUniversityEntities1();
+        //LogicUniversityEntities2 db = new LogicUniversityEntities2();
        
 
-        // GET: api/RequestDetails
-        public IQueryable<RequestDetail> GetRequestDetails()
-        {
-            return db.RequestDetails;
-        }
+        //// GET: api/RequestDetails
+        //public IQueryable<RequestDetail> GetRequestDetails()
+        //{
+        //    return db.RequestDetails;
+        //}
 
-        // GET: api/RequestDetails/5
-        [ResponseType(typeof(RequestDetail))]
-        public IHttpActionResult GetRequestDetail(int id)
-        {
-            RequestDetail requestDetail = db.RequestDetails.Find(id);
-            if (requestDetail == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/RequestDetails/5
+        //[ResponseType(typeof(RequestDetail))]
+        //public IHttpActionResult GetRequestDetail(int id)
+        //{
+        //    RequestDetail requestDetail = db.RequestDetails.Find(id);
+        //    if (requestDetail == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(requestDetail);
-        }
+        //    return Ok(requestDetail);
+        //}
 
-        // PUT: api/RequestDetails/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutRequestDetail(int id, RequestDetail requestDetail)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/RequestDetails/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutRequestDetail(int id, RequestDetail requestDetail)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != requestDetail.id)
-            {
-                return BadRequest();
-            }
+        //    if (id != requestDetail.id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(requestDetail).State = EntityState.Modified;
+        //    db.Entry(requestDetail).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RequestDetailExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!RequestDetailExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/RequestDetails
-        [ResponseType(typeof(RequestDetail))]
-        public IHttpActionResult PostRequestDetail(RequestDetail requestDetail)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/RequestDetails
+        //[ResponseType(typeof(RequestDetail))]
+        //public IHttpActionResult PostRequestDetail(RequestDetail requestDetail)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.RequestDetails.Add(requestDetail);
-            db.SaveChanges();
+        //    db.RequestDetails.Add(requestDetail);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = requestDetail.id }, requestDetail);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = requestDetail.id }, requestDetail);
+        //}
 
-        // DELETE: api/RequestDetails/5
-        [ResponseType(typeof(RequestDetail))]
-        public IHttpActionResult DeleteRequestDetail(int id)
-        {
-            RequestDetail requestDetail = db.RequestDetails.Find(id);
-            if (requestDetail == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/RequestDetails/5
+        //[ResponseType(typeof(RequestDetail))]
+        //public IHttpActionResult DeleteRequestDetail(int id)
+        //{
+        //    RequestDetail requestDetail = db.RequestDetails.Find(id);
+        //    if (requestDetail == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.RequestDetails.Remove(requestDetail);
-            db.SaveChanges();
+        //    db.RequestDetails.Remove(requestDetail);
+        //    db.SaveChanges();
 
-            return Ok(requestDetail);
-        }
+        //    return Ok(requestDetail);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool RequestDetailExists(int id)
-        {
-            return db.RequestDetails.Count(e => e.id == id) > 0;
-        }
+        //private bool RequestDetailExists(int id)
+        //{
+        //    return db.RequestDetails.Count(e => e.id == id) > 0;
+        //}
     }
 }

@@ -13,10 +13,10 @@ namespace LogicUniversityStationeryStore
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LogicUniversityEntities1 : DbContext
+    public partial class LogicUniversityEntities3 : DbContext
     {
-        public LogicUniversityEntities1()
-            : base("name=LogicUniversityEntities1")
+        public LogicUniversityEntities3()
+            : base("name=LogicUniversityEntities3")
         {
         }
     

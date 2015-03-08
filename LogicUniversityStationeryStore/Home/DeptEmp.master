@@ -8,7 +8,7 @@
         <asp:Menu ID="DeptEmpMenu" runat="server">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmp.aspx"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
             </Items>
         </asp:Menu>
     </div>

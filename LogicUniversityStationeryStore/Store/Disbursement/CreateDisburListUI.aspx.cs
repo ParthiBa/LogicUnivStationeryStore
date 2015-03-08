@@ -13,16 +13,16 @@ namespace LogicUniversityStationeryStore.Dep
     public partial class CreateDisburListUI : System.Web.UI.Page
     {
         int count = 0;
-        String empNo ;
+        String empNo;
         String empDeptCode;    
   
         DisbursementController dbsController = new DisbursementController();
         RetrievalController rtController = new RetrievalController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["empNo"] != null)
+            if (Request.Cookies["User"] != null)
             {
-                empNo = Request.QueryString["empNo"].ToString();
+                empNo = Request.Cookies["User"].ToString();
             }    
             if (!IsPostBack)
             {
@@ -50,7 +50,7 @@ namespace LogicUniversityStationeryStore.Dep
                 Department dep = dbsController.getDepartmentData(ddlDepName.SelectedValue);
 
                 lblRepName.Text = dep.contactName;
-                lblCollectionPoint.Text = dep.collectionPt;
+                lblCollectionPoint.Text = dep.collectionPt.ToString();
                 lblDeliveryDate.Text = deliverDate.ToShortDateString();
 
 

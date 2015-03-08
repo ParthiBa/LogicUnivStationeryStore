@@ -15,12 +15,25 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
     {
         NewRequestController NrController = new NewRequestController();
 
-        string empId = "O00104";
+        string empId = "";
+           
+
+
         string MaxQuantity = "2";
         string CurrentMaxQuantity;
         string currentValue;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request.Cookies["User"] != null)
+            {
+                empId = Request.Cookies["User"].Value.ToString();
+
+
+         //       string empid = (LinqHelper.findEmpbyName(empId)).empNo;
+
+
+            }  
             // siteMater = Page.Master as Department;
                     spinner2.txtSpinChanged += new EventHandler(AmountChanged);
                     grdCreateItem.RowDataBound += new GridViewRowEventHandler(this.grdCreateItem_RowDataBound);
@@ -270,6 +283,8 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
             DataTable dt = (DataTable)ViewState["currentCreate"];
             NrController.createRequest(empId);
             NrController.createRequestDetail(dt);
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request Has been added Sucessfully '); window.location = '"+ Page.ResolveUrl("~/Home/DeptEmpHome.aspx")  +"';", true);
+           // Response.Write("<script language="'javascript'">window.alert('Your Message');window.location='yourpage.aspx';</script>");
         }
 
         protected void grdCreateItem_RowDataBound(object sender, GridViewRowEventArgs e)

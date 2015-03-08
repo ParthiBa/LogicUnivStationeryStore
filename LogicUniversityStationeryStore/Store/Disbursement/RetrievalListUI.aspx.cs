@@ -14,11 +14,11 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         String empNo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.QueryString["empNo"] != null)
-            //{
-            //    empNo = Request.QueryString["empNo"].ToString();
-            //}    
-            empNo ="SC0001";
+            if (Request.Cookies["User"] != null)
+            {
+                empNo = Request.Cookies["User"].ToString();
+            }    
+            //empNo ="SC0001";
             BindingGrid();
             
         }     
@@ -65,6 +65,9 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                                     UnitOM = RL.Key.UOM
 
                                 }).ToList();
+
+
+          
             GrdRetrievalList.DataSource = RetrieveList;
             GrdRetrievalList.DataBind();
 

@@ -44,12 +44,25 @@ namespace LogicUniversityStationeryStore.Helper
             return quwe;
         }
 
-        public dynamic findEmpName(String empId)
+        public static dynamic findEmpName(String empId)
         {
             var q = (from x in EntityBroker.getMyEntities().Employees
                      where x.empNo.Equals(empId)
                      select new { x.empName }).First();
             return q.ToString(); ;
+
+        }
+
+
+        public static Employee findEmpbyName(string Name)
+        {
+            var q = from x in EntityBroker.getMyEntities().Employees
+                    where x.empName.Equals(Name)
+                    select x;
+
+
+            return q.FirstOrDefault < Employee >();
+
 
         }
 

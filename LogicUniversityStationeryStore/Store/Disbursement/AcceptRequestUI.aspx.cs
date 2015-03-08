@@ -27,9 +27,11 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         protected void BtnAccept_Click(object sender, EventArgs e)
         {
 
-            string clerk = "SC0001"; //test data, change to: string clerk=Request.Cookies["User"].Value;
+           // string clerk = "SC0001"; 
+            string clerk=Request.Cookies["User"].Value;
             string dept = Session["dept"].ToString();
-            string XOL = "Science School";//test data,delete when data fill in database-Department-collectionPt:string XOL=dep.collectionPt
+           // string XOL = "Science School";//test data,delete when data fill in database-Department-collectionPt:
+            string XOL = lblCollPoint.Text;
             string delivDate = boxDeliverDate.Text;
             
            if (disCtrl.createAndUpdate(dept, clerk, XOL, delivDate) == true) //create disbursement & update request

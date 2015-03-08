@@ -48,17 +48,17 @@ namespace LogicUniversityStationeryStore.Home
             if (role.Equals("deptEmp"))
             {
 
-                DeptEmployeeMenu.Visible = true;
+               // DeptEmployeeMenu.Visible = true;
                  
             }
             else if (role.Equals("deptHead"))
             {
 
-                DeptHeadsMenu.Visible = true;
+                //DeptHeadsMenu.Visible = true;
             }
             else
             {
-                DeptRepsMenu.Visible = true;
+               // DeptRepsMenu.Visible = true;
             }
 
         }
