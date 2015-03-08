@@ -28,7 +28,7 @@ namespace LogicUniversityStationeryStore
         public string contactName { get; set; }
         public string telNo { get; set; }
         public string faxNo { get; set; }
-        public string collectionPt { get; set; }
+        public Nullable<int> collectionPt { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Employee Employee1 { get; set; }

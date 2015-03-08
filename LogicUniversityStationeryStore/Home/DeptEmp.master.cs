@@ -12,6 +12,8 @@ namespace LogicUniversityStationeryStore.Home
         protected void Page_Load(object sender, EventArgs e)
         {
 
+      
+
         }
         protected void DeptRepMenu_MenuItemClick(object sender, MenuEventArgs e)
         {

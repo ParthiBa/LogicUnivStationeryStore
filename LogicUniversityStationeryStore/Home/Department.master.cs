@@ -12,6 +12,15 @@ namespace LogicUniversityStationeryStore.Home
     public partial class Department : System.Web.UI.MasterPage
     {
 
+
+        public void getRepMenu()
+        {
+
+         
+
+        }
+
+
       
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +32,7 @@ namespace LogicUniversityStationeryStore.Home
              }
             else if (role.Equals("deptHead"))
             {
-             
+           
             }
             else
             {

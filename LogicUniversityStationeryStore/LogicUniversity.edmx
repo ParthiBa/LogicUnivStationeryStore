@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CollectionPoint">
           <Key>
             <PropertyRef Name="id" />
@@ -627,8 +627,7 @@
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LogicUniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -654,7 +653,7 @@
           <Property Name="contactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="telNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="faxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="collectionPt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="collectionPt" Type="Int32" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Departmen__deptH__1273C1CD" FromRole="Department" ToRole="Employee" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK__Departmen__deptR__1367E606" FromRole="Department" ToRole="Employee" />
           <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__deptC__300424B4" FromRole="Department" ToRole="DisbursementList" />
