@@ -20,5 +20,17 @@ namespace LogicUniversityStationeryStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblValue;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new LogicUniversityStationeryStore.Site1 Master {
+            get {
+                return ((LogicUniversityStationeryStore.Site1)(base.Master));
+            }
+        }
     }
 }

@@ -22,6 +22,15 @@ namespace LogicUniversityStationeryStore.Store.Disbursement {
         protected global::System.Web.UI.WebControls.Label lblPageTitle;
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// lblStationeryCode control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace LogicUniversityStationeryStore.Store.Disbursement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStationeryCode;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// lblStationeryDesp control.
@@ -40,6 +58,24 @@ namespace LogicUniversityStationeryStore.Store.Disbursement {
         protected global::System.Web.UI.WebControls.Label lblStationeryDesp;
         
         /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// lblUnitOfMeasure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitOfMeasure;
+        
+        /// <summary>
         /// GrdRetrievalDetail control.
         /// </summary>
         /// <remarks>
@@ -49,15 +85,6 @@ namespace LogicUniversityStationeryStore.Store.Disbursement {
         protected global::System.Web.UI.WebControls.GridView GrdRetrievalDetail;
         
         /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -65,5 +92,14 @@ namespace LogicUniversityStationeryStore.Store.Disbursement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

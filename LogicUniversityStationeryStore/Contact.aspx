@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="LogicUniversityStationeryStore.Contact" %>
-
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="LogicUniversityStationeryStore.Contact" %>
+<%@ MasterType VirtualPath="~/Site1.Master" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2><%: Title %>.</h2>
     <h3>Your contact page.</h3>
     <address>

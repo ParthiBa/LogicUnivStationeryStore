@@ -14,7 +14,7 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 280px;
+            width: 175px;
             height: 29px;
         }
         .auto-style3 {
@@ -22,7 +22,7 @@
         }
         .auto-style4 {
             height: 29px;
-            width: 116px;
+            width: 318px;
         }
         .auto-style5 {
             height: 29px;
@@ -55,14 +55,15 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-        <uc1:StationeryDropDown ID="StationeryDropDown1" runat="server" />
-                </td>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="155px">
+                    </asp:DropDownList><br />
+                    </td>
                 <td class="auto-style4">
-                    <asp:DropDownList ID="ddlStationarItemsbyCat" runat="server" OnSelectedIndexChanged="ddlStationarItemsbyCat_SelectedIndexChanged">
+                    <asp:DropDownList ID="DropDownList2" runat="server" Height="16px" Width="262px">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style5">
-                    <asp:TextBox ID="txtReason" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtReason" runat="server" Width="335px"></asp:TextBox>
 &nbsp;<br />
                     <asp:RegularExpressionValidator ID="RegexReason" runat="server" ErrorMessage="Please Enter Characters and Numbers" ValidationExpression="^[a-zA-Z0-9]*$" ControlToValidate="txtReason"></asp:RegularExpressionValidator>
                 </td>

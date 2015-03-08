@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using LogicUniversityStationeryStore.DAO;
+using System.Drawing;
 
 namespace LogicUniversityStationeryStore
 {
@@ -18,6 +19,9 @@ namespace LogicUniversityStationeryStore
          //   var query= from x in EntityBroker.getMyEntities().Suppliers 
          //              select x;
         //    lblValue.Text = query.First<Supplier>().supplierName;
+
+            Button br = (Button)Master.FindControl("masterbutton");
+            br.BackColor = Color.Blue;
         }
     }
 }

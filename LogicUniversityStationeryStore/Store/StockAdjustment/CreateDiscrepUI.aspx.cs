@@ -48,7 +48,7 @@ namespace LogicUniversityStationeryStore.Dep
 
         protected void ddlStationarItemsbyCat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblTest.Text = ddlStationarItemsbyCat.SelectedValue;
+         //   lblTest.Text = ddlStationarItemsbyCat.SelectedValue;
         }
 
 

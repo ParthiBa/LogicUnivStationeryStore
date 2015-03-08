@@ -40,15 +40,6 @@ namespace LogicUniversityStationeryStore.Dep {
         protected global::System.Web.UI.WebControls.DropDownList ddlDepName;
         
         /// <summary>
-        /// DepartmentName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DepartmentName;
-        
-        /// <summary>
         /// lblRepNameTitle control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace LogicUniversityStationeryStore.Dep {
         protected global::System.Web.UI.WebControls.Label lblDeliveryDate;
         
         /// <summary>
+        /// GrdDisbursementList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GrdDisbursementList;
+        
+        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -112,12 +112,12 @@ namespace LogicUniversityStationeryStore.Dep {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// GrdDisbursementList control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdDisbursementList;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

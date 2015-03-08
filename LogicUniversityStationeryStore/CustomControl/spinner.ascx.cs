@@ -21,6 +21,21 @@ namespace LogicUniversityStationeryStore.CustomControl
         }
 
 
+        public String txtQty
+        {
+
+            get
+            {
+
+                return txtNumber.Text;
+            }
+            set
+            {
+                txtNumber.Text = value;
+            }
+        }
+
+
         public string getValue()
         {
             if(txtNumber.Text=="")

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master"  AutoEventWireup="true" CodeBehind="RetrievalListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalListUI" %>
-<%@ Register src="../../CustomerControl/spinner.ascx" tagname="spinner" tagprefix="uc1" %>
+<%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <table class="auto-style1">
@@ -10,31 +10,62 @@
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <asp:GridView ID="GrdRetrievalList" runat="server" AutoGenerateColumns="False" OnRowDataBound="hightLightRow" >
                     <Columns>
-                        <asp:BoundField DataField="binNo" HeaderText="Bin No" SortExpression="binNo" />
-                        <asp:BoundField DataField="stationeryCode" HeaderText="Item Number" SortExpression="stationeryCode" />
-                        <asp:BoundField DataField="description" HeaderText="Stationery Description" SortExpression="description" />
-                        <asp:BoundField DataField="Quantity Needed" HeaderText="Quantity Needed" ReadOnly="True" SortExpression="Quantity Needed" />
+                        <asp:BoundField DataField="binNo" HeaderText="Bin No" SortExpression="binNo" />                       
+                        <asp:TemplateField HeaderText="Item Number">
+                            <ItemTemplate>
+                                <asp:Label ID="lblitemNo" runat="server" Text='<%#Bind("ItemNo")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="StationeryDescription" HeaderText="Stationery Description" SortExpression="description" />
+                        <asp:TemplateField HeaderText="Quantity Needed">
+                            <ItemTemplate>
+                                <asp:Label ID="lblQtyNeeded" runat="server" Text='<%#Bind("Qtyneeded")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Quantity Retrieved">
                             <ItemTemplate>
-                                <uc1:spinner ID="spinner1" runat="server" />
+                                <asp:Label ID="lblQtyRetrieved" runat="server" Text=""></asp:Label>
+                                
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="QtyRetrieved(justbindLabel)" Visible="False">
+                            <ItemTemplate>
+                                <asp:Label ID="lblRetrievefromRBD" runat="server" Text='<%# Bind("Rqty") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Unit Of Measure">
+                            <ItemTemplate>
+                                <asp:Label ID="lblUnitOfMeasure" runat="server" Text ='<%#Bind("UnitOM") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button ID="btnBreakDownByDept" runat="server" Text="BreakDownByDepartment" />
+                                <asp:LinkButton ID="lnkbtnBreakDownbyDept" runat="server" OnClick="lnkbtnBreakDownbyDept_Click">BreakDownByDepartments</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Quantity(maximum)" Visible="False">
+                            <ItemTemplate>
+                                <asp:Label ID="lblmaxQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>                     
+                                              
+                        <asp:TemplateField HeaderText="AvaQty" Visible="False">
+                            <ItemTemplate>
+                                <asp:Label ID="lblAvaQty" runat="server" Text='<%# Bind("AvaQty") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
                     </Columns>
-                </asp:GridView>
-                &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicStationeryConnectionString %>" SelectCommand="select distinct i.binNo,rd.stationeryCode,s.description,sum(rd.neededQuantity) over(partition by rd.stationeryCode) as [Quantity Needed]
-from  Inventory i,RequestDetail rd,Stationery s,Request r
-where r.status='Accepted' and rd.requestID=r.id and i.stationeryCode=rd.stationeryCode and s.code=rd.stationeryCode
-order by rd.stationeryCode
-"></asp:SqlDataSource>
-            </td>
+                </asp:GridView>    
+            </td>            
         </tr>
+        <tr>
+            <td>
+                 &nbsp;</td>
+        </tr>
+     
     </table>
 
 </asp:Content>

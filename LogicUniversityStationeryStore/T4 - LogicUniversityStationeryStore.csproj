@@ -136,8 +136,6 @@
     <Content Include="Dep\Delegation\AuthorisedListing.aspx" />
     <Content Include="Dep\Delegation\DelegateAuthorityUI.aspx" />
     <Content Include="Dep\Requisition\ApproveRequisistionUI.aspx" />
-    <Content Include="Dep\Requisition\ApproveRequisition.aspx" />
-    <Content Include="Dep\Requisition\CreateRequisition.aspx" />
     <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
     <Content Include="Dep\Requisition\denote list of Orders.aspx" />
     <Content Include="Dep\Requisition\RequstitionListUI.aspx" />
@@ -349,6 +347,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="CollectionPoint.cs">
       <DependentUpon>Model14555.tt</DependentUpon>
     </Compile>
@@ -360,6 +359,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controller\ApproveRequestController.cs" />
+    <Compile Include="Controller\DefaultController.cs" />
     <Compile Include="Controller\DelegationController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\DisbursementController.cs" />
@@ -368,6 +368,7 @@
     <Compile Include="Controller\NewPurchaseController.cs" />
     <Compile Include="Controller\NewRequestController.cs" />
     <Compile Include="Controller\ReorderTrendController.cs" />
+    <Compile Include="Controller\RequestDetailsController.cs" />
     <Compile Include="Controller\RequisitionTrendController.cs" />
     <Compile Include="Controller\RetrievalController.cs" />
     <Compile Include="Controller\StationeryController.cs" />
@@ -441,20 +442,6 @@
     </Compile>
     <Compile Include="Dep\Requisition\ApproveRequisistionUI.aspx.designer.cs">
       <DependentUpon>ApproveRequisistionUI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dep\Requisition\ApproveRequisition.aspx.cs">
-      <DependentUpon>ApproveRequisition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dep\Requisition\ApproveRequisition.aspx.designer.cs">
-      <DependentUpon>ApproveRequisition.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Dep\Requisition\CreateRequisition.aspx.cs">
-      <DependentUpon>CreateRequisition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dep\Requisition\CreateRequisition.aspx.designer.cs">
-      <DependentUpon>CreateRequisition.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dep\Requisition\CreateRequsistionUI.aspx.cs">
       <DependentUpon>CreateRequsistionUI.aspx</DependentUpon>

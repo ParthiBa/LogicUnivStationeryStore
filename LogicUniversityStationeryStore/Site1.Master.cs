@@ -9,6 +9,25 @@ namespace LogicUniversityStationeryStore
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+
+        public Button btn
+        {
+            get { return masterbutton;}
+            set { masterbutton = value;  }
+        
+        
+        }
+
+
+        public string sayHello()
+        {
+
+
+            return "whatis";
+        }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -8,7 +8,7 @@
                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                 <asp:MenuItem Text="Confirm" Value="Confirm">
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
-                    <asp:MenuItem Text="Collection Point" Value="Collection Point"></asp:MenuItem>
+                    <asp:MenuItem Text=" Update Collection Point" Value="Collection Point"></asp:MenuItem>
                 </asp:MenuItem>
             </Items>
         </asp:Menu>
