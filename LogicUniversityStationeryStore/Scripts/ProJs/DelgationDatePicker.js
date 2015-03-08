@@ -1,0 +1,7 @@
+﻿$(function () {
+    $("[id$=calendar]").datapicker();
+
+
+
+
+});

@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationerySupervisor.master" AutoEventWireup="true" CodeBehind="StationerySupervisorHome.aspx.cs" Inherits="LogicUniversityStationeryStore.Home.StationerySupervisorHome" %>
