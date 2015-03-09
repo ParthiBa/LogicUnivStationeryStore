@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="nav">
-          <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" Enabled="False">
+          <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" Enabled="False" Visible="False">
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                     <asp:MenuItem Text="Generate" Value="Generate">
@@ -19,11 +19,21 @@
                         <asp:MenuItem Text="Confirm Stock Received" Value="Confirm Stock Received" NavigateUrl="~/Store/PurchaseOrder/ConfirmPurchaseOrder.aspx"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/PurchaseOrderList.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
                     </asp:MenuItem>
+                     <asp:MenuItem Text="ManageInformation" Value="Supply">
+                        <asp:MenuItem Text="Supplier" Value="Supplier Infomaration" >
+                            <asp:MenuItem Text="Add Supplier" NavigateUrl="~/Store/CRUD/SupplierPages/CreateSupplierUI.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Manage Supplier Info" NavigateUrl="~/Store/CRUD/SupplierPages/ManageSupplierUI.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Stationery" Value="Supplier Infomaration" >
+                            <asp:MenuItem Text="Add Stationery item" NavigateUrl="~/Store/CRUD/Stationery/CreateStationeryUI.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Manage Stationery  Info" NavigateUrl="~/Store/CRUD/Stationery/ManageStationeryUI.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </asp:MenuItem>
                 </Items>
             </asp:Menu>
 
 
-            <asp:Menu ID="ManagerMenu" runat="server" Orientation="Horizontal" Enabled="False">
+            <asp:Menu ID="ManagerMenu" runat="server" Orientation="Horizontal" Enabled="False" Visible="False">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                 <asp:MenuItem Text="Report" Value="Report">
@@ -31,7 +41,10 @@
                 </asp:MenuItem>
             </Items>
         </asp:Menu>
-             <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False">
+
+
+
+             <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False" Visible="False">
               <Items>
                   <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                   <asp:MenuItem Text="Generate" Value="Generate">

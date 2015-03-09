@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using LogicUniversityStationeryStore.Controller;
 using LogicUniversityStationeryStore.DAO;
 using LogicUniversityStationeryStore.Helper;
 
@@ -15,9 +16,14 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
 
         static LinqHelper LinqHelper = new LinqHelper();
 
+        NewAdjustmentController NAController = new NewAdjustmentController();
+
+      
         decimal price;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
 
             Spinner21.txtSpinChanged += new EventHandler(AmountChanged);
             ViewState["price"] = LinqHelper.findPricebtItemCode("C001");
@@ -62,11 +68,12 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
             if (ViewState["currentAdjust"]==null)
             {
 
-                SetInitialRow(ddlStationarItemsbyCat.SelectedValue,ddlStationarItemsbyCat.SelectedItem.Text, Spinner21.getValues(), txtReason.Text);
+
+                SetInitialRow(ddlStationarItemsbyCat.SelectedValue,ddlStationarItemsbyCat.SelectedItem.Text, Spinner21.getValues(), txtReason.Text,Convert.ToDecimal(lblAmountDisp.Text));
             }
             else
             {
-                addNextRow(ddlStationarItemsbyCat.SelectedValue,ddlStationarItemsbyCat.SelectedItem.Text, Spinner21.getValues(), txtReason.Text);
+                addNextRow(ddlStationarItemsbyCat.SelectedValue, ddlStationarItemsbyCat.SelectedItem.Text, Spinner21.getValues(), txtReason.Text, Convert.ToDecimal(lblAmountDisp.Text));
 
             }
 
@@ -137,7 +144,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
         //}
 
 
-        private void SetInitialRow(string ItemCode,string stationaryItem,string quantity,string Reason)
+        private void SetInitialRow(string ItemCode,string stationaryItem,string quantity,string Reason,decimal amount)
         {
             DataTable dt = new DataTable();
             DataRow dr = null;
@@ -146,12 +153,14 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
             dt.Columns.Add(new DataColumn("ItemName", typeof(string)));
             dt.Columns.Add(new DataColumn("quantity", typeof(string)));
             dt.Columns.Add(new DataColumn("Reason", typeof(string)));
+            dt.Columns.Add(new DataColumn("amount", typeof(decimal)));
             dr = dt.NewRow();
             dr["No"] = 1;
             dr["ItemNo"] = ItemCode;
             dr["ItemName"] = stationaryItem;
             dr["quantity"] = quantity;
             dr["Reason"] = Reason;
+            dr["amount"] = amount;
             dt.Rows.Add(dr);
             ViewState["currentAdjust"] = dt;
             GrdDiscrepDetails.DataSource = dt;
@@ -161,7 +170,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
 
         }
 
-        private void addNextRow(string ItemCode,string stationaryItem, string quantity, string Reason)
+        private void addNextRow(string ItemCode,string stationaryItem, string quantity, string Reason,decimal amount)
         {
             DataTable dt = null;
             dt = (DataTable)ViewState["currentAdjust"];
@@ -172,6 +181,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
             dr["ItemName"] = stationaryItem;
             dr["quantity"] = quantity;
             dr["Reason"] = Reason;
+            dr["amount"] = amount;
             dt.Rows.Add(dr);
             ViewState["currentAdjust"] = dt;
             GrdDiscrepDetails.DataSource = dt;
@@ -201,6 +211,11 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
                 dt.Rows.Remove(dt.Rows[e.RowIndex]);
             GrdDiscrepDetails.DataSource = dt;
             GrdDiscrepDetails.DataBind();
+        }
+
+        protected void btnSubmitAdjustment_Click(object sender, EventArgs e)
+        {
+
         }
 
   

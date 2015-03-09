@@ -139,6 +139,7 @@
     <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
     <Content Include="Dep\Requisition\denote list of Orders.aspx" />
     <Content Include="Dep\Requisition\RequstitionListUI.aspx" />
+    <Content Include="Dep\updateCollectionPoint\UpdateCollectionPoint.aspx" />
     <Content Include="Home\DeptEmpHome.aspx" />
     <Content Include="Home\DeptHeadHome.aspx" />
     <Content Include="Home\DeptRepHome.aspx" />
@@ -214,6 +215,10 @@
     <Content Include="Home\StationeryClerk.master" />
     <Content Include="Home\StationeryManager.master" />
     <Content Include="Home\StationerySupervisor.master" />
+    <Content Include="Store\CRUD\Stationery\CreateStationeryUI.aspx" />
+    <Content Include="Store\CRUD\Stationery\ManageStationeryUI.aspx" />
+    <Content Include="Store\CRUD\SupplierPages\CreateSupplierUI.aspx" />
+    <Content Include="Store\CRUD\SupplierPages\ManageSupplierUI.aspx" />
     <Content Include="Store\MasterPage.Master" />
     <Content Include="Home\DepartMentMaster.master" />
     <EntityDeploy Include="LogicUniversityEntities.edmx">
@@ -272,12 +277,8 @@
     <Content Include="Store\CRUD\Department\CreateDepartment.aspx" />
     <Content Include="Store\CRUD\Department\DepartmentList.aspx" />
     <Content Include="Store\CRUD\Department\ManageDepartment.aspx" />
-    <Content Include="Store\CRUD\Stationery\CreateStationery.aspx" />
-    <Content Include="Store\CRUD\Stationery\ManageStationery.aspx" />
     <Content Include="Store\CRUD\Stationery\StationeryList.aspx" />
-    <Content Include="Store\CRUD\Supplier\CreateSupplier.aspx" />
-    <Content Include="Store\CRUD\Supplier\ManageSupplier.aspx" />
-    <Content Include="Store\CRUD\Supplier\SupplierListing.aspx" />
+    <Content Include="Store\CRUD\SupplierPages\ManageSupplier.aspx" />
     <Content Include="Store\Disbursement\AcceptRequestUI.aspx" />
     <Content Include="Store\Disbursement\CreateDisburListUI.aspx" />
     <Content Include="Store\Disbursement\ListOfApprovedRequestUI.aspx" />
@@ -373,7 +374,6 @@
     <Compile Include="Controller\CheckRoleController.cs" />
     <Compile Include="Controller\DefaultController.cs" />
     <Compile Include="Controller\DelegateAuthorityController.cs" />
-    <Compile Include="Controller\DelegationController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\DisbursementController.cs" />
     <Compile Include="Controller\LogInController.cs" />
@@ -385,7 +385,9 @@
     <Compile Include="Controller\RequisitionTrendController.cs" />
     <Compile Include="Controller\RetrievalController.cs" />
     <Compile Include="Controller\StationeryController.cs" />
-    <Compile Include="Controller\StationeryCRUDController.cs" />
+    <Compile Include="Controller\StationeryCRUDController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controller\SupplierController.cs" />
     <Compile Include="Controller\SupplierCRUDController.cs" />
     <Compile Include="Controller\UpdateAdjustmentController.cs" />
@@ -479,6 +481,14 @@
     <Compile Include="Dep\Requisition\RequstitionListUI.aspx.designer.cs">
       <DependentUpon>RequstitionListUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dep\updateCollectionPoint\UpdateCollectionPoint.aspx.cs">
+      <DependentUpon>UpdateCollectionPoint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\updateCollectionPoint\UpdateCollectionPoint.aspx.designer.cs">
+      <DependentUpon>UpdateCollectionPoint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UpdateCollectionPointController.cs" />
     <Compile Include="DisbursementList.cs">
       <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
     </Compile>
@@ -620,6 +630,34 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.cs">
+      <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.designer.cs">
+      <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\CRUD\Stationery\ManageStationeryUI.aspx.cs">
+      <DependentUpon>ManageStationeryUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\CRUD\Stationery\ManageStationeryUI.aspx.designer.cs">
+      <DependentUpon>ManageStationeryUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\CRUD\SupplierPages\CreateSupplierUI.aspx.cs">
+      <DependentUpon>CreateSupplierUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\CRUD\SupplierPages\CreateSupplierUI.aspx.designer.cs">
+      <DependentUpon>CreateSupplierUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\CRUD\SupplierPages\ManageSupplierUI.aspx.cs">
+      <DependentUpon>ManageSupplierUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\CRUD\SupplierPages\ManageSupplierUI.aspx.designer.cs">
+      <DependentUpon>ManageSupplierUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Store\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -672,20 +710,6 @@
     <Compile Include="Store\CRUD\Department\ManageDepartment.aspx.designer.cs">
       <DependentUpon>ManageDepartment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\CRUD\Stationery\CreateStationery.aspx.cs">
-      <DependentUpon>CreateStationery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\Stationery\CreateStationery.aspx.designer.cs">
-      <DependentUpon>CreateStationery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\CRUD\Stationery\ManageStationery.aspx.cs">
-      <DependentUpon>ManageStationery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\Stationery\ManageStationery.aspx.designer.cs">
-      <DependentUpon>ManageStationery.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Store\CRUD\Stationery\StationeryList.aspx.cs">
       <DependentUpon>StationeryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -693,26 +717,12 @@
     <Compile Include="Store\CRUD\Stationery\StationeryList.aspx.designer.cs">
       <DependentUpon>StationeryList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\CRUD\Supplier\CreateSupplier.aspx.cs">
-      <DependentUpon>CreateSupplier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\Supplier\CreateSupplier.aspx.designer.cs">
-      <DependentUpon>CreateSupplier.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\CRUD\Supplier\ManageSupplier.aspx.cs">
+    <Compile Include="Store\CRUD\SupplierPages\ManageSupplier.aspx.cs">
       <DependentUpon>ManageSupplier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\CRUD\Supplier\ManageSupplier.aspx.designer.cs">
+    <Compile Include="Store\CRUD\SupplierPages\ManageSupplier.aspx.designer.cs">
       <DependentUpon>ManageSupplier.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\CRUD\Supplier\SupplierListing.aspx.cs">
-      <DependentUpon>SupplierListing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\Supplier\SupplierListing.aspx.designer.cs">
-      <DependentUpon>SupplierListing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Disbursement\AcceptRequestUI.aspx.cs">
       <DependentUpon>AcceptRequestUI.aspx</DependentUpon>

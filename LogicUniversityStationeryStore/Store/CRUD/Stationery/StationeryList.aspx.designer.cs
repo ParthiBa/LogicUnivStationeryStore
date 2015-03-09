@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogicUniversityStationeryStore.Store.CRUD.Stationery
+namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
 {
 
 

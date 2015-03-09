@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryClerk.master" AutoEventWireup="true" CodeBehind="CreateStockAdjustmentReportUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.StockAdjustment.CreateStockAdjustmentReportUI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="CreateStockAdjustmentReportUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.StockAdjustment.CreateStockAdjustmentReportUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master"%>
 <%@ Register src="../../CustomControl/StationeryDropDown1.ascx" tagname="StationeryDropDown" tagprefix="uc1" %>
+
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc2" %>
 
 <%@ Register src="../../CustomControl/Spinner2.ascx" tagname="Spinner2" tagprefix="uc3" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="stationeryClerkHeadPlaceHolder" runat="server">
+<asp:Content ID="HeadContent" ContentPlaceHolderID="StationeryHead" runat="server">
     <script>
 
 </script>
-</asp:Content>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
+      
         <style type="text/css">
-        .auto-style1 {
+        .auto-style11 {
             width: 100%;
         }
         .auto-style18 {
@@ -45,6 +45,9 @@
             font-weight: 700;
         }
     </style>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="StationeryBody" runat="server">
+
 
    <div>
     
@@ -99,8 +102,7 @@
                           <tr>
                 <td colspan="2" class="auto-style20">
         
-                 <span class="left">   <uc3:Spinner2 ID="Spinner21" runat="server" />   </span>
-                 <span class="left">  <asp:Literal ID="lblUnitOfMeasure" runat="server" Text="dozen"></asp:Literal></span> 
+                 <span class="left">   <uc3:Spinner2 ID="Spinner21" runat="server" />   Measured In:  <asp:Literal ID="lblUnitOfMeasure" runat="server" Text="dozen"></asp:Literal>   </span>
                  
                    
                     <br />
@@ -183,7 +185,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnSubmitAdjustment" cssClass="btn btn-success" runat="server" Height="33px" Text="Button" Width="242px" />
+        <asp:Button ID="btnSubmitAdjustment" cssClass="btn btn-success" runat="server" Height="33px" Text="Submit " Width="242px" OnClick="btnSubmitAdjustment_Click" />
         <br />
         <br />
     

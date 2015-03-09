@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace LogicUniversityStationeryStore.Store.CRUD.Supplier
+namespace LogicUniversityStationeryStore.Store.CRUD.SupplierPages
 {
     public partial class ManageSupplier : System.Web.UI.Page
     {

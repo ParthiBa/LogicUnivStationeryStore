@@ -20,15 +20,18 @@ namespace LogicUniversityStationeryStore.Controller
             if (role.Equals("storeMan"))
             {
                 ManagerMenu.Enabled = true;
+                ManagerMenu.Visible = true;
 
             }
             else if (role.Equals("storeSup"))
             {
                 SupervisorMenu.Enabled = true;
+                SupervisorMenu.Visible = true;
             }
             else
             {
                 ClerkMenu.Enabled = true;
+                ClerkMenu.Visible = true;
 
             }
 
@@ -46,15 +49,18 @@ namespace LogicUniversityStationeryStore.Controller
             if (role.Equals("deptHead")) //if (role.Equals("deptHead") || (role.Equals("tempHod")))
             {
                 DeptHeadMenu.Enabled = true;
+                DeptHeadMenu.Visible = true;
 
             }
             else if (role.Equals("deptRep"))
             {
                 DeptRepresntativeMenu.Enabled = true;
+                DeptRepresntativeMenu.Visible = true;
             }
             else
             {
                 DeptEmpMenu.Enabled = true;
+                DeptEmpMenu.Visible = true;
 
             }
 

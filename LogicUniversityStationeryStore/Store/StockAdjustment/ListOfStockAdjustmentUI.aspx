@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryClerk.master" AutoEventWireup="true" CodeBehind="ListOfStockAdjustmentUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.StockAdjustment.ListOfStockAdjustmentUI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="ListOfStockAdjustmentUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.StockAdjustment.ListOfStockAdjustmentUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master"%>
 
-
-<asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content1" ContentPlaceHolderID="StationeryBody" runat="server">
   
     <div >
     

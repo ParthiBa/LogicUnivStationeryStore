@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using LogicUniversityStationeryStore.DAO;
 
+
+
 namespace LogicUniversityStationeryStore.Controller
 {
     public class StationeryCRUDController
     {
-     
+    
         string staCode;
         string staCategory;
         string staDescription;
@@ -123,8 +125,8 @@ namespace LogicUniversityStationeryStore.Controller
         }
 
         public Stationery rudPageLoad(string categoryName, string itemName)
-        {
-            var stationeryDt1 = from o in EntityBroker.getMyEntities().Stationeries
+        { 
+            var stationeryDt1= from o in EntityBroker.getMyEntities().Stationeries
                                where o.category == categoryName && o.description==itemName
                               select o;
 
@@ -145,7 +147,7 @@ namespace LogicUniversityStationeryStore.Controller
         public List<string> getAllSupplierName(string supCode)
         {
             List<string> supAllNames = new List<string>();
-            var supplierDtl = (from o in EntityBroker.getMyEntities().Suppliers
+             var supplierDtl = (from o in EntityBroker.getMyEntities().Suppliers
                                 where supCode != o.supplierCode
                                select o.supplierName).Distinct();
 

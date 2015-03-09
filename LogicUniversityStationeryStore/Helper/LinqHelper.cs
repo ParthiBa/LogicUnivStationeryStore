@@ -53,6 +53,15 @@ namespace LogicUniversityStationeryStore.Helper
 
         }
 
+        public static Employee findEmpbyId(String empId)
+        {
+            var q = (from x in EntityBroker.getMyEntities().Employees
+                     where x.empNo.Equals(empId)
+                     select  x).First();
+            return q ;
+
+        }
+
 
         public static Employee findEmpbyName(string Name)
         {

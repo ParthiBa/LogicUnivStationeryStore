@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StationeryList.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.CRUD.Stationery.StationeryList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StationeryList.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.CRUD.StationeryPages.StationeryList" %>
 
 <!DOCTYPE html>
 

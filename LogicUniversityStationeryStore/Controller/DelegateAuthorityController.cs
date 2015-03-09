@@ -32,7 +32,7 @@ namespace LogicUniversityStationeryStore.Controller
         {
             List<string> AuthorizeToList = new List<string>();
             var employeeList = (from o in EntityBroker.getMyEntities().Employees
-                                where o.deptCode == "CPSC" && (o.empRole == "depEmp" || o.empRole == "depTempHead")
+                                where o.deptCode == "CPSC" && (o.empRole == "deptEmp" || o.empRole == "depTempHead")
                                 select o.empName).ToList();
 
             foreach (string name in employeeList)

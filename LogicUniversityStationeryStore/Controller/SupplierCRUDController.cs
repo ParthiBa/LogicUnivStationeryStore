@@ -8,7 +8,7 @@ namespace LogicUniversityStationeryStore.Controller
 {
     public class SupplierCRUDController
     {
-
+        
         string supplierCode;
         string supplierName;
         string registrationNo;
@@ -26,9 +26,9 @@ namespace LogicUniversityStationeryStore.Controller
         {
             this.supplierCode = a;
             retriveBtn();
-           
+
         }
-        public SupplierCRUDController(string a,string b,string c,string d,string e,string f,string g,string h)
+        public SupplierCRUDController(string a, string b, string c, string d, string e, string f, string g, string h)
         {
             this.supplierCode = a;
             this.supplierName = b;
@@ -64,31 +64,31 @@ namespace LogicUniversityStationeryStore.Controller
 
         public List<string> ddPageLoad()
         {
-             List<string>SupCodeList=new List<string>();
+            List<string> SupCodeList = new List<string>();
 
-             var supplierName = from o in EntityBroker.getMyEntities().Suppliers
-                                   select o.supplierCode;
+            var supplierName = from o in EntityBroker.getMyEntities().Suppliers
+                               select o.supplierCode;
 
-                foreach (string name in supplierName)
-                {
-                    SupCodeList.Add(name);
-                }
-                return SupCodeList;
-           
+            foreach (string name in supplierName)
+            {
+                SupCodeList.Add(name);
+            }
+            return SupCodeList;
+
         }
         public string clear()
         {
             string a = "";
-                return a;
+            return a;
         }
 
         public List<Supplier> retriveBtn()
         {
             List<Supplier> suppDetail = (from o in EntityBroker.getMyEntities().Suppliers
-                              where o.supplierCode == supplierCode
-                              select o).ToList();
+                                         where o.supplierCode == supplierCode
+                                         select o).ToList();
 
-            return suppDetail;           
+            return suppDetail;
         }
         public void updateButton()
         {
@@ -111,6 +111,6 @@ namespace LogicUniversityStationeryStore.Controller
                 EntityBroker.getMyEntities().SaveChanges();
             }
         }
-       
+
     }
 }
