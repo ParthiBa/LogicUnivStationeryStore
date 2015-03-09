@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryClerk.master" AutoEventWireup="true" CodeBehind="ListOfApprovedRequestUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.ListOfApprovedRequestUI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="ListOfApprovedRequestUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.ListOfApprovedRequestUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="StationeryBody" runat="server">
     <br/>
         <p style="text-align:center">
           <asp:Label ID="Label2" runat="server" Text="You Have Request From Departments Below" Style="color: #666699; text-align: center; font-size: large; font-weight: 700;"></asp:Label>

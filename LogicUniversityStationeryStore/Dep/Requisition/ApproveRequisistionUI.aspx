@@ -1,5 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/Department.master" AutoEventWireup="true" CodeBehind="ApproveRequisistionUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.ApproveRequisistionUI" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="headDepEmployee" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DepartMentMaster.master" AutoEventWireup="true" CodeBehind="ApproveRequisistionUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.ApproveRequisistionUI" %>
+<%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 
+
+<asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
     <style type="text/css">
         .auto-style4 {
             height: 22px;
@@ -24,11 +26,11 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="bodyDepartment" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
 
 
 
-    <table class="auto-style2">
+    s<table class="auto-style2">
         <tr>
             <td class="auto-style8"> <asp:Label ID="lblEmployeeName" runat="server" Text="RequestBy:"></asp:Label></td>
             <td class="auto-style4"><asp:Label ID="lblShowEmpName" runat="server" Text=""></asp:Label></td>

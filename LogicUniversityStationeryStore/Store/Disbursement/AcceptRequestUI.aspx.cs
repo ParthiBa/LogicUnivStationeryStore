@@ -14,6 +14,15 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         AcceptRequestController disCtrl = new AcceptRequestController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+           
+            
+            
+            
             if (!IsPostBack)
             {
                 string dept = Session["dept"].ToString();

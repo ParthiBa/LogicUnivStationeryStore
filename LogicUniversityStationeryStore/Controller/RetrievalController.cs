@@ -54,9 +54,9 @@ namespace LogicUniversityStationeryStore.Controller
         public void NotifyToStoreClerk(String StationeryDescription)
         {
             NotificationHelper n = new NotificationHelper();
-           // String message = NotificationHelper.CLerkLowItemsInStockForOnlyOneItem(StationeryDescription);
+            String message = NotificationHelper.CLerkLowItemsInStock(StationeryDescription);
             String subject = "Low Items in Stock";
-           // bool Status = n.sendEmailtoClerk(message, subject);
+            bool Status = n.EmailtoClerk(message, subject);
         }
 
     }

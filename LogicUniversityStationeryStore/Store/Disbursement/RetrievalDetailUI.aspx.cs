@@ -23,6 +23,13 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         RetrievalController rtController = new RetrievalController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
             RetrievalController rc = new RetrievalController();
             //catch value that passed from RetrievalListUI.aspx page
             if (Request.QueryString["stationeryCode"] != null)

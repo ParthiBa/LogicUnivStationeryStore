@@ -1,1 +1,2 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DeptEmp.master" AutoEventWireup="true" CodeBehind="DeptEmpHome.aspx.cs" Inherits="LogicUniversityStationeryStore.Home.DeptEmpHome" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DepartMentMaster.master" AutoEventWireup="true" CodeBehind="DeptEmpHome.aspx.cs" Inherits="LogicUniversityStationeryStore.Home.DeptEmpHome" %>
+<%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 

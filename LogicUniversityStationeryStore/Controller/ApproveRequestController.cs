@@ -95,7 +95,7 @@ namespace LogicUniversityStationeryStore.Controller
             EntityBroker.getMyEntities().SaveChanges();
 
             //set to email address
-        //    NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestApproved(CurrentRequest.id), "Your request is approved");
+          NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestApproved(CurrentRequest.id), "Your request is approved");
 
         }
 
@@ -160,7 +160,7 @@ namespace LogicUniversityStationeryStore.Controller
                 stationaryName.Add(q.ToString());
             }
 
-         //   NotifyHelper.sendEmailbyClerk("", NotificationHelper.InfromAdvanceRequest(stationaryName), "Advance request by the system");
+           NotifyHelper.sendEmailbyClerk("", NotificationHelper.InfromAdvanceRequest(stationaryName), "Advance request by the system");
 
         }
        
@@ -199,7 +199,7 @@ namespace LogicUniversityStationeryStore.Controller
             //EntityBroker.getMyEntities().Requests.Add(CurrentRequest);
             EntityBroker.getMyEntities().SaveChanges();
 
-           // NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestRjected(CurrentRequest.id, reason), "your request has been rejected");
+            NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestRjected(CurrentRequest.id, reason), "your request has been rejected");
 
         }
 

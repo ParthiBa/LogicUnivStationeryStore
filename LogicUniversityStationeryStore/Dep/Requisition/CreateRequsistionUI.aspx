@@ -1,11 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/Department.master" AutoEventWireup="true" CodeBehind="CreateRequsistionUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.CreateRequsistionUI" %>
-                                               
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DepartMentMaster.master" AutoEventWireup="true" CodeBehind="CreateRequsistionUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.CreateRequsistionUI" %>
+<%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 
+
+
+                                              
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc1" %>
 <%@ Register Src="~/CustomControl/spinner.ascx" TagPrefix="uc2" TagName="spinner" %>
 
 <%@ Register src="../../CustomControl/Spinner2.ascx" tagname="Spinner2" tagprefix="uc3" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="headDepEmployee" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
     <style>
         .auto-style2 {
         width: 134%;
@@ -43,7 +46,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="bodyDepartment" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
 
     <br />
 <table class="auto-style2">

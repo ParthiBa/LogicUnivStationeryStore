@@ -19,6 +19,13 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setDepartmentMaster(this.Master, role);
+
+
             ARController = new ApproveRequestController();
             TxtReason.Visible = false;
             btnOkReject.Visible = false;

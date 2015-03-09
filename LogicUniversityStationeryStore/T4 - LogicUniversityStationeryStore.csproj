@@ -215,7 +215,6 @@
     <Content Include="Home\StationeryManager.master" />
     <Content Include="Home\StationerySupervisor.master" />
     <Content Include="Store\MasterPage.Master" />
-    <Content Include="Home\Department.master" />
     <Content Include="Home\DepartMentMaster.master" />
     <EntityDeploy Include="LogicUniversityEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -235,6 +234,7 @@
       <LastGenOutput>LogicUniversityEntities.cs</LastGenOutput>
     </Content>
     <Content Include="MasterPage.Master" />
+    <Content Include="Home\StationeryMaster.master" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -370,7 +370,9 @@
     </Compile>
     <Compile Include="Controller\AcceptRequestController.cs" />
     <Compile Include="Controller\ApproveRequestController.cs" />
+    <Compile Include="Controller\CheckRoleController.cs" />
     <Compile Include="Controller\DefaultController.cs" />
+    <Compile Include="Controller\DelegateAuthorityController.cs" />
     <Compile Include="Controller\DelegationController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\DisbursementController.cs" />
@@ -383,7 +385,9 @@
     <Compile Include="Controller\RequisitionTrendController.cs" />
     <Compile Include="Controller\RetrievalController.cs" />
     <Compile Include="Controller\StationeryController.cs" />
+    <Compile Include="Controller\StationeryCRUDController.cs" />
     <Compile Include="Controller\SupplierController.cs" />
+    <Compile Include="Controller\SupplierCRUDController.cs" />
     <Compile Include="Controller\UpdateAdjustmentController.cs" />
     <Compile Include="Controller\UpdatePurchaseController.cs" />
     <Compile Include="Controller\UpdateRequestController.cs" />
@@ -485,13 +489,6 @@
       <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\LinqHelper.cs" />
-    <Compile Include="Home\Department.master.cs">
-      <DependentUpon>Department.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home\Department.master.designer.cs">
-      <DependentUpon>Department.master</DependentUpon>
-    </Compile>
     <Compile Include="Helper\NotificationHelper.cs" />
     <Compile Include="Home\DepartMentMaster.master.cs">
       <DependentUpon>DepartMentMaster.master</DependentUpon>
@@ -569,6 +566,13 @@
     </Compile>
     <Compile Include="Home\StationeryManagerHome.aspx.designer.cs">
       <DependentUpon>StationeryManagerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\StationeryMaster.master.cs">
+      <DependentUpon>StationeryMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\StationeryMaster.master.designer.cs">
+      <DependentUpon>StationeryMaster.master</DependentUpon>
     </Compile>
     <Compile Include="Home\StationerySupervisor.master.cs">
       <DependentUpon>StationerySupervisor.master</DependentUpon>
@@ -717,7 +721,7 @@
     <Compile Include="Store\Disbursement\AcceptRequestUI.aspx.designer.cs">
       <DependentUpon>AcceptRequestUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\Disbursement\ApprovedRequest.cs" />
+    <Compile Include="ENTITY\ApprovedRequest.cs" />
     <Compile Include="Store\Disbursement\CreateDisburListUI.aspx.cs">
       <DependentUpon>CreateDisburListUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -732,7 +736,7 @@
     <Compile Include="Store\Disbursement\ListOfApprovedRequestUI.aspx.designer.cs">
       <DependentUpon>ListOfApprovedRequestUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\Disbursement\ReqByDept.cs" />
+    <Compile Include="ENTITY\ReqByDept.cs" />
     <Compile Include="Store\Disbursement\RetrievalDetailUI.aspx.cs">
       <DependentUpon>RetrievalDetailUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

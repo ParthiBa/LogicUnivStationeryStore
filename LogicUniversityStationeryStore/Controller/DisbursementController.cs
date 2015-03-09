@@ -60,7 +60,7 @@ namespace LogicUniversityStationeryStore.Controller
             NotificationHelper n = new NotificationHelper();
             String message = NotificationHelper.CLerkLowItemsInStock(StationeryDescription);
             String subject = "Low Items in Stock";
-          //  bool Status = n.sendEmailtoClerk(message, subject);
+            bool status = n.EmailtoClerk(message, subject);
         }
       }
 }

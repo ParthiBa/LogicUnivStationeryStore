@@ -20,9 +20,17 @@ namespace LogicUniversityStationeryStore.Dep
         RetrievalController rtController = new RetrievalController();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
             if (Request.Cookies["User"] != null)
             {
-                empNo = Request.Cookies["User"].ToString();
+                empNo = Request.Cookies["User"].Value.ToString();
             }    
             if (!IsPostBack)
             {
@@ -100,8 +108,14 @@ namespace LogicUniversityStationeryStore.Dep
 
                     WebUserControl1 DisbursedQty = (WebUserControl1)r.FindControl("spinner1");
                     DisbursedQty.setLimit("0", lblRetrievedQty.Text);
-                    DisbursedQty.txtQty = lblDisbursedQty.Text;//for first time appear just bind qty amount in text box
-
+                    if (lblDisbursedQty.Text == "")
+                    {
+                        DisbursedQty.txtQty = lblRetrievedQty.Text;
+                    }
+                    else
+                    {
+                        DisbursedQty.txtQty = lblDisbursedQty.Text;//for first time appear just bind qty amount in text box
+                    }
                 }
             }
 

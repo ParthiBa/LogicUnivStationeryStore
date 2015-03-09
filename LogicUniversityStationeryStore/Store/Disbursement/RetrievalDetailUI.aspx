@@ -1,9 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master"  AutoEventWireup="true" CodeBehind="RetrievalDetailUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalDetailUI" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home/StationeryMaster.master"  AutoEventWireup="true" CodeBehind="RetrievalDetailUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalDetailUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
+
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc2" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="StationeryBody" runat="server">
 
-    <table class="auto-style1">
+    <table class="auto-style11">
         <tr>
             <td class="auto-style5" colspan="2">
                 <asp:Label ID="lblPageTitle" runat="server" EnableTheming="True" Font-Bold="True" Text="BreakDown By Department(Retrieval Detail)"></asp:Label>
@@ -80,9 +82,9 @@
     </table>
 
     </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content2" runat="server" contentplaceholderid="StationeryHead">
     <style type="text/css">
-        .auto-style1 {
+        .auto-style11 {
             width: 100%;
         }
         .auto-style5 {

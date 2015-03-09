@@ -1,1 +1,2 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryManager.master" AutoEventWireup="true" CodeBehind="StationeryManagerHome.aspx.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryManagerHome" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="StationeryManagerHome.aspx.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryManagerHome" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 

@@ -10,51 +10,51 @@
 namespace LogicUniversityStationeryStore.Home {
     
     
-    public partial class DeptEmp {
+    public partial class StationeryMaster {
         
         /// <summary>
-        /// headDepEmployee control.
+        /// StationeryHead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder headDepEmployee;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder StationeryHead;
         
         /// <summary>
-        /// DeptRepsMenu control.
+        /// ClerkMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu DeptRepsMenu;
+        protected global::System.Web.UI.WebControls.Menu ClerkMenu;
         
         /// <summary>
-        /// DeptEmployeeMenu control.
+        /// ManagerMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu DeptEmployeeMenu;
+        protected global::System.Web.UI.WebControls.Menu ManagerMenu;
         
         /// <summary>
-        /// DeptHeadsMenu control.
+        /// SupervisorMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu DeptHeadsMenu;
+        protected global::System.Web.UI.WebControls.Menu SupervisorMenu;
         
         /// <summary>
-        /// bodyDepartment control.
+        /// StationeryBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyDepartment;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder StationeryBody;
     }
 }

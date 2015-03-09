@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/Department.master" AutoEventWireup="true" CodeBehind="RequstitionListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.RequstitionListUI" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="headDepEmployee" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DepartMentMaster.master" AutoEventWireup="true" CodeBehind="RequstitionListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Requisition.RequstitionListUI" %>
+<%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="bodyDepartment" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
     <asp:GridView ID="grdPendingRequest" runat="server" Height="116px" Width="423px" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="dateOfApp" HeaderText="Requsted Date" ReadOnly="True" SortExpression="Date"  DataFormatString="{0:dd/MM/yyyy}"/>

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LogicUniversityStationeryStore.ENTITY;
 
 namespace LogicUniversityStationeryStore.Controller
 {
@@ -166,7 +167,7 @@ namespace LogicUniversityStationeryStore.Controller
                                select n;
             Employee Rep = emailAddress.FirstOrDefault();
             string To = Rep.email;
-            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has benn accepted. Please take delive at " + place + " on " + deliverD.ToString("dd/MM/yyyy");
+            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has been accepted. Please be present during delivery at " + place + " on " + deliverD.ToString("dd/MM/yyyy");
             string Subject = "Your requisition has been accepted!";
             note.sendEmailbyClerk(To, Email, Subject); 
         

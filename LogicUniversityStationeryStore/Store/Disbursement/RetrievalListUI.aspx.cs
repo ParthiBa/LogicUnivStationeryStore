@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using LogicUniversityStationeryStore.DAO;
 using LogicUniversityStationeryStore.CustomControl;
+using LogicUniversityStationeryStore.Controller;
 
 namespace LogicUniversityStationeryStore.Store.Disbursement
 {
@@ -14,9 +15,17 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         String empNo;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
+
             if (Request.Cookies["User"] != null)
             {
-                empNo = Request.Cookies["User"].ToString();
+                empNo = Request.Cookies["User"].Value.ToString();
             }    
             //empNo ="SC0001";
             BindingGrid();

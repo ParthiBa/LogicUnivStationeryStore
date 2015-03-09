@@ -1,8 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Home/StationeryClerk.master"  AutoEventWireup="true" CodeBehind="RetrievalListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalListUI" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Home/StationeryMaster.master"  AutoEventWireup="true" CodeBehind="RetrievalListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.RetrievalListUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc2" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="StationeryBody" runat="server">
 
-    <table class="auto-style1">
+    <table class="auto-style3">
         <tr>
             <td>
                 <asp:Label ID="lblPageTitle" runat="server" Font-Bold="True" Text="Stationery Retrieval List"></asp:Label>
@@ -71,9 +72,9 @@
 </asp:Content>
 
 
-<asp:Content ID="Content2" runat="server" contentplaceholderid="stationeryClerkHeadPlaceHolder">
+<asp:Content ID="Content2" runat="server" contentplaceholderid="StationeryHead">
     <style type="text/css">
-        .auto-style1 {
+        .auto-style3 {
             width: 100%;
         }
         .auto-style2 {

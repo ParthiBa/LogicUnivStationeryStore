@@ -101,5 +101,17 @@ namespace LogicUniversityStationeryStore.Dep.Requisition {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new LogicUniversityStationeryStore.Home.DepartMentMaster Master {
+            get {
+                return ((LogicUniversityStationeryStore.Home.DepartMentMaster)(base.Master));
+            }
+        }
     }
 }

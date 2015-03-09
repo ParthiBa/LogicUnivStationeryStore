@@ -18,6 +18,12 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setDepartmentMaster(this.Master, role);
+
+
+
             if (Request.Cookies["User"] != null)
             {
                 empid = Request.Cookies["User"].Value.ToString();

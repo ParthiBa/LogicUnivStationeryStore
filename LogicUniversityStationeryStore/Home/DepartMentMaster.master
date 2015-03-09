@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="DepartMentMaster.master.cs" Inherits="LogicUniversityStationeryStore.Home.DepartMentMaster" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Mainhead" runat="server">
     <asp:ContentPlaceHolder ID="DepartmentHead" runat="server"></asp:ContentPlaceHolder>
 
@@ -7,11 +8,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="nav">
-                <asp:Menu ID="DeptRepsMenu" runat="server" Visible="False">
+                <asp:Menu ID="DeptRepsMenu" runat="server" Visible="False" Enabled="False">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                 <asp:MenuItem Text="Change" Value="Confirm">
-                    <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Change "
+                    <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Change "></asp:MenuItem>
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
 <%--                    // lu di --%>
                     <asp:MenuItem Text="Change Collection Point" Value="Collection Point"></asp:MenuItem>
@@ -25,17 +26,17 @@
 
 
 
-               <asp:Menu ID="DeptEmployeeMenu" runat="server" Visible="true">
+               <asp:Menu ID="DeptEmployeeMenu" runat="server" Visible="true" Enabled="False">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmp.aspx"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
                 
             </Items>
         </asp:Menu>
 
 
 
-              <asp:Menu ID="DeptHeadsMenu" runat="server"  Orientation="Horizontal"  Visible="true">
+              <asp:Menu ID="DeptHeadsMenu" runat="server"  Orientation="Horizontal"  Visible="true" Enabled="False">
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptHead.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="View" Value="View">
@@ -45,7 +46,7 @@
                         <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Authorize to Others" Value="Authorize To Representative"></asp:MenuItem>
                         <asp:MenuItem Text="View List of Authoriziation" Value="Delegate To Temperory Head"></asp:MenuItem>
                     </asp:MenuItem>
-                   <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
+                   <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
                 </Items>
             </asp:Menu>
 

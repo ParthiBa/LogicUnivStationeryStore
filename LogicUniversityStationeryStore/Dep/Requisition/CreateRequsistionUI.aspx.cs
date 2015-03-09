@@ -28,7 +28,8 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
             if (Request.Cookies["User"] != null)
             {
                 empId = Request.Cookies["User"].Value.ToString();
-
+                string role = Request.Cookies["UserRole"].Value.ToString();
+                CheckRoleController.setDepartmentMaster(this.Master, role);
 
          //       string empid = (LinqHelper.findEmpbyName(empId)).empNo;
 

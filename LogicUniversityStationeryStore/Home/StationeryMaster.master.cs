@@ -7,26 +7,25 @@ using System.Web.UI.WebControls;
 
 namespace LogicUniversityStationeryStore.Home
 {
-    public partial class DepartMentMaster : System.Web.UI.MasterPage
+    public partial class StationeryMaster : System.Web.UI.MasterPage
     {
 
-
-        public Menu getDepartmentHeadMenu()
+        public Menu getClerkMenu()
         {
+            return ClerkMenu;
 
-
-            return this.DeptHeadsMenu;
         }
 
-        public Menu getDepartmentEmployeeMenu()
+        public Menu getSupervisorMenu()
         {
-            return this.DeptEmployeeMenu;
+
+            return SupervisorMenu;
         }
 
-        public Menu getDepartmentRepMenu()
+        public Menu getManagerMenu()
         {
 
-            return this.DeptRepsMenu;
+            return ManagerMenu;
         }
 
 

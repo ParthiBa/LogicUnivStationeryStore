@@ -22,13 +22,13 @@ namespace LogicUniversityStationeryStore.Home {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder stationeryClerkHeadPlaceHolder;
         
         /// <summary>
-        /// Menu1 control.
+        /// ClerkMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
+        protected global::System.Web.UI.WebControls.Menu ClerkMenu;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

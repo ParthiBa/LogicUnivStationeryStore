@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryClerk.master" AutoEventWireup="true" CodeBehind="AcceptRequestUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.AcceptRequestUI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="AcceptRequestUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Disbursement.AcceptRequestUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<asp:Content ID="Content3" ContentPlaceHolderID="StationeryBody" runat="server">
     <br /><br />
      <table>
         <tr>

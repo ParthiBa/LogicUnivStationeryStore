@@ -105,7 +105,21 @@ namespace LogicUniversityStationeryStore.Helper
 
              return message1+message2;
         }
+        public static string CLerkLowItemsInStock(string ItemNames)
+        {
 
+            string message1 = "Items in below list are low in stock\n";
+
+            message1 = message1 + ItemNames + "\n";
+            
+
+
+
+
+            string message2 = " ,please purchase these items and refill the stock";
+
+            return message1 + message2;
+        }
 
 
         // remind the department representative about the deleivey
@@ -202,6 +216,39 @@ namespace LogicUniversityStationeryStore.Helper
             }
         }
 
+
+        public bool EmailtoClerk( string Email, string subject)
+        {
+            string from = "logicrusselclerk@gmail.com";
+            string password = "LogicRusselClerk345";
+            string To ="logicrusselclerk@gmail.com" ;
+            string Subject = subject;
+            string Body = Email;
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(from);
+            msg.To.Add(new MailAddress(To));
+            msg.Subject = Subject;
+            msg.Body = Body;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 25;
+            //	    smtp.Port = 587;
+            smtp.Credentials = new NetworkCredential(from, password);
+            smtp.EnableSsl = true;
+
+            try
+            {
+                smtp.Send(msg);
+                return true;
+            }
+            catch (SmtpException err)
+            {
+                Console.WriteLine(err);
+                Console.Read();
+                return false;
+            }
+        }
 
 
                 public bool sendEmail(string from1 , string password1 ,string to, string Email, string subject)

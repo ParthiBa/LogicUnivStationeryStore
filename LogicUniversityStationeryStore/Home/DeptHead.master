@@ -7,7 +7,7 @@
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptHead.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="View" Value="View">
-                        <asp:MenuItem NavigateUrl="~/Dep/Requisition/RequstitionListUI.aspx" Text="Stationery Request" Value="Stationery Request"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Dep/Requisition/ApproveRequisition.aspx" Text="Stationery Request" Value="Stationery Request"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Authorize" Value="Authorize">
                         <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Authorize to Others" Value="Authorize To Representative"></asp:MenuItem>

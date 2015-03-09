@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CreateDisburListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.CreateDisburListUI" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="CreateDisburListUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.CreateDisburListUI" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
 <%@ Register src="../../CustomControl/spinner.ascx" tagname="spinner" tagprefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="StationeryBody" runat="server">
 
 
     <table class="auto-style1">
@@ -108,7 +108,7 @@
 
 
     </asp:Content>
-<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+<asp:Content ID="Content2" runat="server" contentplaceholderid="StationeryHead">
     <style type="text/css">
     .auto-style1 {
         width: 100%;
