@@ -45,7 +45,7 @@
         <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1BFD2C07" ManuallyRouted="false" />
         <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1CF15040" ManuallyRouted="false" />
         <AssociationConnector Association="LogicUniversityModel.FK__Stationer__suppl__1DE57479" ManuallyRouted="false" />
-        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__stati__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__stati__2B3F6F97" ManuallyRouted="false" ></AssociationConnector>
         <AssociationConnector Association="LogicUniversityModel.FK__StockAdju__repor__2A4B4B5E" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

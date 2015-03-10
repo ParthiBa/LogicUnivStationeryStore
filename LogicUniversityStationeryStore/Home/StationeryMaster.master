@@ -12,7 +12,8 @@
                         <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Report" Value="Report">
-                        <asp:MenuItem Text="Stock Discrepencies" Value="Stock Discrepencies" NavigateUrl="~/Store/StockAdjustment/CreateDiscrepUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Report Stock Adjustment" Value="Stock Discrepencies" NavigateUrl="~/Store/StockAdjustment/CreateStockAdjustmentReportUI.aspx"></asp:MenuItem>
+                         
                     </asp:MenuItem>
                     <asp:MenuItem Text="Supply" Value="Supply">
                         <asp:MenuItem Text="Order" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurOrdUI.aspx"></asp:MenuItem>
@@ -52,7 +53,7 @@
                       <asp:MenuItem Text="Reorder Trend Analysis" Value="Reorder Trend Analysis"></asp:MenuItem>
                   </asp:MenuItem>
                   <asp:MenuItem Text="Approve" Value="Report">
-                      <asp:MenuItem Text="Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                      <asp:MenuItem  NavigateUrl="~/Store/StockAdjustment/ListOfStockAdjustmentUI.aspx" Text="Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                   </asp:MenuItem>
               </Items>
           </asp:Menu>

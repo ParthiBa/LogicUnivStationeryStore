@@ -196,6 +196,7 @@
     <NavigationProperty Name="Employee" Relationship="Self.FK__StockAdju__revie__276EDEB3" FromRole="StockAdjustment" ToRole="Employee" />
     <NavigationProperty Name="Employee1" Relationship="Self.FK__StockAdju__submi__267ABA7A" FromRole="StockAdjustment" ToRole="Employee" />
     <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__repor__2A4B4B5E" FromRole="StockAdjustment" ToRole="StockAdjustmentDetail" />
+    <Property Name="Showto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="StockAdjustmentDetail">
     <Key>

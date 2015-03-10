@@ -9,6 +9,18 @@ namespace LogicUniversityStationeryStore
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
+
+    
+        public void setOff()
+        {
+
+            lbLogOut.Visible = false;
+            lblLoginName.Visible = false;
+            Label1.Visible = false;
+        }
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

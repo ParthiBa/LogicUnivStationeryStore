@@ -144,11 +144,6 @@
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         
         <asp:GridView ID="GrdDiscrepDetails" runat="server" AutoGenerateColumns="False" style="margin-right: 1px" CssClass="table" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="GrdDiscrepDetails_RowDeleting">
             <AlternatingRowStyle BackColor="White" />
@@ -179,13 +174,20 @@
     
     
         <br />
-    
-    
-        <br />
-        <br />
-        <br />
-        <br />
         <asp:Button ID="btnSubmitAdjustment" cssClass="btn btn-success" runat="server" Height="33px" Text="Submit " Width="242px" OnClick="btnSubmitAdjustment_Click" />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+    
+        <br />
+    
+    
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
     

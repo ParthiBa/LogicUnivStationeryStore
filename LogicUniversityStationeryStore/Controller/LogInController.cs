@@ -46,7 +46,7 @@ namespace LogicUniversityStationeryStore
                  }
                  else if (emp.empRole == "storeSup")
                  {
-                     Response.Redirect("Home/StationerySupervisor.aspx");
+                     Response.Redirect("Home/StationerySupervisorHome.aspx");
                  }
                  else if (emp.empRole == "temDeptHead")
                  {

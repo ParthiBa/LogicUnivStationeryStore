@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CollectionPoint">
           <Key>
             <PropertyRef Name="id" />
@@ -153,6 +153,7 @@
           <Property Name="reviewedBy" Type="nvarchar" MaxLength="15" />
           <Property Name="reviewDate" Type="date" />
           <Property Name="reviewReason" Type="nvarchar(max)" />
+          <Property Name="Showto" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="StockAdjustmentDetail">
           <Key>
@@ -627,8 +628,7 @@
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LogicUniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -828,6 +828,7 @@
           <NavigationProperty Name="Employee" Relationship="Self.FK__StockAdju__revie__276EDEB3" FromRole="StockAdjustment" ToRole="Employee" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK__StockAdju__submi__267ABA7A" FromRole="StockAdjustment" ToRole="Employee" />
           <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__repor__2A4B4B5E" FromRole="StockAdjustment" ToRole="StockAdjustmentDetail" />
+          <Property Name="Showto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StockAdjustmentDetail">
           <Key>
@@ -1467,6 +1468,7 @@
           <EntitySetMapping Name="StockAdjustments">
             <EntityTypeMapping TypeName="LogicUniversityModel.StockAdjustment">
               <MappingFragment StoreEntitySet="StockAdjustment">
+                <ScalarProperty Name="Showto" ColumnName="Showto" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="submittedBy" ColumnName="submittedBy" />

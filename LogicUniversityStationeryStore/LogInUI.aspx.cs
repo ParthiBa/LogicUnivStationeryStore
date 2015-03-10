@@ -16,7 +16,7 @@ namespace LogicUniversityStationeryStore
             {
             boxEmail.Text = string.Empty;
             boxPass.Text = string.Empty;
-
+            this.Master.setOff();
             if (Request.Cookies["UserName"] != null)
             {
                 Response.Cookies["User"].Expires = DateTime.Now.AddDays(-1);

@@ -178,7 +178,7 @@ namespace LogicUniversityStationeryStore.Helper
 
         public static string  informStockAdjustment(string clerkName)
          {
-             return clerkName + "has made an stock adjustment";
+             return clerkName + "has made an stock adjustment, Please approve or reject the request";
          }
 
 

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="LogInUI.aspx.cs" Inherits="LogicUniversityStationeryStore.LogInUI" %>
+<%@ MasterType VirtualPath="~/MasterPage.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Mainhead" runat="server">
     <style type="text/css">
         .icon-bar {
@@ -22,6 +23,6 @@
         &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="boxPass" CssClass="field-validation-error" ErrorMessage="The password field is required." Font-Bold="True"></asp:RequiredFieldValidator>
     <br/> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" Width="227px"/>
          &nbsp;&nbsp;</div>
 </asp:Content>

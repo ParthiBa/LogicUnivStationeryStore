@@ -154,6 +154,7 @@
     <EntitySetMapping Name="StockAdjustments">
       <EntityTypeMapping TypeName="LogicUniversityModel.StockAdjustment">
         <MappingFragment StoreEntitySet="StockAdjustment">
+          <ScalarProperty Name="Showto" ColumnName="Showto" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="submittedBy" ColumnName="submittedBy" />

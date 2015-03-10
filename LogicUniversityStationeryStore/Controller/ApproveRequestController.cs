@@ -88,10 +88,10 @@ namespace LogicUniversityStationeryStore.Controller
                invent.availableQty = invent.availableQty - rd.neededQuantity;
 
             }
-            if (isNostock)
-            {
-                CurrentRequest.status = "Cancelled";
-            }
+            //if (isNostock)
+            //{
+            //    CurrentRequest.status = "Cancelled";
+            //}
             EntityBroker.getMyEntities().SaveChanges();
 
             //set to email address

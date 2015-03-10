@@ -15,7 +15,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
     {
 
         static LinqHelper LinqHelper = new LinqHelper();
-
+        string clerkid;
         NewAdjustmentController NAController = new NewAdjustmentController();
 
       
@@ -23,6 +23,11 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+            clerkid = Request.Cookies["User"].Value.ToString();
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
 
 
             Spinner21.txtSpinChanged += new EventHandler(AmountChanged);
@@ -215,7 +220,11 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
 
         protected void btnSubmitAdjustment_Click(object sender, EventArgs e)
         {
+            NAController.createStockAdjustment(clerkid);
+             DataTable  dt = (DataTable)ViewState["currentAdjust"];
+             NAController.addStockAdjusmentDetails(dt);
 
+             ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request Has been added Sucessfully '); window.location = '" + Page.ResolveUrl("~/Home/StationeryClerkHome.aspx") + "';", true);
         }
 
   

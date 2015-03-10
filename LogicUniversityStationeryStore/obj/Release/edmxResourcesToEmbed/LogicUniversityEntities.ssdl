@@ -148,6 +148,7 @@
     <Property Name="reviewedBy" Type="nvarchar" MaxLength="15" />
     <Property Name="reviewDate" Type="date" />
     <Property Name="reviewReason" Type="nvarchar(max)" />
+    <Property Name="Showto" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="StockAdjustmentDetail">
     <Key>

@@ -290,7 +290,7 @@
     <Content Include="Store\Report\ReorderReportUI.aspx" />
     <Content Include="Store\Report\RequisitionAnalysisUI.aspx" />
     <Content Include="Store\Report\RequisitionReportUI.aspx" />
-    <Content Include="Store\StockAdjustment\ApproveVoucherUI.aspx" />
+    <Content Include="Store\StockAdjustment\ApproveStockAdjustment.aspx" />
     <Content Include="Store\StockAdjustment\CreateDiscrepUI.aspx" />
     <Content Include="Store\PurchaseOrder\CreatePurOrdUI.aspx" />
     <Content Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx" />
@@ -392,7 +392,6 @@
     <Compile Include="Controller\SupplierCRUDController.cs" />
     <Compile Include="Controller\UpdateAdjustmentController.cs" />
     <Compile Include="Controller\UpdatePurchaseController.cs" />
-    <Compile Include="Controller\UpdateRequestController.cs" />
     <Compile Include="CustomControl\MonthYearControl.ascx.cs">
       <DependentUpon>MonthYearControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -803,12 +802,12 @@
     <Compile Include="Store\Report\RequisitionReportUI.aspx.designer.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\StockAdjustment\ApproveVoucherUI.aspx.cs">
-      <DependentUpon>ApproveVoucherUI.aspx</DependentUpon>
+    <Compile Include="Store\StockAdjustment\ApproveStockAdjustment.aspx.cs">
+      <DependentUpon>ApproveStockAdjustment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\StockAdjustment\ApproveVoucherUI.aspx.designer.cs">
-      <DependentUpon>ApproveVoucherUI.aspx</DependentUpon>
+    <Compile Include="Store\StockAdjustment\ApproveStockAdjustment.aspx.designer.cs">
+      <DependentUpon>ApproveStockAdjustment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\StockAdjustment\CreateDiscrepUI.aspx.cs">
       <DependentUpon>CreateDiscrepUI.aspx</DependentUpon>
