@@ -15,7 +15,12 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
         UpdateAdjustmentController upAdController = new UpdateAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GrdStockAdjustmentShow.DataSource = upAdController.getDataforGrid();
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
+
+            GrdStockAdjustmentShow.DataSource = upAdController.getDataforGrid(role);
             GrdStockAdjustmentShow.DataBind();
 
 

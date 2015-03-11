@@ -13,5 +13,10 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
         {
 
         }
+
+        protected void EntityDataSource1_Selecting(object sender, EntityDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }

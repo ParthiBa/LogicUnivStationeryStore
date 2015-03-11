@@ -76,7 +76,8 @@
             </div>                <asp:Label ID="lblUom" runat="server">Dozen</asp:Label> </span>
         </td>
         <td class="auto-style8">
-            <asp:Button ID="btnAddItem" runat="server" Text="Add" OnClick="btnAddItem_Click" />
+            <asp:Button ID="btnAddItem" runat="server" Text="Add"  CssClass="btn btn-success"
+                OnClick="btnAddItem_Click" Width="79px"  />
         </td>
         <td class="auto-style10">
          
@@ -113,5 +114,5 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" Width="155px"  CssClass="btn btn-primary"/>
 </asp:Content>

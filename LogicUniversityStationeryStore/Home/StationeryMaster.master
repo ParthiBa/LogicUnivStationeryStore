@@ -38,7 +38,7 @@
             <Items>
                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                 <asp:MenuItem Text="Report" Value="Report">
-                    <asp:MenuItem NavigateUrl="~/Store/StockAdjustment/ApproveVoucherUI.aspx" Text="Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Store/StockAdjustment/ApproveStockAdjustment.aspx" Text="Approve Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                 </asp:MenuItem>
             </Items>
         </asp:Menu>

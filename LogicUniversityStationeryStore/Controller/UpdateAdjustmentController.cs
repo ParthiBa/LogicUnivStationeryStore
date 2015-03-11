@@ -12,12 +12,26 @@ namespace LogicUniversityStationeryStore.Controller
 
         StockAdjustment currentStockAdjustment;
         Employee Currentemp;
-        public dynamic getDataforGrid()
+        public dynamic getDataforGrid(string role)
         {
-            var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
-                     select new { x.Employee1.empName, x.status,x.id };
 
-            return q1.ToList();
+
+            if (role.Equals("storeMan"))
+            {
+                var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
+                         where x.Showto.Equals("Manager")
+                         select new { x.Employee1.empName, x.status, x.id };
+                return q1.ToList();
+            }
+            else
+            {
+                var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
+                         where x.Showto.Equals("Supervisor")
+                         select new { x.Employee1.empName, x.status, x.id };
+                return q1.ToList();
+            }
+
+           
         }
 
 
@@ -32,12 +46,12 @@ namespace LogicUniversityStationeryStore.Controller
 
         public string  getCuurentRequest(int ReportId,string empid)
         {
-
+            Currentemp = LinqHelper.findEmpbyId(empid);
             var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
                      where x.id == ReportId
                      select x;
             currentStockAdjustment = q1.FirstOrDefault();
-            Currentemp = LinqHelper.findEmpbyId(empid);
+         
             return currentStockAdjustment.status;
         }
 
@@ -48,6 +62,8 @@ namespace LogicUniversityStationeryStore.Controller
             ICollection<StockAdjustmentDetail> list = currentStockAdjustment.StockAdjustmentDetails;
             foreach(StockAdjustmentDetail st in list)
             {
+                Inventory In = findIventory(st.stationeryCode);
+                In.quantity = In.quantity + st.quantity;
 
 
 
@@ -57,6 +73,16 @@ namespace LogicUniversityStationeryStore.Controller
 
 
              
+        }
+
+        private Inventory findIventory(string  code)
+        {
+            var q = from x in EntityBroker.getMyEntities().Inventories
+                    where x.stationeryCode.Equals(code)
+                    select x;
+
+            return q.FirstOrDefault();
+
         }
 
         private void setInfo()
