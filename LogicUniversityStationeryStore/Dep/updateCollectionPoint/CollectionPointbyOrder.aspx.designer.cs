@@ -7,84 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogicUniversityStationeryStore.Dep.Requisition {
+namespace LogicUniversity {
     
     
-    public partial class ApproveRequisistionUI {
+    public partial class CollectionPoint1 {
         
         /// <summary>
-        /// lblEmployeeName control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmployeeName;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lblShowEmpName control.
+        /// ClerkIdLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShowEmpName;
+        protected global::System.Web.UI.WebControls.Label ClerkIdLbl;
         
         /// <summary>
-        /// GrdViewItems control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdViewItems;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// btnReject control.
+        /// OrderIDLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReject;
+        protected global::System.Web.UI.WebControls.Label OrderIDLbl;
         
         /// <summary>
-        /// btnApprove control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApprove;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// TxtReason control.
+        /// DateLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtReason;
+        protected global::System.Web.UI.WebControls.Label DateLbl;
         
         /// <summary>
-        /// btnOkReject control.
+        /// CPGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOkReject;
+        protected global::System.Web.UI.WebControls.GridView CPGridView;
         
         /// <summary>
-        /// Master property.
+        /// UpdateBtn control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new LogicUniversityStationeryStore.Home.DepartMentMaster Master {
-            get {
-                return ((LogicUniversityStationeryStore.Home.DepartMentMaster)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.Button UpdateBtn;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
     }
 }

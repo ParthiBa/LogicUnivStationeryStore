@@ -34,5 +34,15 @@ namespace LogicUniversityStationeryStore.Controller
             Department de = department.FirstOrDefault();
             return de;
         }
+
+        public string findCollectionPointName(int id)
+        {
+            var q = from x in EntityBroker.getMyEntities().CollectionPoints
+                    where x.id == id
+                    select x.place;
+            return q.FirstOrDefault();
+
+
+        }
     }
 }

@@ -72,19 +72,19 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
               foreach(GridViewRow row in GrdViewItems.Rows)
               {
 
-                   lbltest1.Text = row.Cells[1].Text;
+                 //  lbltest1.Text = row.Cells[1].Text;
 
                   int needeedQuantity = Convert.ToInt32(((Label)row.Cells[2].FindControl("lblQuantity")).Text);
                   int AvailableQuantity = Convert.ToInt32(((Label)row.Cells[3].FindControl("lblAvailableQuantity")).Text);
                   string stationaeryCode = (((Label)row.Cells[0].FindControl("lblItemId")).Text);
-                  lbltest1.Text = AvailableQuantity.ToString();
-                  lbltest2.Text= stationaeryCode;
+//lbltest1.Text = AvailableQuantity.ToString();
+                 // lbltest2.Text= stationaeryCode;
 
                   if(needeedQuantity > AvailableQuantity)
                   {
                       KeyValuePair<string, int> rd = new KeyValuePair<string, int>(stationaeryCode, needeedQuantity);
                       lessQuantityList.Add(rd);
-                      lbltest2.Text = "hello";
+                      //lbltest2.Text = "hello";
                       isLessQuantity = true;
                   }
 

@@ -46,10 +46,17 @@ namespace LogicUniversityStationeryStore.Controller
             Menu DeptRepresntativeMenu = master.getDepartmentRepMenu();
             Menu DeptHeadMenu = master.getDepartmentHeadMenu();
 
-            if (role.Equals("deptHead")) //if (role.Equals("deptHead") || (role.Equals("tempHod")))
+            if (role.Equals("deptHead") || role.Equals("depTempHead")) //if (role.Equals("deptHead") || (role.Equals("tempHod")))
             {
                 DeptHeadMenu.Enabled = true;
                 DeptHeadMenu.Visible = true;
+                if(role.Equals("depTempHead"))
+                {
+                    MenuItem authItem = DeptHeadMenu.FindItem("Authorize");
+                    authItem.Enabled = false;
+                    authItem.Selectable = false;
+                    authItem.ToolTip = "You are not authorised to  Authorise others";
+                }
 
             }
             else if (role.Equals("deptRep"))

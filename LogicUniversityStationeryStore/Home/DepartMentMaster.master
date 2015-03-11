@@ -14,7 +14,6 @@
                 <asp:MenuItem Text="Change" Value="Confirm">
                     <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Change "></asp:MenuItem>
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
-<%--                    // lu di --%>
                     <asp:MenuItem NavigateUrl="~/Dep/updateCollectionPoint/UpdateCollectionPoint.aspx" Text="Change Collection Point" Value="Collection Point"></asp:MenuItem>
                 </asp:MenuItem>
                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>

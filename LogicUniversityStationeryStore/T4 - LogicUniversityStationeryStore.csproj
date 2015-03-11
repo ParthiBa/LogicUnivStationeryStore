@@ -139,6 +139,7 @@
     <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
     <Content Include="Dep\Requisition\denote list of Orders.aspx" />
     <Content Include="Dep\Requisition\RequstitionListUI.aspx" />
+    <Content Include="Dep\updateCollectionPoint\CollectionPointbyOrder.aspx" />
     <Content Include="Dep\updateCollectionPoint\UpdateCollectionPoint.aspx" />
     <Content Include="Home\DeptEmpHome.aspx" />
     <Content Include="Home\DeptHeadHome.aspx" />
@@ -372,6 +373,7 @@
     <Compile Include="Controller\AcceptRequestController.cs" />
     <Compile Include="Controller\ApproveRequestController.cs" />
     <Compile Include="Controller\CheckRoleController.cs" />
+    <Compile Include="Controller\CollectionPointbyOrderController.cs" />
     <Compile Include="Controller\CreateAndUpdateDeptController.cs" />
     <Compile Include="Controller\DefaultController.cs" />
     <Compile Include="Controller\DelegateAuthorityController.cs" />
@@ -480,6 +482,13 @@
     </Compile>
     <Compile Include="Dep\Requisition\RequstitionListUI.aspx.designer.cs">
       <DependentUpon>RequstitionListUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dep\updateCollectionPoint\CollectionPointbyOrder.aspx.cs">
+      <DependentUpon>CollectionPointbyOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\updateCollectionPoint\CollectionPointbyOrder.aspx.designer.cs">
+      <DependentUpon>CollectionPointbyOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dep\updateCollectionPoint\UpdateCollectionPoint.aspx.cs">
       <DependentUpon>UpdateCollectionPoint.aspx</DependentUpon>

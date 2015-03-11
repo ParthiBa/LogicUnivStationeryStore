@@ -48,7 +48,7 @@ namespace LogicUniversityStationeryStore
                  {
                      Response.Redirect("Home/StationerySupervisorHome.aspx");
                  }
-                 else if (emp.empRole == "temDeptHead")
+                 else if (emp.empRole == "depTempHead")
                  {
                      DateTime time1 = DateTime.Now;
                      DateTime time2 = Convert.ToDateTime(emp.authorizeEnd);
@@ -57,7 +57,7 @@ namespace LogicUniversityStationeryStore
                          emp.empRole = "depEmp";
                          emp.authorizeEnd = null;
                          emp.authorizeStart = null;
-                         Response.Redirect("Home/DeptRepHome.aspx");
+                         Response.Redirect("Home/DeptEmpHome.aspx");
                      }
                      else
                      {

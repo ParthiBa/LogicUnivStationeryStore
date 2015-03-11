@@ -1,0 +1,8 @@
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll.config
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.pdb
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Release\WebService.csprojResolveAssemblyReference.cache
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Release\WebService.dll
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\obj\Release\WebService.pdb
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll.CodeAnalysisLog.xml
+D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\WebService\bin\WebService.dll.lastcodeanalysissucceeded

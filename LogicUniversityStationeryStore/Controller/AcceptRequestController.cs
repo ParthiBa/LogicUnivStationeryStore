@@ -166,10 +166,13 @@ namespace LogicUniversityStationeryStore.Controller
                                where n.deptCode == dept && n.empRole == "deptRep"
                                select n;
             Employee Rep = emailAddress.FirstOrDefault();
-            string To = Rep.email;
-            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has been accepted. Please be present during delivery at " + place + " on " + deliverD.ToString("dd/MM/yyyy");
+            string hyperlink = "http://localhost:3285/Dep/updateCollectionPoint/CollectionPointbyOrder.aspx?erid=" + createDisb.id;
+            //string To = Rep.email;
+            string to = "LogicZoolrep@gmail.com";        
+            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has been accepted. Please be present during delivery at " + place + " on " + deliverD.ToString("dd/MM/yyyy")  + 
+                " \n If you want to change the collection point , you can do so by following hyperlink" +  hyperlink ;
             string Subject = "Your requisition has been accepted!";
-            note.sendEmailbyClerk(To, Email, Subject); 
+            note.sendEmailbyClerk(to, Email, Subject); 
         
         
         }

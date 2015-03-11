@@ -30,16 +30,14 @@
 
 
 
-    s<table class="auto-style2">
+    <table class="auto-style2">
         <tr>
             <td class="auto-style8"> <asp:Label ID="lblEmployeeName" runat="server" Text="RequestBy:"></asp:Label></td>
             <td class="auto-style4"><asp:Label ID="lblShowEmpName" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td class="auto-style5">  
-                <asp:Label ID="lbltest1" runat="server" Text="Label"></asp:Label>
-                <asp:Label ID="lbltest2" runat="server" Text="Label"></asp:Label>
-            </td>
+                &nbsp;</td>
             <td></td>
         </tr>
     </table>

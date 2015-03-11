@@ -20,7 +20,7 @@ namespace LogicUniversityStationeryStore.Controller
            Employee e = ((from x in EntityBroker.getMyEntities().Employees
                                 where x.empNo.Equals(id)
                                 select x).First());
-           if (e.empRole.Equals("deptHead") || (e.empRole.Equals("tempDeptHead")))
+           if (e.empRole.Equals("deptHead") || (e.empRole.Equals("depTempHead")))
             {
                 return true;
             }
@@ -95,7 +95,7 @@ namespace LogicUniversityStationeryStore.Controller
             EntityBroker.getMyEntities().SaveChanges();
 
             //set to email address
-          NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestApproved(CurrentRequest.id), "Your request is approved");
+            NotifyHelper.sendEmailbyClerk("MickeyZoolEmp@gmail.com", NotificationHelper.RequestApproved(CurrentRequest.id), "Your request is approved");
 
         }
 
@@ -150,17 +150,20 @@ namespace LogicUniversityStationeryStore.Controller
         private void NotifyAdvanceRequest(List<string> stationeryCode)
         {
             List<string> stationaryName = new List<string>();
+            string MessagetoClerk="Advance requestMade please buy the following  items \n";
             foreach(string code in stationeryCode)
             {
                 var q = (from x in EntityBroker.getMyEntities().Stationeries
                         where x.code.Equals(stationeryCode)
                         select x.description).FirstOrDefault();
+                string itemName=q.ToString();
+                MessagetoClerk= MessagetoClerk + itemName + "\n";
 
-
-                stationaryName.Add(q.ToString());
+                stationaryName.Add(itemName);
             }
 
-           NotifyHelper.sendEmailbyClerk("", NotificationHelper.InfromAdvanceRequest(stationaryName), "Advance request by the system");
+            NotifyHelper.EmailtoClerk("Please buy these items , Stock is low", MessagetoClerk);
+            NotifyHelper.sendEmailbyClerk("MickeyZoolEmp@gmail.com ", NotificationHelper.InfromAdvanceRequest(stationaryName), "Advance request by the system");
 
         }
        
@@ -199,7 +202,7 @@ namespace LogicUniversityStationeryStore.Controller
             //EntityBroker.getMyEntities().Requests.Add(CurrentRequest);
             EntityBroker.getMyEntities().SaveChanges();
 
-            NotifyHelper.sendEmailbyClerk("", NotificationHelper.RequestRjected(CurrentRequest.id, reason), "your request has been rejected");
+            NotifyHelper.sendEmailbyClerk("MickeyZoolEmp@gmail.com", NotificationHelper.RequestRjected(CurrentRequest.id, reason), "your request has been rejected");
 
         }
 

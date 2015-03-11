@@ -24,7 +24,7 @@
                     </td>
                 <td class="auto-style4" style="height: 200px">
                     <br />
-                    <asp:GridView ID="CPGridView" runat="server"   Width="209px" AllowCustomPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
+                    <asp:GridView ID="CPGridView" runat="server"   Width="209px" AllowCustomPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="CPGridView_SelectedIndexChanged" >
                         <Columns>
                             <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false"/>
                             <asp:BoundField DataField="place" HeaderText="place" SortExpression="place" />
@@ -32,6 +32,7 @@
                             <asp:TemplateField HeaderText="Select">
                                <ItemTemplate>
                                     <input type="radio" name="radio" value="<%#Eval("id") %>">"
+                                   <asp:RadioButton ID="selectedItem" runat="server" OnCheckedChanged="selectedItem_CheckedChanged" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
