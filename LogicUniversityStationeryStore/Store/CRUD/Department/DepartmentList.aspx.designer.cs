@@ -22,15 +22,6 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department {
         protected global::System.Web.UI.WebControls.Label lblHeader;
         
         /// <summary>
-        /// EntityDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
-        
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,17 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new LogicUniversityStationeryStore.Home.StationeryMaster Master {
+            get {
+                return ((LogicUniversityStationeryStore.Home.StationeryMaster)(base.Master));
+            }
+        }
     }
 }

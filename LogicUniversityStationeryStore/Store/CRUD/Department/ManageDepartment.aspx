@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ManageDepartment.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.CRUD.Department.ManageDepartment" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="ManageDepartment.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.CRUD.Department.ManageDepartment" %>
+<%@ MasterType VirtualPath="~/Home/StationeryMaster.master" %> 
+<asp:Content ID="Content1" ContentPlaceHolderID="StationeryHead" runat="server">
     <style type="text/css">
-        .auto-style1 {
+        .auto-style11 {
             width: 189px;
         }
         .auto-style2 {
@@ -9,7 +10,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="StationeryBody" runat="server">
      
         <div style="text-align: center">
             <asp:Label ID="lblHeader" runat="server" Font-Bold="True"
@@ -46,7 +47,7 @@
                 <td>
                     <asp:Label ID="Label2" runat="server" Text="Department Name :"></asp:Label>
                 </td>
-                <td class="auto-style1"><asp:TextBox ID="namebox" runat="server"></asp:TextBox>
+                <td class="auto-style11"><asp:TextBox ID="namebox" runat="server"></asp:TextBox>
                   
                 </td>
                
@@ -57,7 +58,7 @@
                 <td>
                     <asp:Label ID="Label8" runat="server" Text="Head's Name :"></asp:Label>
                 </td>
-                <td class="auto-style1">
+                <td class="auto-style11">
                    
                     <asp:DropDownList ID="Drop2" runat="server" DataSourceID="SqlDataSource1" DataTextField="empName" DataValueField="empName" Width="136px">
                     </asp:DropDownList>
@@ -71,7 +72,7 @@
                 <td>
                     <asp:Label ID="Label3" runat="server" Text="Contact Name:"></asp:Label>
                     &nbsp;</td>
-                <td class="auto-style1">
+                <td class="auto-style11">
                     <asp:TextBox ID="contactNamebox" runat="server"></asp:TextBox>
                   
                 </td>
@@ -85,7 +86,7 @@
                 <td>
                     <asp:Label ID="Label4" runat="server" Text="Telephone No:"></asp:Label>
                     &nbsp;</td>
-                <td class="auto-style1">
+                <td class="auto-style11">
                     <asp:TextBox ID="telNobox" runat="server"></asp:TextBox>
                    
                 </td>
@@ -95,7 +96,7 @@
                 <td>
                     <asp:Label ID="Label5" runat="server" Text="Fax No :"></asp:Label>
                 </td>
-                <td class="auto-style1">
+                <td class="auto-style11">
                     <asp:TextBox ID="faxNobox" runat="server"></asp:TextBox>
                     
                 </td>
@@ -113,7 +114,7 @@
                 <td>
                     <asp:Label ID="Label7" runat="server" Text="Representative Name :"></asp:Label>
                 </td>
-                <td class="auto-style1">
+                <td class="auto-style11">
                     
                     
                     <asp:DropDownList ID="Drop1" runat="server" Width="141px" DataSourceID="SqlDataSource2" DataTextField="empName" DataValueField="empName">

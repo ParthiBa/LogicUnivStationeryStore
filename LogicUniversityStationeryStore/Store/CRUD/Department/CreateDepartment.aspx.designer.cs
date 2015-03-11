@@ -236,5 +236,17 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCreate;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new LogicUniversityStationeryStore.Home.StationeryMaster Master {
+            get {
+                return ((LogicUniversityStationeryStore.Home.StationeryMaster)(base.Master));
+            }
+        }
     }
 }

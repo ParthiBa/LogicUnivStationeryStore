@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace LogicUniversityStationeryStore.Store.CRUD.Department
+namespace LogicUniversityStationeryStore.ENTITY
 {
     public class DeptInfor
     {

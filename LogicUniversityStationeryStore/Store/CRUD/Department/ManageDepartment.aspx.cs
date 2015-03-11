@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using LogicUniversityStationeryStore.ENTITY;
 using LogicUniversityStationeryStore.DAO;
 using LogicUniversityStationeryStore;
 using LogicUniversityStationeryStore.Controller;
@@ -16,6 +16,9 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
         }
 
         //protected void btnUpdate_Click(object sender, EventArgs e)
@@ -57,6 +60,12 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
                  CreateAndUpdateDeptController create = new CreateAndUpdateDeptController();
 
                  create.updateDept(codeB,nameB,contactB,telB,drop1,drop2,faxB,drop1name,drop2name);
+
+
+
+                 ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Department info has been updated!'); window.location = '" + Page.ResolveUrl("~/Home/StationeryClerkHome.aspx") + "';", true);
+
+
 
              }
         

@@ -372,6 +372,7 @@
     <Compile Include="Controller\AcceptRequestController.cs" />
     <Compile Include="Controller\ApproveRequestController.cs" />
     <Compile Include="Controller\CheckRoleController.cs" />
+    <Compile Include="Controller\CreateAndUpdateDeptController.cs" />
     <Compile Include="Controller\DefaultController.cs" />
     <Compile Include="Controller\DelegateAuthorityController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
@@ -629,6 +630,7 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="ENTITY\DeptInfor.cs" />
     <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.cs">
       <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

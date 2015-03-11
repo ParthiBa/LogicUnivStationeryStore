@@ -25,10 +25,17 @@
                             <asp:MenuItem Text="Add Supplier" NavigateUrl="~/Store/CRUD/SupplierPages/CreateSupplierUI.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Manage Supplier Info" NavigateUrl="~/Store/CRUD/SupplierPages/ManageSupplierUI.aspx"></asp:MenuItem>
                         </asp:MenuItem>
+                        
                         <asp:MenuItem Text="Stationery" Value="Supplier Infomaration" >
                             <asp:MenuItem Text="Add Stationery item" NavigateUrl="~/Store/CRUD/Stationery/CreateStationeryUI.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Manage Stationery  Info" NavigateUrl="~/Store/CRUD/Stationery/ManageStationeryUI.aspx"></asp:MenuItem>
                         </asp:MenuItem>
+                         <asp:MenuItem Text="Department" Value="Supplier Infomaration" >
+                            <asp:MenuItem Text="Add new Department" NavigateUrl="~/Store/CRUD/Department/CreateDepartment.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Manage Department Info" NavigateUrl="~/Store/CRUD/Department/ManageDepartment.aspx"></asp:MenuItem>
+                             <asp:MenuItem Text="view Department Info" NavigateUrl="~/Store/CRUD/Department/DepartmentList.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+
                     </asp:MenuItem>
                 </Items>
             </asp:Menu>

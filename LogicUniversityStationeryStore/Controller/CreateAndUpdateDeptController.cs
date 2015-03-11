@@ -1,5 +1,5 @@
 ﻿using LogicUniversityStationeryStore.DAO;
-using LogicUniversityStationeryStore.Store.CRUD.Department;
+using LogicUniversityStationeryStore.ENTITY;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,6 +97,23 @@ namespace LogicUniversityStationeryStore.Controller
                     dept.RempName = b.empName;
                 } return dept;
             }
+        }
+
+        public List<Department> getDataforDepartmentLIst()
+        {
+
+            using (LogicUniversityEntities3 ctx = new LogicUniversityEntities3())
+            {
+
+                var q = from x in ctx.Departments
+                        select x;
+
+                return q.ToList<Department>();
+
+
+            }
+
+
         }
     }
 }

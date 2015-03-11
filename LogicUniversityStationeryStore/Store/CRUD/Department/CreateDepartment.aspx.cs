@@ -14,7 +14,9 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
         }
 
        
@@ -52,6 +54,9 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
                  CreateAndUpdateDeptController create = new CreateAndUpdateDeptController();
 
                  create.createDept(codeB,nameB,contactB,telB,drop1,drop2,faxB,drop1name,drop2name);
+
+                 ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert121", "alert('new Department has been Created!'); window.location = '" + Page.ResolveUrl("~/Home/StationeryClerkHome.aspx") + "';", true);
+
 
             }
         }
