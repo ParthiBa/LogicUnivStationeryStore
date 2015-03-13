@@ -64,7 +64,7 @@ namespace LogicUniversityStationeryStore.Controller
             {
                 Inventory In = findIventory(st.stationeryCode);
                 In.quantity = In.quantity + st.quantity;
-
+                In.availableQty = In.availableQty + st.quantity;
 
 
             }
