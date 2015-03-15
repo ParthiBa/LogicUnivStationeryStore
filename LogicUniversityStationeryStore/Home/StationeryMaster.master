@@ -17,9 +17,9 @@
                          
                     </asp:MenuItem>
                     <asp:MenuItem Text="Supply" Value="Supply">
-                        <asp:MenuItem Text="Order" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurOrdUI.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Confirm Stock Received" Value="Confirm Stock Received" NavigateUrl="~/Store/PurchaseOrder/ConfirmPurchaseOrder.aspx"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/PurchaseOrderList.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
+                        <asp:MenuItem Text="Order Items" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurchaseOrderUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Confirm Stock Received" Value="Confirm Stock Received" NavigateUrl="~/Store/PurchaseOrder/ConfirmPurchaseOrderUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/ListOfPurchaseOrderUI.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
                     </asp:MenuItem>
                      <asp:MenuItem Text="ManageInformation" Value="Supply">
                         <asp:MenuItem Text="Supplier" Value="Supplier Infomaration" >
@@ -60,6 +60,10 @@
 
              <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False" Visible="False">
               <Items>
+        <%--         <asp:MenuItem Text="Generate" Value="Generate">
+                        <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
+                    </asp:MenuItem>--%>
                   <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationerySupervisorHome.aspx"></asp:MenuItem>
                   <asp:MenuItem Text="Generate" Value="Generate">
                       <asp:MenuItem Text="Requisition Trend Analysis" Value="Requisition Trend Analysis"></asp:MenuItem>
