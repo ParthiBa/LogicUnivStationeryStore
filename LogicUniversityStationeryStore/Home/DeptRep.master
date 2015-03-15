@@ -5,7 +5,7 @@
     <div id="nav">
         <asp:Menu ID="DeptRepMenu" runat="server" OnMenuItemClick="DeptRepMenu_MenuItemClick">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptRepHome.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Confirm" Value="Confirm">
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
                     <asp:MenuItem Text=" Update Collection Point" Value="Collection Point"></asp:MenuItem>

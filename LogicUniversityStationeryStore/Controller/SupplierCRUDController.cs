@@ -17,18 +17,18 @@ namespace LogicUniversityStationeryStore.Controller
         string faxNo;
         string address;
         string email;
-        public SupplierCRUDController()
+        public SupplierCRUDController()//Default Constructor//
         {
             ddPageLoad();
             clear();
         }
-        public SupplierCRUDController(string a)
+        public SupplierCRUDController(string a)//parameterised constructor//
         {
             this.supplierCode = a;
             retriveBtn();
 
         }
-        public SupplierCRUDController(string a, string b, string c, string d, string e, string f, string g, string h)
+        public SupplierCRUDController(string a, string b, string c, string d, string e, string f, string g, string h)//parameterised constructor//
         {
             this.supplierCode = a;
             this.supplierName = b;
@@ -39,15 +39,13 @@ namespace LogicUniversityStationeryStore.Controller
             this.address = g;
             this.email = h;
         }
-        public void callCreate()
+       
+       
+        public void callCreate()//Create Button//
         {
             createbutton();
         }
-        public void callUpdate()
-        {
-            updateButton();
-        }
-        public void createbutton()
+        public void createbutton()//Create Button//
         {
             Supplier sup = new Supplier();
             sup.supplierCode = supplierCode;
@@ -62,7 +60,7 @@ namespace LogicUniversityStationeryStore.Controller
             EntityBroker.getMyEntities().SaveChanges();
         }
 
-        public List<string> ddPageLoad()
+        public List<string> ddPageLoad()//Create Page Load//
         {
             List<string> SupCodeList = new List<string>();
 
@@ -76,13 +74,13 @@ namespace LogicUniversityStationeryStore.Controller
             return SupCodeList;
 
         }
-        public string clear()
+        public string clear()//Clear Button//
         {
             string a = "";
             return a;
         }
 
-        public List<Supplier> retriveBtn()
+        public List<Supplier> retriveBtn()//Retrive Button//
         {
             List<Supplier> suppDetail = (from o in EntityBroker.getMyEntities().Suppliers
                                          where o.supplierCode == supplierCode
@@ -90,7 +88,11 @@ namespace LogicUniversityStationeryStore.Controller
 
             return suppDetail;
         }
-        public void updateButton()
+        public void callUpdate()//Update Button//
+        {
+            updateButton();
+        }
+        public void updateButton()//Update Button//
         {
             var supplierDtl = from o in EntityBroker.getMyEntities().Suppliers
                               where o.supplierCode == supplierCode

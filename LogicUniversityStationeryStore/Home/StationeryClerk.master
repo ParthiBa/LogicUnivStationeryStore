@@ -8,7 +8,7 @@
     <div id="nav">
               <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px">
                 <Items>
-                    <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationeryClerkHome.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Generate" Value="Generate">
                         <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>

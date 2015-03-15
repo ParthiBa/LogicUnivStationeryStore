@@ -33,12 +33,12 @@
                 <asp:Label ID="lblSupCode" runat="server" Text="Supplier Code"></asp:Label>
             </td>
             <td class="auto-style2">
-                <asp:DropDownList ID="ddSupCode" runat="server">
+                <asp:DropDownList ID="ddSupCode" runat="server" OnSelectedIndexChanged="ddSupCode_SelectedIndexChanged" >
                 </asp:DropDownList>
-            </td>
-            <td>
                 <asp:Button ID="btnRetrieve" runat="server" OnClick="btnRetrieve_Click" Text="Retrieve" />
             </td>
+            <td>
+                &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -140,7 +140,6 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

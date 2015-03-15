@@ -10,7 +10,7 @@
     <div id="nav">
                 <asp:Menu ID="DeptRepsMenu" runat="server" Visible="False" Enabled="False">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptRepHome.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Change" Value="Confirm">
                     <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Change "></asp:MenuItem>
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
@@ -43,9 +43,10 @@
                     <asp:MenuItem Text="View" Value="View">
                         <asp:MenuItem NavigateUrl="~/Dep/Requisition/RequstitionListUI.aspx" Text="List OF Pending requests" Value="Stationery Request"></asp:MenuItem>
                     </asp:MenuItem>
-                    <asp:MenuItem Text="Authorize" Value="Authorize">
+                           <asp:MenuItem Text="Authorize" Value="Authorize">
                         <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Authorize to Others" Value="Authorize To Representative"></asp:MenuItem>
-                        <asp:MenuItem Text="View List of Authoriziation" Value="Delegate To Temperory Head"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Dep/Delegation/RemoveAuthorizationUI.aspx" Text="Remove Authorization" Value="Remove Authorization"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Dep/Delegation/ChangeRep.aspx" Text="Change Representative" Value="Change Representative"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Update" Value="Update">
                         <asp:MenuItem NavigateUrl="~/Dep/updateCollectionPoint/UpdateCollectionPoint.aspx" Text="Update Collection Point" Value="Authorize To Representative"></asp:MenuItem>

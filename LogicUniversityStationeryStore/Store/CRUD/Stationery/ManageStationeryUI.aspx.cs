@@ -13,9 +13,6 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
         //  logicEntities1 context = new logicEntities1();
 
         
-
-           
-           
         protected void Page_Load(object sender, EventArgs e)
         {
             string role = Request.Cookies["UserRole"].Value.ToString();
@@ -55,9 +52,9 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
             txtPrice1.Text = Convert.ToString(stationeryDetails.price1);
             txtPrice2.Text = Convert.ToString(stationeryDetails.price2);
             txtPrice3.Text = Convert.ToString(stationeryDetails.price3);
-            ddSupplier1.Items.Add(stationeryDetails.supplier1);
-            ddsupplier2.Items.Add(stationeryDetails.supplier2);
-            ddSupplier3.Items.Add(stationeryDetails.supplier3);
+            ddSupplier1.Items.Add(RudRetrieve.getSupplierName(stationeryDetails.supplier1));
+            ddsupplier2.Items.Add(RudRetrieve.getSupplierName(stationeryDetails.supplier2));
+            ddSupplier3.Items.Add(RudRetrieve.getSupplierName(stationeryDetails.supplier3));
 
 
             List<string> supp1 = RudRetrieve.getAllSupplierName(stationeryDetails.supplier1);
@@ -137,6 +134,8 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
             sta.supplier2 = ddsupplier2.Text;
             sta.supplier3 = ddSupplier3.Text;
             update.update(sta);
+            btnClear_Click(sender, e);
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Stationery Information Successfully Updated');", true);
         }
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -150,13 +149,13 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
             //ddSupplier1.ClearSelection();
             // ddsupplier2.ClearSelection();
             // ddSupplier3.ClearSelection();
+            enabled_btn(false);
         }
 
 
         protected void enabled_btn(bool s)
         {
             ReqFieldValCode.Enabled = s;
-
             RequiredFieldValidator4.Enabled = s;
             ReorderRangeVal.Enabled = s;
             RequiredFieldValidator5.Enabled = s;

@@ -27,6 +27,8 @@ namespace LogicUniversityStationeryStore.Store.CRUD.SupplierPages
         {
             SupplierCRUDController create = new SupplierCRUDController(txtSupCode.Text, txtSupName.Text, txtGST.Text, txtConName.Text, txtPhone.Text, txtFaxNo.Text, txtAddress.Text, txtEmail.Text);
             create.callCreate();
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('New Supplier Information Successfully added');", true);
+            btnClear_Click(sender, e);
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

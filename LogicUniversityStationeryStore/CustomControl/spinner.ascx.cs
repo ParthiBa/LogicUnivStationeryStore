@@ -27,6 +27,11 @@ namespace LogicUniversityStationeryStore.CustomControl
             get
             {
 
+                if (txtNumber.Text == "")
+                {
+                    txtNumber.Text = "1";
+                }
+
                 return txtNumber.Text;
             }
             set

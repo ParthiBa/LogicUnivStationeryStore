@@ -198,7 +198,7 @@ namespace LogicUniversityStationeryStore.Controller
                        where name == o.supplierName
                        select o;
             Supplier supp1 = sup1.FirstOrDefault<Supplier>();
-            return supp1.supplierName;
+            return supp1.supplierCode;
         }
 
         //public void deleteStationery()

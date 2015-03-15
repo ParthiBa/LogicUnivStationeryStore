@@ -43,7 +43,8 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages
             cre.callCreate();
 
 
-
+            Button2_Click(sender, e);
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('New stationery Information Successfully added');", true);
         }
 
         protected void Button2_Click(object sender, EventArgs e)

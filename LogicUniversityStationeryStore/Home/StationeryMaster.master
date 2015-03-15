@@ -6,7 +6,7 @@
     <div id="nav">
           <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" Enabled="False" Visible="False">
                 <Items>
-                    <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationeryClerkHome.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Accept New Request" Value="accwpt" NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Generate" Value="Generate">
                         <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
@@ -44,7 +44,7 @@
 
             <asp:Menu ID="ManagerMenu" runat="server" Orientation="Horizontal" Enabled="False" Visible="False">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationeryManagerHome.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Approve" Value="Approve">
                     <asp:MenuItem NavigateUrl="~/Store/StockAdjustment/ListOfStockAdjustmentUI.aspx" Text="Approve Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                 </asp:MenuItem>
@@ -60,7 +60,7 @@
 
              <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False" Visible="False">
               <Items>
-                  <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                  <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationerySupervisorHome.aspx"></asp:MenuItem>
                   <asp:MenuItem Text="Generate" Value="Generate">
                       <asp:MenuItem Text="Requisition Trend Analysis" Value="Requisition Trend Analysis"></asp:MenuItem>
                       <asp:MenuItem Text="Reorder Trend Analysis" Value="Reorder Trend Analysis"></asp:MenuItem>

@@ -11,7 +11,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="StationeryBody" runat="server">
-    <form id="form1" runat="server">
     <div>
     
         &nbsp;&nbsp;<br />
@@ -192,5 +191,5 @@
         <br />
     
     </div>
-    </form>
+    
 </asp:Content>

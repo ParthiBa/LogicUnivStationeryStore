@@ -10,70 +10,61 @@
 namespace LogicUniversityStationeryStore.Dep.Delegation {
     
     
-    public partial class delegateAuthorityUI {
+    public partial class ChangeRep {
         
         /// <summary>
-        /// lblAuthorizeTO control.
+        /// lblChaDepRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAuthorizeTO;
+        protected global::System.Web.UI.WebControls.Label lblChaDepRep;
         
         /// <summary>
-        /// ddAuthorizeTo control.
+        /// lblCurrRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddAuthorizeTo;
+        protected global::System.Web.UI.WebControls.Label lblCurrRep;
         
         /// <summary>
-        /// Label5 control.
+        /// txtCurrentRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrentRep;
         
         /// <summary>
-        /// txtFromDate control.
+        /// lblAuthTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
+        protected global::System.Web.UI.WebControls.Label lblAuthTo;
         
         /// <summary>
-        /// txtToDate control.
+        /// ddAuthTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddAuthTo;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnChangeRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnChangeRep;
         
         /// <summary>
         /// Master property.

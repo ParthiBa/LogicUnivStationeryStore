@@ -18,9 +18,11 @@
         .auto-style6 {
             height: 26px;
             width: 530px;
+            text-align: left;
         }
         .auto-style7 {
             width: 530px;
+            text-align: left;
         }
         .auto-style8 {
             width: 144px;

@@ -45,6 +45,8 @@ namespace LogicUniversityStationeryStore.Store.CRUD.SupplierPages
             {
                 SupplierCRUDController update = new SupplierCRUDController(ddSupCode.Text, txtSupName.Text, txtGST.Text, txtConName.Text, txtPhone.Text, txtFaxNo.Text, txtAddress.Text, txtEmail.Text);
                 update.callUpdate();
+                btnClear_Click(sender, e);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Supplier Information Successfully Updated');", true);
             }
         }
 
@@ -60,6 +62,18 @@ namespace LogicUniversityStationeryStore.Store.CRUD.SupplierPages
             txtFaxNo.Text = b;
             txtAddress.Text = b;
             txtEmail.Text = b;
+
+            RequiredFieldValidator8.Enabled = false;
+            RequiredFieldValidator3.Enabled = false;
+            GSTRegExp.Enabled = false;
+            RequiredFieldValidator9.Enabled = false;
+            ConNameRegExp.Enabled = false;
+            RequiredFieldValidator10.Enabled = false;
+            phoneRegExp.Enabled = false;
+            RequiredFieldValidator11.Enabled = false;
+            FaxRegExp.Enabled = false;
+            RequiredFieldValidator12.Enabled = false;
+            EmailRegExp.Enabled = false;
         }
 
 
@@ -92,9 +106,11 @@ namespace LogicUniversityStationeryStore.Store.CRUD.SupplierPages
             EmailRegExp.Enabled = true;
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void ddSupCode_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

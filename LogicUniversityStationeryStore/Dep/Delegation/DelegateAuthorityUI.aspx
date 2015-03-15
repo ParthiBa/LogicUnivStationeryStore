@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/DepartMentMaster.master" AutoEventWireup="true" CodeBehind="DelegateAuthorityUI.aspx.cs" Inherits="LogicUniversityStationeryStore.Dep.Delegation.delegateAuthorityUI" %>
+<%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
         <link rel="stylesheet" href="../../Scripts/JqueryUI/dotluv.css">
  <script src="../../Scripts/jquery-2.1.3.min.js">
@@ -10,8 +12,23 @@
           $(".calender").datepicker({ minDate: 0 });
           //$("#datepicker").datepicker({ minDate: 0 });
           //past date 
-         
+          $("#<%=txtToDate.ClientID%>").change(function () {
+
+              var fromdate = $("#<%=txtFromDate.ClientID%>").val();
+              var todate = $("#<%=txtToDate.ClientID%>").val();
+              console.log(fromdate);
+              console.log(todate);
+
+              if (Date.parse(fromdate) > Date.parse(todate)) {
+
+
+                  todate = "";
+                  alert("Invaild Date Range");
+              }
+
+          });
       });
+   
   </script>
     <style type="text/css">
         .auto-style11 {
@@ -37,17 +54,17 @@
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
                 </td>
-            </tr>
+           <%-- </tr>
             <tr>
                 <td class="auto-style2">
         <asp:Label ID="lblAuthorizeRank" runat="server" Text="Authorize Rank"></asp:Label>
                 </td>
                 <td class="auto-style3">
-        <asp:DropDownList ID="ddAuthorizeRank" runat="server">
+        <%--<asp:DropDownList ID="ddAuthorizeRank" runat="server">
             <asp:ListItem>depTempHead</asp:ListItem>
             <asp:ListItem>Department Representative</asp:ListItem>
             <asp:ListItem Selected="True"></asp:ListItem>
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
                 </td>
             </tr>
             <tr>
@@ -60,7 +77,11 @@
                 <td class="auto-style2">
         <p>From Date:</p>
                 </td>
-                <td class="auto-style3"><asp:TextBox ID="txtFromDate" class="calender" runat="server" /></td>
+                <td class="auto-style3"><asp:TextBox ID="txtFromDate" class="calender" runat="server" />
+                 <%--<td>  <asp:CompareValidator ID="cmpVal1" ControlToCompare="txtFromDate" 
+                    ControlToValidate="txtToDate" class="calender" Operator="GreaterThanEqual"   
+                   ErrorMessage="*Invalid Data" runat="server"></asp:CompareValidator>
+                </td>--%>
             </tr>
             <tr>
                 <td class="auto-style2">

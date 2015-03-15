@@ -14,7 +14,7 @@
     <RootNamespace>LogicUniversityStationeryStore</RootNamespace>
     <AssemblyName>LogicUniversityStationeryStore</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -2158,7 +2158,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3285</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3285/</IISUrl>
+          <IISUrl>http://localhost/T4 - LogicUniversityStationeryStore</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:3285/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

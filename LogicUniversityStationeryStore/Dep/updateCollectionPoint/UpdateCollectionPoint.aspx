@@ -32,7 +32,7 @@
                             <asp:TemplateField HeaderText="Select">
                                <ItemTemplate>
                                     <input type="radio" name="radio" value="<%#Eval("id") %>">"
-                                   <asp:RadioButton ID="selectedItem" runat="server" OnCheckedChanged="selectedItem_CheckedChanged" />
+                               
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

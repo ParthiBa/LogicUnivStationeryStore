@@ -31,7 +31,7 @@
                 <uc2:MonthYearControl ID="MonthYearControl1" runat="server" />
             </p></td>
                <td>
-                   <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+                   <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" HasCrystalLogo="False" />
                </td>
     </tr></table>
         <asp:Button ID="btnRodAly" runat="server" Text="Submit" OnClick="btnRodAly_Click"/>

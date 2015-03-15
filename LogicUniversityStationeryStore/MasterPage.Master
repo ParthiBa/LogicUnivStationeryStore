@@ -29,7 +29,15 @@
         <style type="text/css">
             .name:hover
             {
-                sca
+               -webkit-trasform:scale(1.2);
+               -moz-transform:scale(1.2);
+               -ms-transform:scale(1.2);
+               font:800;
+            }
+            .name
+            {
+            
+                font:600;
             }
             .aspNetDisabled.logoutClass
             {
