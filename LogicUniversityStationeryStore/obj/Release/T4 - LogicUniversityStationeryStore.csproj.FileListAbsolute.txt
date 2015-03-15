@@ -29,3 +29,34 @@ D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\LogicUniversity
 D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\LogicUniversityStationeryStore\obj\Release\T4 - LogicUniversityStationeryStore.csprojResolveAssemblyReference.cache
 D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\LogicUniversityStationeryStore\obj\Release\LogicUniversityStationeryStore.dll
 D:\LogicUniversityStationeryStore\LogicUniversityStationeryStore\LogicUniversityStationeryStore\obj\Release\LogicUniversityStationeryStore.pdb
+D:\int2\LogicUniversityStationeryStore\bin\LogicUniversityStationeryStore.dll.config
+D:\int2\LogicUniversityStationeryStore\bin\LogicUniversityStationeryStore.dll
+D:\int2\LogicUniversityStationeryStore\bin\LogicUniversityStationeryStore.pdb
+D:\int2\LogicUniversityStationeryStore\bin\Antlr3.Runtime.dll
+D:\int2\LogicUniversityStationeryStore\bin\AspNet.ScriptManager.bootstrap.dll
+D:\int2\LogicUniversityStationeryStore\bin\AspNet.ScriptManager.jQuery.dll
+D:\int2\LogicUniversityStationeryStore\bin\EntityFramework.dll
+D:\int2\LogicUniversityStationeryStore\bin\EntityFramework.SqlServer.dll
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.ScriptManager.WebForms.dll
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.Web.Infrastructure.dll
+D:\int2\LogicUniversityStationeryStore\bin\Newtonsoft.Json.dll
+D:\int2\LogicUniversityStationeryStore\bin\System.Net.Http.Formatting.dll
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Http.dll
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Http.WebHost.dll
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Optimization.dll
+D:\int2\LogicUniversityStationeryStore\bin\WebGrease.dll
+D:\int2\LogicUniversityStationeryStore\bin\EntityFramework.xml
+D:\int2\LogicUniversityStationeryStore\bin\EntityFramework.SqlServer.xml
+D:\int2\LogicUniversityStationeryStore\bin\System.Net.Http.Formatting.xml
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Http.xml
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Http.WebHost.xml
+D:\int2\LogicUniversityStationeryStore\bin\System.Web.Optimization.xml
+D:\int2\LogicUniversityStationeryStore\bin\Antlr3.Runtime.pdb
+D:\int2\LogicUniversityStationeryStore\bin\Newtonsoft.Json.xml
+D:\int2\LogicUniversityStationeryStore\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\int2\LogicUniversityStationeryStore\obj\Release\T4 - LogicUniversityStationeryStore.csprojResolveAssemblyReference.cache
+D:\int2\LogicUniversityStationeryStore\obj\Release\LogicUniversityStationeryStore.dll
+D:\int2\LogicUniversityStationeryStore\obj\Release\LogicUniversityStationeryStore.pdb
