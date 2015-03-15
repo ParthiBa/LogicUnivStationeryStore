@@ -33,7 +33,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString %>" SelectCommand="SELECT DISTINCT [deptCode] FROM [Request] WHERE ([status] = @status)">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString2 %>" SelectCommand="SELECT DISTINCT [deptCode] FROM [Request] WHERE ([status] = @status)">
             <SelectParameters>
                 <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
             </SelectParameters>

@@ -187,7 +187,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
            //show alert box and go to next page
             if (GrdRetrievalDetail.Rows.Count > 0)
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Update Successful!'); window.location = '" + Page.ResolveUrl("~/default.aspx") + "';", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Update Successful!'); window.location = '" + Page.ResolveUrl("~/.aspx") + "';", true);
                
             }      
            

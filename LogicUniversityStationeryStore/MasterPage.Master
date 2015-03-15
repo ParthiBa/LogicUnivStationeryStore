@@ -22,8 +22,6 @@
         });
     </script>
 
-
-
     <asp:ContentPlaceHolder ID="Mainhead" runat="server">
     </asp:ContentPlaceHolder>
         <style type="text/css">
@@ -84,7 +82,11 @@
                 width: 144%;
             }
     </style>
- 
+     <script  type="text/javascript">
+         $(function () {
+             $(".datepicker").datepicker({ minDate: +1, beforeShowDay: $.datepicker.noWeekends });
+         });
+    </script>
     <link rel="stylesheet" href="Home/DropDownMenu.css" type="text/css" />
 </head>
 <body>
