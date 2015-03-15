@@ -13,30 +13,33 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder {
     public partial class PurchaseOrderList {
         
         /// <summary>
-        /// form1 control.
+        /// lblListOfPurchaseOrderTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblListOfPurchaseOrderTitle;
         
         /// <summary>
-        /// GridView1 control.
+        /// grdListPurchaseOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView grdListPurchaseOrder;
         
         /// <summary>
-        /// EDSlistOfPurchaseOrder control.
+        /// Master property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EDSlistOfPurchaseOrder;
+        public new LogicUniversityStationeryStore.Home.StationeryMaster Master {
+            get {
+                return ((LogicUniversityStationeryStore.Home.StationeryMaster)(base.Master));
+            }
+        }
     }
 }

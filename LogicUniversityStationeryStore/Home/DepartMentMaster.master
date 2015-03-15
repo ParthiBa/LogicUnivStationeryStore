@@ -16,7 +16,7 @@
                     <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Dep/updateCollectionPoint/UpdateCollectionPoint.aspx" Text="Change Collection Point" Value="Collection Point"></asp:MenuItem>
                 </asp:MenuItem>
-               <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequisition.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
+               <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
 
             </Items>
         </asp:Menu>
@@ -28,7 +28,9 @@
                <asp:Menu ID="DeptEmployeeMenu" runat="server" Visible="False" Enabled="False">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmp.aspx"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition">
+
+                </asp:MenuItem>
                 
             </Items>
         </asp:Menu>

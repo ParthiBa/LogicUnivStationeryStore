@@ -118,5 +118,26 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
             }
 
         }
+
+       protected void GrdRetrievalList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+       {
+           GrdRetrievalList.PageIndex = e.NewPageIndex;
+           GrdRetrievalList.DataBind();
+           foreach (GridViewRow r in GrdRetrievalList.Rows)
+           {
+               Label lblRetrieveFromRBD = (Label)r.FindControl("lblRetrievefromRBD");
+               Label lblQtyRetrieved = (Label)r.FindControl("lblQtyRetrieved");
+               Label lblQtyNeeded = (Label)r.FindControl("lblQtyNeeded");
+               if (lblRetrieveFromRBD.Text == "")
+               {
+                   lblQtyRetrieved.Text = lblQtyNeeded.Text;
+               }
+               else
+               {
+                   lblQtyRetrieved.Text = lblRetrieveFromRBD.Text;
+               }
+
+           }
+       }
     }
 }

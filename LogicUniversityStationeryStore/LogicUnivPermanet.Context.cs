@@ -13,10 +13,10 @@ namespace LogicUniversityStationeryStore
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LogicUniversityEntities3 : DbContext
+    public partial class LogicUniversityEntities4Perm : DbContext
     {
-        public LogicUniversityEntities3()
-            : base("name=LogicUniversityEntities3")
+        public LogicUniversityEntities4Perm()
+            : base("name=LogicUniversityEntities4Perm")
         {
         }
     
@@ -40,5 +40,6 @@ namespace LogicUniversityStationeryStore
         public virtual DbSet<StockAdjustment> StockAdjustments { get; set; }
         public virtual DbSet<StockAdjustmentDetail> StockAdjustmentDetails { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

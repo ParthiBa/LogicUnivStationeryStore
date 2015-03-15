@@ -19,7 +19,7 @@
             height: 90px;
         }
     .auto-style4 {
-        width: 420px;
+        width: 302px;
         height: 22px;
     }
     .auto-style5 {
@@ -44,6 +44,10 @@
         .auto-style10 {
             height: 90px;
         }
+        .auto-style11 {
+            width: 302px;
+            height: 100%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
@@ -58,15 +62,15 @@
 
     </tr>
     <tr>
-        <td class="auto-style3">
+        <td class="auto-style11">
 
             <asp:Label ID="lblCategory" runat="server" Text="Choose Category"></asp:Label>
 
-    <asp:DropDownList ID="ddlStationeryCategories" runat="server" AutoPostBack="True" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddlStationeryCategories_SelectedIndexChanged1" Height="16px" Width="74px"></asp:DropDownList>
+    <asp:DropDownList ID="ddlStationeryCategories" runat="server" AutoPostBack="True" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddlStationeryCategories_SelectedIndexChanged1" Height="26px" Width="189px"></asp:DropDownList>
             <br />
             <br />
             <asp:Label ID="lblCategory0" runat="server" Text="Choose Items"></asp:Label>
-    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True" Width="74px"></asp:DropDownList>
+    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True" Width="197px" Height="24px"></asp:DropDownList>
         </td>
         <td class="auto-style7">
     &nbsp;&nbsp;<span>

@@ -57,5 +57,10 @@ namespace LogicUniversity
 
 
         }
+
+        protected void CPGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

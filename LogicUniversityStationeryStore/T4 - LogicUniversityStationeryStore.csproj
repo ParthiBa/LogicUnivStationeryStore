@@ -43,6 +43,7 @@
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.2.1.3\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -1351,23 +1352,6 @@
     <Content Include="Store\CRUD\SupplierPages\ManageSupplierUI.aspx" />
     <Content Include="Store\MasterPage.Master" />
     <Content Include="Home\DepartMentMaster.master" />
-    <EntityDeploy Include="LogicUniversityEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LogicUniversityEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="LogicUniversityEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogicUniversityEntities.edmx</DependentUpon>
-      <LastGenOutput>LogicUniversityEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LogicUniversityEntities.edmx.diagram">
-      <DependentUpon>LogicUniversityEntities.edmx</DependentUpon>
-    </Content>
-    <Content Include="LogicUniversityEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogicUniversityEntities.edmx</DependentUpon>
-      <LastGenOutput>LogicUniversityEntities.cs</LastGenOutput>
-    </Content>
     <Content Include="MasterPage.Master" />
     <Content Include="Home\StationeryMaster.master" />
     <Content Include="DataSet1.xsc">
@@ -1391,6 +1375,38 @@
     </None>
     <Content Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Content>
+    <Content Include="fonts\Caviar Dreams Bold.ttf" />
+    <Content Include="fonts\CaviarDreams.ttf" />
+    <Content Include="fonts\CaviarDreams_BoldItalic.ttf" />
+    <Content Include="fonts\CaviarDreams_Italic.ttf" />
+    <EntityDeploy Include="LogicUnivPermanet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogicUnivPermanet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LogicUnivPermanet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogicUnivPermanet.edmx</DependentUpon>
+      <LastGenOutput>LogicUnivPermanet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LogicUnivPermanet.edmx.diagram">
+      <DependentUpon>LogicUnivPermanet.edmx</DependentUpon>
+    </Content>
+    <Content Include="LogicUnivPermanet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogicUnivPermanet.edmx</DependentUpon>
+      <LastGenOutput>LogicUnivPermanet.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReportSet.xsc">
+      <DependentUpon>ReportSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ReportSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ReportSet.xss">
+      <DependentUpon>ReportSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -1436,16 +1452,16 @@
     <Content Include="Store\Disbursement\ListOfApprovedRequestUI.aspx" />
     <Content Include="Store\Disbursement\RetrievalDetailUI.aspx" />
     <Content Include="Store\Disbursement\RetrievalListUI.aspx" />
-    <Content Include="Store\PurchaseOrder\ConfirmPurchaseOrder.aspx" />
+    <Content Include="Store\PurchaseOrder\ConfirmPurchaseOrderUI.aspx" />
     <Content Include="Store\PurchaseOrder\CreatePurchaseOrderUI.aspx" />
-    <Content Include="Store\PurchaseOrder\PurchaseOrderList.aspx" />
+    <Content Include="Store\PurchaseOrder\ListOfPurchaseOrderUI.aspx" />
     <Content Include="Store\Report\ReorderAnalysisUI.aspx" />
     <Content Include="Store\Report\ReorderReportUI.aspx" />
     <Content Include="Store\Report\RequisitionAnalysisUI.aspx" />
     <Content Include="Store\Report\RequisitionReportUI.aspx" />
+    <Content Include="Store\Report\WebForm1.aspx" />
     <Content Include="Store\StockAdjustment\ApproveStockAdjustment.aspx" />
     <Content Include="Store\StockAdjustment\CreateDiscrepUI.aspx" />
-    <Content Include="Store\PurchaseOrder\CreatePurOrdUI.aspx" />
     <Content Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx" />
     <Content Include="Store\StockAdjustment\DiscrepReportsUI.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1513,7 +1529,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="CollectionPoint.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -1529,7 +1545,6 @@
     <Compile Include="Controller\CreateAndUpdateDeptController.cs" />
     <Compile Include="Controller\DefaultController.cs" />
     <Compile Include="Controller\DelegateAuthorityController.cs" />
-    <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\DisbursementController.cs" />
     <Compile Include="Controller\LogInController.cs" />
     <Compile Include="Controller\NewAdjustmentController.cs" />
@@ -1539,11 +1554,9 @@
     <Compile Include="Controller\RequestDetailsController.cs" />
     <Compile Include="Controller\RequisitionTrendController.cs" />
     <Compile Include="Controller\RetrievalController.cs" />
-    <Compile Include="Controller\StationeryController.cs" />
     <Compile Include="Controller\StationeryCRUDController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\SupplierController.cs" />
     <Compile Include="Controller\SupplierCRUDController.cs" />
     <Compile Include="Controller\UpdateAdjustmentController.cs" />
     <Compile Include="Controller\UpdatePurchaseController.cs" />
@@ -1607,7 +1620,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
     <Compile Include="Dep\Delegation\AuthorisedListing.aspx.cs">
       <DependentUpon>AuthorisedListing.aspx</DependentUpon>
@@ -1667,13 +1680,15 @@
     </Compile>
     <Compile Include="Controller\UpdateCollectionPointController.cs" />
     <Compile Include="DisbursementList.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
+    <Compile Include="ENTITY\ReorderObj.cs" />
+    <Compile Include="ENTITY\RequisitionObj.cs" />
     <Compile Include="GCM.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\LinqHelper.cs" />
     <Compile Include="Helper\NotificationHelper.cs" />
@@ -1776,22 +1791,22 @@
       <DependentUpon>StationerySupervisorHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
-    <Compile Include="LogicUniversityEntities.Context.cs">
+    <Compile Include="LogicUnivPermanet.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogicUniversityEntities.Context.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LogicUniversityEntities.cs">
+    <Compile Include="LogicUnivPermanet.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
-    <Compile Include="LogicUniversityEntities.Designer.cs">
+    <Compile Include="LogicUnivPermanet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogicUniversityEntities.edmx</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.edmx</DependentUpon>
     </Compile>
     <Compile Include="LogInUI.aspx.cs">
       <DependentUpon>LogInUI.aspx</DependentUpon>
@@ -1808,6 +1823,35 @@
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="ENTITY\DeptInfor.cs" />
+    <Compile Include="PurchaseOrder.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderDetail.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Request.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestByDept.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestDetail.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stationery.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockAdjustment.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockAdjustmentDetail.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.cs">
       <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1842,30 +1886,6 @@
     </Compile>
     <Compile Include="Store\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="PurchaseOrder.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PurchaseOrderDetail.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Request.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RequestByDept.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RequestDetail.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Stationery.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StockAdjustment.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StockAdjustmentDetail.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Store\CRUD\Department\CreateDepartment.aspx.cs">
       <DependentUpon>CreateDepartment.aspx</DependentUpon>
@@ -1939,12 +1959,12 @@
     <Compile Include="Store\Disbursement\RetrievalListUI.aspx.designer.cs">
       <DependentUpon>RetrievalListUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\PurchaseOrder\ConfirmPurchaseOrder.aspx.cs">
-      <DependentUpon>ConfirmPurchaseOrder.aspx</DependentUpon>
+    <Compile Include="Store\PurchaseOrder\ConfirmPurchaseOrderUI.aspx.cs">
+      <DependentUpon>ConfirmPurchaseOrderUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\PurchaseOrder\ConfirmPurchaseOrder.aspx.designer.cs">
-      <DependentUpon>ConfirmPurchaseOrder.aspx</DependentUpon>
+    <Compile Include="Store\PurchaseOrder\ConfirmPurchaseOrderUI.aspx.designer.cs">
+      <DependentUpon>ConfirmPurchaseOrderUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\PurchaseOrder\CreatePurchaseOrderUI.aspx.cs">
       <DependentUpon>CreatePurchaseOrderUI.aspx</DependentUpon>
@@ -1953,12 +1973,12 @@
     <Compile Include="Store\PurchaseOrder\CreatePurchaseOrderUI.aspx.designer.cs">
       <DependentUpon>CreatePurchaseOrderUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\PurchaseOrder\PurchaseOrderList.aspx.cs">
-      <DependentUpon>PurchaseOrderList.aspx</DependentUpon>
+    <Compile Include="Store\PurchaseOrder\ListOfPurchaseOrderUI.aspx.cs">
+      <DependentUpon>ListOfPurchaseOrderUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\PurchaseOrder\PurchaseOrderList.aspx.designer.cs">
-      <DependentUpon>PurchaseOrderList.aspx</DependentUpon>
+    <Compile Include="Store\PurchaseOrder\ListOfPurchaseOrderUI.aspx.designer.cs">
+      <DependentUpon>ListOfPurchaseOrderUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Report\ReorderAnalysisUI.aspx.cs">
       <DependentUpon>ReorderAnalysisUI.aspx</DependentUpon>
@@ -1966,6 +1986,12 @@
     </Compile>
     <Compile Include="Store\Report\ReorderAnalysisUI.aspx.designer.cs">
       <DependentUpon>ReorderAnalysisUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\Report\ReorderRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReorderRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Store\Report\ReorderReportUI.aspx.cs">
       <DependentUpon>ReorderReportUI.aspx</DependentUpon>
@@ -1981,12 +2007,25 @@
     <Compile Include="Store\Report\RequisitionAnalysisUI.aspx.designer.cs">
       <DependentUpon>RequisitionAnalysisUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Store\Report\RequisitionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RequisitionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Store\Report\RequisitionReportUI.aspx.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Store\Report\RequisitionReportUI.aspx.designer.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\Report\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\Report\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\StockAdjustment\ApproveStockAdjustment.aspx.cs">
       <DependentUpon>ApproveStockAdjustment.aspx</DependentUpon>
@@ -2001,13 +2040,6 @@
     </Compile>
     <Compile Include="Store\StockAdjustment\CreateDiscrepUI.aspx.designer.cs">
       <DependentUpon>CreateDiscrepUI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\PurchaseOrder\CreatePurOrdUI.aspx.cs">
-      <DependentUpon>CreatePurOrdUI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\PurchaseOrder\CreatePurOrdUI.aspx.designer.cs">
-      <DependentUpon>CreatePurOrdUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\StockAdjustment\CreateStockAdjustmentReportUI.aspx.cs">
       <DependentUpon>CreateStockAdjustmentReportUI.aspx</DependentUpon>
@@ -2056,7 +2088,10 @@
       <DependentUpon>ListOfStockAdjustmentUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>LogicUniversityEntities.tt</DependentUpon>
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
     <Compile Include="test1.aspx.cs">
       <DependentUpon>test1.aspx</DependentUpon>
@@ -2094,6 +2129,14 @@
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Store\Report\ReorderRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReorderRep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Store\Report\RequisitionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RequisitionReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="testrp.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

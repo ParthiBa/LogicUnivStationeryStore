@@ -7,10 +7,10 @@ namespace LogicUniversityStationeryStore.DAO
 {
     public class EntityBroker 
     {
-        private static LogicUniversityEntities3 ctx = new LogicUniversityEntities3();
+        private static LogicUniversityEntities4Perm ctx = new LogicUniversityEntities4Perm();
 
-        private LogicUniversityEntities3 ctx2;
-        public static LogicUniversityEntities3 getMyEntities()
+        private LogicUniversityEntities4Perm ctx2;
+        public static LogicUniversityEntities4Perm getMyEntities()
         {
             return ctx;
         }

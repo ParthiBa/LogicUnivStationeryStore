@@ -108,5 +108,20 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
             faxNobox.Text = null;
             contactNamebox.Text = null;
         }
+
+            protected void codebox_SelectedIndexChanged(object sender, EventArgs e)
+            {string dcode= codebox.SelectedValue;
+            CreateAndUpdateDeptController create = new CreateAndUpdateDeptController();
+            DeptInfor d=create.retre(dcode);
+         
+                    codebox.Text = d.Code;
+                    namebox.Text = d.Name;
+                    Drop2.Text = d.HempName;
+                    contactNamebox.Text = d.ContactName;
+                    telNobox.Text = d.TelNo;
+                    faxNobox.Text = d.FaxNo;
+                    Drop1.Text =d.RempName;
+
+            }
     }
 }

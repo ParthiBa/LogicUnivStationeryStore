@@ -25,7 +25,7 @@ namespace LogicUniversityStationeryStore
         public string reviewedBy { get; set; }
         public Nullable<System.DateTime> reviewDate { get; set; }
         public string reviewReason { get; set; }
-        public string Showto { get; set; }
+        public string showTo { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Employee Employee1 { get; set; }

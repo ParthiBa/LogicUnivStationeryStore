@@ -27,12 +27,23 @@ namespace LogicUniversityStationeryStore.Controller
             String empDeptCode = e.First<String>();
             return empDeptCode;
         }
+        //for Retrieval Detail Page get original department code
+        public String getOriginalDepartmentCode(int delid)
+        {
+            var e = from dl in EntityBroker.getMyEntities().DisbursementLists
+                    where dl.id == delid
+                    select dl.deptCode;
+            String deptCode = e.First<String>();
+            return deptCode;
+            
+            
+        }
 
         //--Inserting New Request and New Request Detail and Updating--//
         public Request insertNewRequest(String empDeptCode, String empNo, int delId)
         {
             Request rq = new Request();
-            rq.dateOfApp = DateTime.Today;
+            rq.dateOfApp = DateTime.Today.AddDays(7);
             rq.deptCode = empDeptCode;
             rq.empNo = empNo;
             rq.status = "Approved";

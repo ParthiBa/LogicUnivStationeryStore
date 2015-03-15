@@ -9,6 +9,7 @@ namespace LogicUniversityStationeryStore.customControl
 {
     public partial class MonthYearControl : System.Web.UI.UserControl
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,22 +22,38 @@ namespace LogicUniversityStationeryStore.customControl
             }
         }
 
-
         protected void btnAddMY_Click(object sender, EventArgs e)
         {
-            String date = month.Text + year.Text;
-            ListBox1.Items.Add(new ListItem(date));
+            string dateText = month.SelectedItem.Text +" "+ year.Text;
+            string dateValue=month.SelectedItem.Value+" "+year.Text;
+            ListItem add = new ListItem(dateText, dateValue);
+            if (!listDate.Items.Contains(add))
+            {
+                listDate.Items.Add(add);
+            }
         }
 
         protected void btnRemoveMY_Click(object sender, EventArgs e)
         {
-            int SelItemCount = ListBox1.Items.Count;
+            int SelItemCount = listDate.Items.Count;
             for (int i = 0; i < SelItemCount; i++)
             {
-                ListBox1.Items.Remove(ListBox1.SelectedItem);
+               listDate.Items.Remove(listDate.SelectedItem);
             }
         }
 
-   
+        public string[] getDate()
+        {
+
+            string[] date =new string[listDate.Items.Count];
+                for (int i = 0; i <listDate.Items.Count; i++)
+                {
+                    string add = listDate.Items[i].Value;
+                    if(add!="")
+                    date[i] =add;
+                }
+            return date;
+        }
+      
     }
 }

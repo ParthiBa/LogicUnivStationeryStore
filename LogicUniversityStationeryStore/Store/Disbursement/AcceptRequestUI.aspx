@@ -9,7 +9,7 @@
             <td class="auto-style3">
     <asp:Label ID="Label2" runat="server" Text="Department Name: "></asp:Label>     
     <asp:Label ID="lblDeptName" runat="server" OnDataBinding="Page_Load" style="background-color: #99CCFF"></asp:Label></td> 
-            <td style="text-align:center" class="auto-style2">Delivery Date:<asp:TextBox ID="boxDeliverDate" runat="server"  CssClass="mydatepicker" ></asp:TextBox><asp:Label ID="Label3" runat="server"></asp:Label></td>
+            <td style="text-align:center" class="auto-style2">Delivery Date:<asp:TextBox ID="boxDeliverDate" runat="server" CssClass="datepicker"></asp:TextBox><asp:Label ID="Label3" runat="server"></asp:Label></td>
         </tr>
          <tr><//tr>
          <tr>
@@ -46,17 +46,4 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="BtnBack" runat="server" Text="Back" OnClick="BtnBack_Click" />
     </p>
-</asp:Content>
-<asp:Content ID="cont" runat="server" ContentPlaceHolderID="StationeryHead">
-    <script>
-
-        $(function () {
-
-            $(".mydatepicker").datepicker();
-
-        });
-
-    </script>
-
-
 </asp:Content>

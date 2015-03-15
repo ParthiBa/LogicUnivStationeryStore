@@ -141,9 +141,9 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                 if (actualQty < NeededQty)
                 {
                     if(count == 0)//for only one request record saved purpose
-                    {
-                    empDeptCode = rtController.getDepartmentOfLoginPerson(empNo);//get login employee department to assign into Request Table
+                    {                  
                     int delId = rdb.deliveryID;//for checking condition to create new request
+                    empDeptCode = rtController.getOriginalDepartmentCode(delId);//get login employee department to assign into Request Table
                         
                     Request newr = rtController.insertNewRequest(empDeptCode, empNo, delId);
                     EntityBroker.getMyEntities().Requests.Add(newr);                    

@@ -27,15 +27,40 @@
     <asp:ContentPlaceHolder ID="Mainhead" runat="server">
     </asp:ContentPlaceHolder>
         <style type="text/css">
+            .name:hover
+            {
+                sca
+            }
+            .aspNetDisabled.logoutClass
+            {
+                display:none;
+
+            }
+            .myfontlass
+            {
+
+                font-family:
+            }
+            .logoutClass
+            {
+                position:relative;
+                left:656px;
+
+            }
+            .logoutClass:hover{
+
+                background-color:blueviolet;
+                color:white;
+            }
         body {
-            background: gray;
+            /*background: gray;*/
             height: 18px;
             width: 100%;
-            background:url('/Images/bg.jpg') ;
+            /*background:url('/Images/bg.jpg') ;*/
         }
         #main{
            
-            background:url('/Images/bg.jpg') ;
+            /*background:url('/Images/bg.jpg') ;*/
         }
          #footer {
             position:absolute;
@@ -46,10 +71,17 @@
             text-align:center
             }
             .auto-style1 {
-                width: 100%;
+                width: 144%;
                 vertical-align:middle;
                 color: #666699;
-                background-color:gray;
+                background-color:white;
+            }
+            .auto-style2 {
+                width: 144%;
+            }
+            .auto-style3 {
+                height: 100%;
+                width: 144%;
             }
     </style>
  
@@ -66,14 +98,13 @@
                         </td>
                  </tr>
                  <tr>  
-                        <td style="text-align:left">
+                        <td style="text-align:left" class="auto-style2">
                            <asp:Label ID="Label1" runat="server" ForeColor="Orange" Text="Welcome ,"></asp:Label>
-                        &nbsp;<asp:Label ID="lblLoginName" runat="server" Text="Guest"></asp:Label>! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:LinkButton ID="lbLogOut" runat="server" OnClick="lbLogOut_Click" Visible="False">LogOut</asp:LinkButton>
+                        &nbsp;<asp:Label ID="lblLoginName" runat="server" Text="Guest" CssClass="name"></asp:Label>                    <asp:LinkButton ID="lbLogOut" runat="server" OnClick="lbLogOut_Click" Visible="False" CssClass="logoutClass">LogOut</asp:LinkButton>
                        </td>
                  </tr>                         
                  <tr>
-                    <td  style ="width:100%;height:100%;text-align:center; vertical-align:middle">
+                    <td  style ="text-align:center; vertical-align:middle" class="auto-style3">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </td>

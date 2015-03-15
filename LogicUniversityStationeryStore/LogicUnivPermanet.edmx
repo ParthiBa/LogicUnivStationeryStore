@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LogicUniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LogicUniversityModelPerm.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CollectionPoint">
           <Key>
             <PropertyRef Name="id" />
@@ -153,7 +153,7 @@
           <Property Name="reviewedBy" Type="nvarchar" MaxLength="15" />
           <Property Name="reviewDate" Type="date" />
           <Property Name="reviewReason" Type="nvarchar(max)" />
-          <Property Name="Showto" Type="varchar" MaxLength="10" />
+          <Property Name="showTo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="StockAdjustmentDetail">
           <Key>
@@ -179,7 +179,17 @@
           <Property Name="faxNo" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="80" />
         </EntityType>
-        <Association Name="FK__Collectio__clerk__173876EA">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Collectio__clerk__6383C8BA">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="CollectionPoint" Type="Self.CollectionPoint" Multiplicity="*" />
           <ReferentialConstraint>
@@ -191,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Departmen__deptH__1273C1CD">
+        <Association Name="FK__Departmen__deptH__5EBF139D">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
@@ -203,7 +213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Departmen__deptR__1367E606">
+        <Association Name="FK__Departmen__deptR__5FB337D6">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,7 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__clerk__30F848ED">
+        <Association Name="FK__Disbursem__clerk__3864608B">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -227,7 +237,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__colle__31EC6D26">
+        <Association Name="FK__Disbursem__colle__395884C4">
           <End Role="CollectionPoint" Type="Self.CollectionPoint" Multiplicity="0..1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -239,7 +249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__deptC__300424B4">
+        <Association Name="FK__Disbursem__deptC__37703C52">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -251,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__deptCo__145C0A3F">
+        <Association Name="FK__Employee__deptCo__60A75C0F">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -263,7 +273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GCM__empNo__4F7CD00D">
+        <Association Name="FK__GCM__empNo__1BC821DD">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="GCM" Type="Self.GCM" Multiplicity="*" />
           <ReferentialConstraint>
@@ -275,7 +285,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inventory__stati__22AA2996">
+        <Association Name="FK__Inventory__stati__6EF57B66">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -287,7 +297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__empNo__47DBAE45">
+        <Association Name="FK__PurchaseO__empNo__14270015">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -299,7 +309,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__order__4BAC3F29">
+        <Association Name="FK__PurchaseO__order__17F790F9">
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="1" />
           <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -311,7 +321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__stati__4CA06362">
+        <Association Name="FK__PurchaseO__stati__18EBB532">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -323,7 +333,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__suppl__48CFD27E">
+        <Association Name="FK__PurchaseO__suppl__151B244E">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -335,7 +345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__deliver__37A5467C">
+        <Association Name="FK__Request__deliver__3F115E1A">
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -347,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__deptCod__38996AB5">
+        <Association Name="FK__Request__deptCod__40058253">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -359,7 +369,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__empNo__398D8EEE">
+        <Association Name="FK__Request__empNo__40F9A68C">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -371,7 +381,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestBy__deliv__4316F928">
+        <Association Name="FK__RequestBy__deliv__4A8310C6">
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="1" />
           <End Role="RequestByDept" Type="Self.RequestByDept" Multiplicity="*" />
           <ReferentialConstraint>
@@ -383,7 +393,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestBy__stati__4222D4EF">
+        <Association Name="FK__RequestBy__stati__498EEC8D">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="RequestByDept" Type="Self.RequestByDept" Multiplicity="*" />
           <ReferentialConstraint>
@@ -395,7 +405,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestDe__reque__3C69FB99">
+        <Association Name="FK__RequestDe__reque__43D61337">
           <End Role="Request" Type="Self.Request" Multiplicity="1" />
           <End Role="RequestDetail" Type="Self.RequestDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -407,7 +417,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestDe__stati__3D5E1FD2">
+        <Association Name="FK__RequestDe__stati__44CA3770">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="RequestDetail" Type="Self.RequestDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -419,7 +429,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1BFD2C07">
+        <Association Name="FK__Stationer__suppl__68487DD7">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -431,7 +441,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1CF15040">
+        <Association Name="FK__Stationer__suppl__693CA210">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -443,7 +453,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1DE57479">
+        <Association Name="FK__Stationer__suppl__6A30C649">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -455,7 +465,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__repor__2A4B4B5E">
+        <Association Name="FK__StockAdju__repor__76969D2E">
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="1" />
           <End Role="StockAdjustmentDetail" Type="Self.StockAdjustmentDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -467,7 +477,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__revie__276EDEB3">
+        <Association Name="FK__StockAdju__revie__73BA3083">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -479,7 +489,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__stati__2B3F6F97">
+        <Association Name="FK__StockAdju__stati__778AC167">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="StockAdjustmentDetail" Type="Self.StockAdjustmentDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -491,7 +501,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__submi__267ABA7A">
+        <Association Name="FK__StockAdju__submi__72C60C4A">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -503,7 +513,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LogicUniversityModelStoreContainer">
+        <EntityContainer Name="LogicUniversityModelPermStoreContainer">
           <EntitySet Name="CollectionPoint" EntityType="Self.CollectionPoint" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DisbursementList" EntityType="Self.DisbursementList" Schema="dbo" store:Type="Tables" />
@@ -519,111 +529,112 @@
           <EntitySet Name="StockAdjustment" EntityType="Self.StockAdjustment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockAdjustmentDetail" EntityType="Self.StockAdjustmentDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Collectio__clerk__173876EA" Association="Self.FK__Collectio__clerk__173876EA">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Collectio__clerk__6383C8BA" Association="Self.FK__Collectio__clerk__6383C8BA">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="CollectionPoint" EntitySet="CollectionPoint" />
           </AssociationSet>
-          <AssociationSet Name="FK__Departmen__deptH__1273C1CD" Association="Self.FK__Departmen__deptH__1273C1CD">
+          <AssociationSet Name="FK__Departmen__deptH__5EBF139D" Association="Self.FK__Departmen__deptH__5EBF139D">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Department" EntitySet="Department" />
           </AssociationSet>
-          <AssociationSet Name="FK__Departmen__deptR__1367E606" Association="Self.FK__Departmen__deptR__1367E606">
+          <AssociationSet Name="FK__Departmen__deptR__5FB337D6" Association="Self.FK__Departmen__deptR__5FB337D6">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Department" EntitySet="Department" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__clerk__30F848ED" Association="Self.FK__Disbursem__clerk__30F848ED">
+          <AssociationSet Name="FK__Disbursem__clerk__3864608B" Association="Self.FK__Disbursem__clerk__3864608B">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="DisbursementList" EntitySet="DisbursementList" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__colle__31EC6D26" Association="Self.FK__Disbursem__colle__31EC6D26">
+          <AssociationSet Name="FK__Disbursem__colle__395884C4" Association="Self.FK__Disbursem__colle__395884C4">
             <End Role="CollectionPoint" EntitySet="CollectionPoint" />
             <End Role="DisbursementList" EntitySet="DisbursementList" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__deptC__300424B4" Association="Self.FK__Disbursem__deptC__300424B4">
+          <AssociationSet Name="FK__Disbursem__deptC__37703C52" Association="Self.FK__Disbursem__deptC__37703C52">
             <End Role="Department" EntitySet="Department" />
             <End Role="DisbursementList" EntitySet="DisbursementList" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__deptCo__145C0A3F" Association="Self.FK__Employee__deptCo__145C0A3F">
+          <AssociationSet Name="FK__Employee__deptCo__60A75C0F" Association="Self.FK__Employee__deptCo__60A75C0F">
             <End Role="Department" EntitySet="Department" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK__GCM__empNo__4F7CD00D" Association="Self.FK__GCM__empNo__4F7CD00D">
+          <AssociationSet Name="FK__GCM__empNo__1BC821DD" Association="Self.FK__GCM__empNo__1BC821DD">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="GCM" EntitySet="GCM" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inventory__stati__22AA2996" Association="Self.FK__Inventory__stati__22AA2996">
+          <AssociationSet Name="FK__Inventory__stati__6EF57B66" Association="Self.FK__Inventory__stati__6EF57B66">
             <End Role="Stationery" EntitySet="Stationery" />
             <End Role="Inventory" EntitySet="Inventory" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__empNo__47DBAE45" Association="Self.FK__PurchaseO__empNo__47DBAE45">
+          <AssociationSet Name="FK__PurchaseO__empNo__14270015" Association="Self.FK__PurchaseO__empNo__14270015">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__order__4BAC3F29" Association="Self.FK__PurchaseO__order__4BAC3F29">
+          <AssociationSet Name="FK__PurchaseO__order__17F790F9" Association="Self.FK__PurchaseO__order__17F790F9">
             <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
             <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__stati__4CA06362" Association="Self.FK__PurchaseO__stati__4CA06362">
+          <AssociationSet Name="FK__PurchaseO__stati__18EBB532" Association="Self.FK__PurchaseO__stati__18EBB532">
             <End Role="Stationery" EntitySet="Stationery" />
             <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__suppl__48CFD27E" Association="Self.FK__PurchaseO__suppl__48CFD27E">
+          <AssociationSet Name="FK__PurchaseO__suppl__151B244E" Association="Self.FK__PurchaseO__suppl__151B244E">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__deliver__37A5467C" Association="Self.FK__Request__deliver__37A5467C">
+          <AssociationSet Name="FK__Request__deliver__3F115E1A" Association="Self.FK__Request__deliver__3F115E1A">
             <End Role="DisbursementList" EntitySet="DisbursementList" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__deptCod__38996AB5" Association="Self.FK__Request__deptCod__38996AB5">
+          <AssociationSet Name="FK__Request__deptCod__40058253" Association="Self.FK__Request__deptCod__40058253">
             <End Role="Department" EntitySet="Department" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__empNo__398D8EEE" Association="Self.FK__Request__empNo__398D8EEE">
+          <AssociationSet Name="FK__Request__empNo__40F9A68C" Association="Self.FK__Request__empNo__40F9A68C">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestBy__deliv__4316F928" Association="Self.FK__RequestBy__deliv__4316F928">
+          <AssociationSet Name="FK__RequestBy__deliv__4A8310C6" Association="Self.FK__RequestBy__deliv__4A8310C6">
             <End Role="DisbursementList" EntitySet="DisbursementList" />
             <End Role="RequestByDept" EntitySet="RequestByDept" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestBy__stati__4222D4EF" Association="Self.FK__RequestBy__stati__4222D4EF">
+          <AssociationSet Name="FK__RequestBy__stati__498EEC8D" Association="Self.FK__RequestBy__stati__498EEC8D">
             <End Role="Stationery" EntitySet="Stationery" />
             <End Role="RequestByDept" EntitySet="RequestByDept" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestDe__reque__3C69FB99" Association="Self.FK__RequestDe__reque__3C69FB99">
+          <AssociationSet Name="FK__RequestDe__reque__43D61337" Association="Self.FK__RequestDe__reque__43D61337">
             <End Role="Request" EntitySet="Request" />
             <End Role="RequestDetail" EntitySet="RequestDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestDe__stati__3D5E1FD2" Association="Self.FK__RequestDe__stati__3D5E1FD2">
+          <AssociationSet Name="FK__RequestDe__stati__44CA3770" Association="Self.FK__RequestDe__stati__44CA3770">
             <End Role="Stationery" EntitySet="Stationery" />
             <End Role="RequestDetail" EntitySet="RequestDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1BFD2C07" Association="Self.FK__Stationer__suppl__1BFD2C07">
+          <AssociationSet Name="FK__Stationer__suppl__68487DD7" Association="Self.FK__Stationer__suppl__68487DD7">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Stationery" EntitySet="Stationery" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1CF15040" Association="Self.FK__Stationer__suppl__1CF15040">
+          <AssociationSet Name="FK__Stationer__suppl__693CA210" Association="Self.FK__Stationer__suppl__693CA210">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Stationery" EntitySet="Stationery" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1DE57479" Association="Self.FK__Stationer__suppl__1DE57479">
+          <AssociationSet Name="FK__Stationer__suppl__6A30C649" Association="Self.FK__Stationer__suppl__6A30C649">
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Stationery" EntitySet="Stationery" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__repor__2A4B4B5E" Association="Self.FK__StockAdju__repor__2A4B4B5E">
+          <AssociationSet Name="FK__StockAdju__repor__76969D2E" Association="Self.FK__StockAdju__repor__76969D2E">
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
             <End Role="StockAdjustmentDetail" EntitySet="StockAdjustmentDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__revie__276EDEB3" Association="Self.FK__StockAdju__revie__276EDEB3">
+          <AssociationSet Name="FK__StockAdju__revie__73BA3083" Association="Self.FK__StockAdju__revie__73BA3083">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__stati__2B3F6F97" Association="Self.FK__StockAdju__stati__2B3F6F97">
+          <AssociationSet Name="FK__StockAdju__stati__778AC167" Association="Self.FK__StockAdju__stati__778AC167">
             <End Role="Stationery" EntitySet="Stationery" />
             <End Role="StockAdjustmentDetail" EntitySet="StockAdjustmentDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__submi__267ABA7A" Association="Self.FK__StockAdju__submi__267ABA7A">
+          <AssociationSet Name="FK__StockAdju__submi__72C60C4A" Association="Self.FK__StockAdju__submi__72C60C4A">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="StockAdjustment" EntitySet="StockAdjustment" />
           </AssociationSet>
@@ -631,7 +642,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LogicUniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="LogicUniversityModelPerm" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CollectionPoint">
           <Key>
             <PropertyRef Name="id" />
@@ -640,8 +651,8 @@
           <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="timeSlot" Type="Time" Nullable="false" Precision="7" />
           <Property Name="clerkEmpNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Collectio__clerk__173876EA" FromRole="CollectionPoint" ToRole="Employee" />
-          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__colle__31EC6D26" FromRole="CollectionPoint" ToRole="DisbursementList" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Collectio__clerk__6383C8BA" FromRole="CollectionPoint" ToRole="Employee" />
+          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__colle__7E37BEF6" FromRole="CollectionPoint" ToRole="DisbursementList" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -655,11 +666,11 @@
           <Property Name="telNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="faxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="collectionPt" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Departmen__deptH__1273C1CD" FromRole="Department" ToRole="Employee" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK__Departmen__deptR__1367E606" FromRole="Department" ToRole="Employee" />
-          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__deptC__300424B4" FromRole="Department" ToRole="DisbursementList" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__deptCo__145C0A3F" FromRole="Department" ToRole="Employee" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__deptCod__38996AB5" FromRole="Department" ToRole="Request" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Departmen__deptH__5EBF139D" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__Departmen__deptR__5FB337D6" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__deptC__7C4F7684" FromRole="Department" ToRole="DisbursementList" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__deptCo__60A75C0F" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__deptCod__04E4BC85" FromRole="Department" ToRole="Request" />
         </EntityType>
         <EntityType Name="DisbursementList">
           <Key>
@@ -671,11 +682,11 @@
           <Property Name="deliveryDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="clerkEmpNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CollectionPoint" Relationship="Self.FK__Disbursem__colle__31EC6D26" FromRole="DisbursementList" ToRole="CollectionPoint" />
-          <NavigationProperty Name="Department" Relationship="Self.FK__Disbursem__deptC__300424B4" FromRole="DisbursementList" ToRole="Department" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Disbursem__clerk__30F848ED" FromRole="DisbursementList" ToRole="Employee" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__deliver__37A5467C" FromRole="DisbursementList" ToRole="Request" />
-          <NavigationProperty Name="RequestByDepts" Relationship="Self.FK__RequestBy__deliv__4316F928" FromRole="DisbursementList" ToRole="RequestByDept" />
+          <NavigationProperty Name="CollectionPoint" Relationship="Self.FK__Disbursem__colle__7E37BEF6" FromRole="DisbursementList" ToRole="CollectionPoint" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Disbursem__deptC__7C4F7684" FromRole="DisbursementList" ToRole="Department" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Disbursem__clerk__7D439ABD" FromRole="DisbursementList" ToRole="Employee" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__deliver__03F0984C" FromRole="DisbursementList" ToRole="Request" />
+          <NavigationProperty Name="RequestByDepts" Relationship="Self.FK__RequestBy__deliv__0F624AF8" FromRole="DisbursementList" ToRole="RequestByDept" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -691,16 +702,16 @@
           <Property Name="designation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="authorizeStart" Type="DateTime" Precision="0" />
           <Property Name="authorizeEnd" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="CollectionPoints" Relationship="Self.FK__Collectio__clerk__173876EA" FromRole="Employee" ToRole="CollectionPoint" />
-          <NavigationProperty Name="Departments" Relationship="Self.FK__Departmen__deptH__1273C1CD" FromRole="Employee" ToRole="Department" />
-          <NavigationProperty Name="Departments1" Relationship="Self.FK__Departmen__deptR__1367E606" FromRole="Employee" ToRole="Department" />
-          <NavigationProperty Name="Department" Relationship="Self.FK__Employee__deptCo__145C0A3F" FromRole="Employee" ToRole="Department" />
-          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__clerk__30F848ED" FromRole="Employee" ToRole="DisbursementList" />
-          <NavigationProperty Name="GCMs" Relationship="Self.FK__GCM__empNo__4F7CD00D" FromRole="Employee" ToRole="GCM" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK__PurchaseO__empNo__47DBAE45" FromRole="Employee" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__empNo__398D8EEE" FromRole="Employee" ToRole="Request" />
-          <NavigationProperty Name="StockAdjustments" Relationship="Self.FK__StockAdju__revie__276EDEB3" FromRole="Employee" ToRole="StockAdjustment" />
-          <NavigationProperty Name="StockAdjustments1" Relationship="Self.FK__StockAdju__submi__267ABA7A" FromRole="Employee" ToRole="StockAdjustment" />
+          <NavigationProperty Name="CollectionPoints" Relationship="Self.FK__Collectio__clerk__6383C8BA" FromRole="Employee" ToRole="CollectionPoint" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK__Departmen__deptH__5EBF139D" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Departments1" Relationship="Self.FK__Departmen__deptR__5FB337D6" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Employee__deptCo__60A75C0F" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="DisbursementLists" Relationship="Self.FK__Disbursem__clerk__7D439ABD" FromRole="Employee" ToRole="DisbursementList" />
+          <NavigationProperty Name="GCMs" Relationship="Self.FK__GCM__empNo__1BC821DD" FromRole="Employee" ToRole="GCM" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK__PurchaseO__empNo__14270015" FromRole="Employee" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Request__empNo__05D8E0BE" FromRole="Employee" ToRole="Request" />
+          <NavigationProperty Name="StockAdjustments" Relationship="Self.FK__StockAdju__revie__73BA3083" FromRole="Employee" ToRole="StockAdjustment" />
+          <NavigationProperty Name="StockAdjustments1" Relationship="Self.FK__StockAdju__submi__72C60C4A" FromRole="Employee" ToRole="StockAdjustment" />
         </EntityType>
         <EntityType Name="GCM">
           <Key>
@@ -709,7 +720,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="empNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="registrationID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__GCM__empNo__4F7CD00D" FromRole="GCM" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__GCM__empNo__1BC821DD" FromRole="GCM" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -719,7 +730,7 @@
           <Property Name="quantity" Type="Int32" />
           <Property Name="availableQty" Type="Int32" />
           <Property Name="binNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Stationery" Relationship="Self.FK__Inventory__stati__22AA2996" FromRole="Inventory" ToRole="Stationery" />
+          <NavigationProperty Name="Stationery" Relationship="Self.FK__Inventory__stati__6EF57B66" FromRole="Inventory" ToRole="Stationery" />
         </EntityType>
         <EntityType Name="PurchaseOrder">
           <Key>
@@ -732,9 +743,9 @@
           <Property Name="empNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="supplierCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__PurchaseO__empNo__47DBAE45" FromRole="PurchaseOrder" ToRole="Employee" />
-          <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK__PurchaseO__order__4BAC3F29" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
-          <NavigationProperty Name="Supplier" Relationship="Self.FK__PurchaseO__suppl__48CFD27E" FromRole="PurchaseOrder" ToRole="Supplier" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__PurchaseO__empNo__14270015" FromRole="PurchaseOrder" ToRole="Employee" />
+          <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK__PurchaseO__order__17F790F9" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK__PurchaseO__suppl__151B244E" FromRole="PurchaseOrder" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="PurchaseOrderDetail">
           <Key>
@@ -746,8 +757,8 @@
           <Property Name="requestedQuantity" Type="Int32" Nullable="false" />
           <Property Name="receivedQuantity" Type="Int32" />
           <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <NavigationProperty Name="PurchaseOrder" Relationship="Self.FK__PurchaseO__order__4BAC3F29" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="Stationery" Relationship="Self.FK__PurchaseO__stati__4CA06362" FromRole="PurchaseOrderDetail" ToRole="Stationery" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="Self.FK__PurchaseO__order__17F790F9" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Stationery" Relationship="Self.FK__PurchaseO__stati__18EBB532" FromRole="PurchaseOrderDetail" ToRole="Stationery" />
         </EntityType>
         <EntityType Name="Request">
           <Key>
@@ -761,10 +772,10 @@
           <Property Name="lastUpdate" Type="DateTime" Precision="0" />
           <Property Name="deliveryID" Type="Int32" />
           <Property Name="rejectedReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Department" Relationship="Self.FK__Request__deptCod__38996AB5" FromRole="Request" ToRole="Department" />
-          <NavigationProperty Name="DisbursementList" Relationship="Self.FK__Request__deliver__37A5467C" FromRole="Request" ToRole="DisbursementList" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Request__empNo__398D8EEE" FromRole="Request" ToRole="Employee" />
-          <NavigationProperty Name="RequestDetails" Relationship="Self.FK__RequestDe__reque__3C69FB99" FromRole="Request" ToRole="RequestDetail" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Request__deptCod__04E4BC85" FromRole="Request" ToRole="Department" />
+          <NavigationProperty Name="DisbursementList" Relationship="Self.FK__Request__deliver__03F0984C" FromRole="Request" ToRole="DisbursementList" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Request__empNo__05D8E0BE" FromRole="Request" ToRole="Employee" />
+          <NavigationProperty Name="RequestDetails" Relationship="Self.FK__RequestDe__reque__08B54D69" FromRole="Request" ToRole="RequestDetail" />
         </EntityType>
         <EntityType Name="RequestByDept">
           <Key>
@@ -776,8 +787,8 @@
           <Property Name="neededQuantity" Type="Int32" Nullable="false" />
           <Property Name="retrievedQuantity" Type="Int32" />
           <Property Name="disbursedQuantity" Type="Int32" />
-          <NavigationProperty Name="DisbursementList" Relationship="Self.FK__RequestBy__deliv__4316F928" FromRole="RequestByDept" ToRole="DisbursementList" />
-          <NavigationProperty Name="Stationery" Relationship="Self.FK__RequestBy__stati__4222D4EF" FromRole="RequestByDept" ToRole="Stationery" />
+          <NavigationProperty Name="DisbursementList" Relationship="Self.FK__RequestBy__deliv__0F624AF8" FromRole="RequestByDept" ToRole="DisbursementList" />
+          <NavigationProperty Name="Stationery" Relationship="Self.FK__RequestBy__stati__0E6E26BF" FromRole="RequestByDept" ToRole="Stationery" />
         </EntityType>
         <EntityType Name="RequestDetail">
           <Key>
@@ -787,8 +798,8 @@
           <Property Name="requestID" Type="Int32" Nullable="false" />
           <Property Name="stationeryCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="neededQuantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Request" Relationship="Self.FK__RequestDe__reque__3C69FB99" FromRole="RequestDetail" ToRole="Request" />
-          <NavigationProperty Name="Stationery" Relationship="Self.FK__RequestDe__stati__3D5E1FD2" FromRole="RequestDetail" ToRole="Stationery" />
+          <NavigationProperty Name="Request" Relationship="Self.FK__RequestDe__reque__08B54D69" FromRole="RequestDetail" ToRole="Request" />
+          <NavigationProperty Name="Stationery" Relationship="Self.FK__RequestDe__stati__09A971A2" FromRole="RequestDetail" ToRole="Stationery" />
         </EntityType>
         <EntityType Name="Stationery">
           <Key>
@@ -806,14 +817,14 @@
           <Property Name="supplier1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="supplier2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="supplier3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__stati__22AA2996" FromRole="Stationery" ToRole="Inventory" />
-          <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK__PurchaseO__stati__4CA06362" FromRole="Stationery" ToRole="PurchaseOrderDetail" />
-          <NavigationProperty Name="RequestByDepts" Relationship="Self.FK__RequestBy__stati__4222D4EF" FromRole="Stationery" ToRole="RequestByDept" />
-          <NavigationProperty Name="RequestDetails" Relationship="Self.FK__RequestDe__stati__3D5E1FD2" FromRole="Stationery" ToRole="RequestDetail" />
-          <NavigationProperty Name="Supplier" Relationship="Self.FK__Stationer__suppl__1BFD2C07" FromRole="Stationery" ToRole="Supplier" />
-          <NavigationProperty Name="Supplier4" Relationship="Self.FK__Stationer__suppl__1CF15040" FromRole="Stationery" ToRole="Supplier" />
-          <NavigationProperty Name="Supplier5" Relationship="Self.FK__Stationer__suppl__1DE57479" FromRole="Stationery" ToRole="Supplier" />
-          <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__stati__2B3F6F97" FromRole="Stationery" ToRole="StockAdjustmentDetail" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__stati__6EF57B66" FromRole="Stationery" ToRole="Inventory" />
+          <NavigationProperty Name="PurchaseOrderDetails" Relationship="Self.FK__PurchaseO__stati__18EBB532" FromRole="Stationery" ToRole="PurchaseOrderDetail" />
+          <NavigationProperty Name="RequestByDepts" Relationship="Self.FK__RequestBy__stati__0E6E26BF" FromRole="Stationery" ToRole="RequestByDept" />
+          <NavigationProperty Name="RequestDetails" Relationship="Self.FK__RequestDe__stati__09A971A2" FromRole="Stationery" ToRole="RequestDetail" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK__Stationer__suppl__68487DD7" FromRole="Stationery" ToRole="Supplier" />
+          <NavigationProperty Name="Supplier4" Relationship="Self.FK__Stationer__suppl__693CA210" FromRole="Stationery" ToRole="Supplier" />
+          <NavigationProperty Name="Supplier5" Relationship="Self.FK__Stationer__suppl__6A30C649" FromRole="Stationery" ToRole="Supplier" />
+          <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__stati__778AC167" FromRole="Stationery" ToRole="StockAdjustmentDetail" />
         </EntityType>
         <EntityType Name="StockAdjustment">
           <Key>
@@ -825,10 +836,10 @@
           <Property Name="reviewedBy" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="reviewDate" Type="DateTime" Precision="0" />
           <Property Name="reviewReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__StockAdju__revie__276EDEB3" FromRole="StockAdjustment" ToRole="Employee" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK__StockAdju__submi__267ABA7A" FromRole="StockAdjustment" ToRole="Employee" />
-          <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__repor__2A4B4B5E" FromRole="StockAdjustment" ToRole="StockAdjustmentDetail" />
-          <Property Name="Showto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="showTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__StockAdju__revie__73BA3083" FromRole="StockAdjustment" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__StockAdju__submi__72C60C4A" FromRole="StockAdjustment" ToRole="Employee" />
+          <NavigationProperty Name="StockAdjustmentDetails" Relationship="Self.FK__StockAdju__repor__76969D2E" FromRole="StockAdjustment" ToRole="StockAdjustmentDetail" />
         </EntityType>
         <EntityType Name="StockAdjustmentDetail">
           <Key>
@@ -840,8 +851,8 @@
           <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Stationery" Relationship="Self.FK__StockAdju__stati__2B3F6F97" FromRole="StockAdjustmentDetail" ToRole="Stationery" />
-          <NavigationProperty Name="StockAdjustment" Relationship="Self.FK__StockAdju__repor__2A4B4B5E" FromRole="StockAdjustmentDetail" ToRole="StockAdjustment" />
+          <NavigationProperty Name="Stationery" Relationship="Self.FK__StockAdju__stati__778AC167" FromRole="StockAdjustmentDetail" ToRole="Stationery" />
+          <NavigationProperty Name="StockAdjustment" Relationship="Self.FK__StockAdju__repor__76969D2E" FromRole="StockAdjustmentDetail" ToRole="StockAdjustment" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -855,12 +866,22 @@
           <Property Name="telNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="faxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK__PurchaseO__suppl__48CFD27E" FromRole="Supplier" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="Stationeries" Relationship="Self.FK__Stationer__suppl__1BFD2C07" FromRole="Supplier" ToRole="Stationery" />
-          <NavigationProperty Name="Stationeries1" Relationship="Self.FK__Stationer__suppl__1CF15040" FromRole="Supplier" ToRole="Stationery" />
-          <NavigationProperty Name="Stationeries2" Relationship="Self.FK__Stationer__suppl__1DE57479" FromRole="Supplier" ToRole="Stationery" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="Self.FK__PurchaseO__suppl__151B244E" FromRole="Supplier" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Stationeries" Relationship="Self.FK__Stationer__suppl__68487DD7" FromRole="Supplier" ToRole="Stationery" />
+          <NavigationProperty Name="Stationeries1" Relationship="Self.FK__Stationer__suppl__693CA210" FromRole="Supplier" ToRole="Stationery" />
+          <NavigationProperty Name="Stationeries2" Relationship="Self.FK__Stationer__suppl__6A30C649" FromRole="Supplier" ToRole="Stationery" />
         </EntityType>
-        <Association Name="FK__Collectio__clerk__173876EA">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Collectio__clerk__6383C8BA">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="CollectionPoint" Type="Self.CollectionPoint" Multiplicity="*" />
           <ReferentialConstraint>
@@ -872,7 +893,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__colle__31EC6D26">
+        <Association Name="FK__Disbursem__colle__7E37BEF6">
           <End Role="CollectionPoint" Type="Self.CollectionPoint" Multiplicity="0..1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -884,7 +905,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Departmen__deptH__1273C1CD">
+        <Association Name="FK__Departmen__deptH__5EBF139D">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
@@ -896,7 +917,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Departmen__deptR__1367E606">
+        <Association Name="FK__Departmen__deptR__5FB337D6">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
           <ReferentialConstraint>
@@ -908,7 +929,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__deptC__300424B4">
+        <Association Name="FK__Disbursem__deptC__7C4F7684">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -920,7 +941,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__deptCo__145C0A3F">
+        <Association Name="FK__Employee__deptCo__60A75C0F">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -932,7 +953,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__deptCod__38996AB5">
+        <Association Name="FK__Request__deptCod__04E4BC85">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -944,7 +965,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Disbursem__clerk__30F848ED">
+        <Association Name="FK__Disbursem__clerk__7D439ABD">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -956,7 +977,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__deliver__37A5467C">
+        <Association Name="FK__Request__deliver__03F0984C">
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -968,7 +989,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestBy__deliv__4316F928">
+        <Association Name="FK__RequestBy__deliv__0F624AF8">
           <End Role="DisbursementList" Type="Self.DisbursementList" Multiplicity="1" />
           <End Role="RequestByDept" Type="Self.RequestByDept" Multiplicity="*" />
           <ReferentialConstraint>
@@ -980,7 +1001,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GCM__empNo__4F7CD00D">
+        <Association Name="FK__GCM__empNo__1BC821DD">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="GCM" Type="Self.GCM" Multiplicity="*" />
           <ReferentialConstraint>
@@ -992,7 +1013,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__empNo__47DBAE45">
+        <Association Name="FK__PurchaseO__empNo__14270015">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1004,7 +1025,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Request__empNo__398D8EEE">
+        <Association Name="FK__Request__empNo__05D8E0BE">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1016,7 +1037,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__revie__276EDEB3">
+        <Association Name="FK__StockAdju__revie__73BA3083">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1028,7 +1049,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__submi__267ABA7A">
+        <Association Name="FK__StockAdju__submi__72C60C4A">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1040,7 +1061,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Inventory__stati__22AA2996">
+        <Association Name="FK__Inventory__stati__6EF57B66">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -1052,7 +1073,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__order__4BAC3F29">
+        <Association Name="FK__PurchaseO__order__17F790F9">
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="1" />
           <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1064,7 +1085,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__suppl__48CFD27E">
+        <Association Name="FK__PurchaseO__suppl__151B244E">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
           <End Role="PurchaseOrder" Type="Self.PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1076,7 +1097,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PurchaseO__stati__4CA06362">
+        <Association Name="FK__PurchaseO__stati__18EBB532">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="PurchaseOrderDetail" Type="Self.PurchaseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1088,7 +1109,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestDe__reque__3C69FB99">
+        <Association Name="FK__RequestDe__reque__08B54D69">
           <End Role="Request" Type="Self.Request" Multiplicity="1" />
           <End Role="RequestDetail" Type="Self.RequestDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1100,7 +1121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestBy__stati__4222D4EF">
+        <Association Name="FK__RequestBy__stati__0E6E26BF">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="RequestByDept" Type="Self.RequestByDept" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1112,7 +1133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RequestDe__stati__3D5E1FD2">
+        <Association Name="FK__RequestDe__stati__09A971A2">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="RequestDetail" Type="Self.RequestDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1124,7 +1145,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1BFD2C07">
+        <Association Name="FK__Stationer__suppl__68487DD7">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1136,7 +1157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1CF15040">
+        <Association Name="FK__Stationer__suppl__693CA210">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1148,7 +1169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stationer__suppl__1DE57479">
+        <Association Name="FK__Stationer__suppl__6A30C649">
           <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1160,7 +1181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__stati__2B3F6F97">
+        <Association Name="FK__StockAdju__stati__778AC167">
           <End Role="Stationery" Type="Self.Stationery" Multiplicity="1" />
           <End Role="StockAdjustmentDetail" Type="Self.StockAdjustmentDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1172,7 +1193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__StockAdju__repor__2A4B4B5E">
+        <Association Name="FK__StockAdju__repor__76969D2E">
           <End Role="StockAdjustment" Type="Self.StockAdjustment" Multiplicity="1" />
           <End Role="StockAdjustmentDetail" Type="Self.StockAdjustmentDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1184,7 +1205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LogicUniversityEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LogicUniversityEntities4Perm" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CollectionPoints" EntityType="Self.CollectionPoint" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="DisbursementLists" EntityType="Self.DisbursementList" />
@@ -1200,111 +1221,112 @@
           <EntitySet Name="StockAdjustments" EntityType="Self.StockAdjustment" />
           <EntitySet Name="StockAdjustmentDetails" EntityType="Self.StockAdjustmentDetail" />
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
-          <AssociationSet Name="FK__Collectio__clerk__173876EA" Association="Self.FK__Collectio__clerk__173876EA">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__Collectio__clerk__6383C8BA" Association="Self.FK__Collectio__clerk__6383C8BA">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="CollectionPoint" EntitySet="CollectionPoints" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__colle__31EC6D26" Association="Self.FK__Disbursem__colle__31EC6D26">
+          <AssociationSet Name="FK__Disbursem__colle__7E37BEF6" Association="Self.FK__Disbursem__colle__7E37BEF6">
             <End Role="CollectionPoint" EntitySet="CollectionPoints" />
             <End Role="DisbursementList" EntitySet="DisbursementLists" />
           </AssociationSet>
-          <AssociationSet Name="FK__Departmen__deptH__1273C1CD" Association="Self.FK__Departmen__deptH__1273C1CD">
+          <AssociationSet Name="FK__Departmen__deptH__5EBF139D" Association="Self.FK__Departmen__deptH__5EBF139D">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Department" EntitySet="Departments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Departmen__deptR__1367E606" Association="Self.FK__Departmen__deptR__1367E606">
+          <AssociationSet Name="FK__Departmen__deptR__5FB337D6" Association="Self.FK__Departmen__deptR__5FB337D6">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Department" EntitySet="Departments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__deptC__300424B4" Association="Self.FK__Disbursem__deptC__300424B4">
+          <AssociationSet Name="FK__Disbursem__deptC__7C4F7684" Association="Self.FK__Disbursem__deptC__7C4F7684">
             <End Role="Department" EntitySet="Departments" />
             <End Role="DisbursementList" EntitySet="DisbursementLists" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__deptCo__145C0A3F" Association="Self.FK__Employee__deptCo__145C0A3F">
+          <AssociationSet Name="FK__Employee__deptCo__60A75C0F" Association="Self.FK__Employee__deptCo__60A75C0F">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__deptCod__38996AB5" Association="Self.FK__Request__deptCod__38996AB5">
+          <AssociationSet Name="FK__Request__deptCod__04E4BC85" Association="Self.FK__Request__deptCod__04E4BC85">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Disbursem__clerk__30F848ED" Association="Self.FK__Disbursem__clerk__30F848ED">
+          <AssociationSet Name="FK__Disbursem__clerk__7D439ABD" Association="Self.FK__Disbursem__clerk__7D439ABD">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="DisbursementList" EntitySet="DisbursementLists" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__deliver__37A5467C" Association="Self.FK__Request__deliver__37A5467C">
+          <AssociationSet Name="FK__Request__deliver__03F0984C" Association="Self.FK__Request__deliver__03F0984C">
             <End Role="DisbursementList" EntitySet="DisbursementLists" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestBy__deliv__4316F928" Association="Self.FK__RequestBy__deliv__4316F928">
+          <AssociationSet Name="FK__RequestBy__deliv__0F624AF8" Association="Self.FK__RequestBy__deliv__0F624AF8">
             <End Role="DisbursementList" EntitySet="DisbursementLists" />
             <End Role="RequestByDept" EntitySet="RequestByDepts" />
           </AssociationSet>
-          <AssociationSet Name="FK__GCM__empNo__4F7CD00D" Association="Self.FK__GCM__empNo__4F7CD00D">
+          <AssociationSet Name="FK__GCM__empNo__1BC821DD" Association="Self.FK__GCM__empNo__1BC821DD">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="GCM" EntitySet="GCMs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__empNo__47DBAE45" Association="Self.FK__PurchaseO__empNo__47DBAE45">
+          <AssociationSet Name="FK__PurchaseO__empNo__14270015" Association="Self.FK__PurchaseO__empNo__14270015">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__Request__empNo__398D8EEE" Association="Self.FK__Request__empNo__398D8EEE">
+          <AssociationSet Name="FK__Request__empNo__05D8E0BE" Association="Self.FK__Request__empNo__05D8E0BE">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__revie__276EDEB3" Association="Self.FK__StockAdju__revie__276EDEB3">
+          <AssociationSet Name="FK__StockAdju__revie__73BA3083" Association="Self.FK__StockAdju__revie__73BA3083">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="StockAdjustment" EntitySet="StockAdjustments" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__submi__267ABA7A" Association="Self.FK__StockAdju__submi__267ABA7A">
+          <AssociationSet Name="FK__StockAdju__submi__72C60C4A" Association="Self.FK__StockAdju__submi__72C60C4A">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="StockAdjustment" EntitySet="StockAdjustments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Inventory__stati__22AA2996" Association="Self.FK__Inventory__stati__22AA2996">
+          <AssociationSet Name="FK__Inventory__stati__6EF57B66" Association="Self.FK__Inventory__stati__6EF57B66">
             <End Role="Stationery" EntitySet="Stationeries" />
             <End Role="Inventory" EntitySet="Inventories" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__order__4BAC3F29" Association="Self.FK__PurchaseO__order__4BAC3F29">
+          <AssociationSet Name="FK__PurchaseO__order__17F790F9" Association="Self.FK__PurchaseO__order__17F790F9">
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
             <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__suppl__48CFD27E" Association="Self.FK__PurchaseO__suppl__48CFD27E">
+          <AssociationSet Name="FK__PurchaseO__suppl__151B244E" Association="Self.FK__PurchaseO__suppl__151B244E">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK__PurchaseO__stati__4CA06362" Association="Self.FK__PurchaseO__stati__4CA06362">
+          <AssociationSet Name="FK__PurchaseO__stati__18EBB532" Association="Self.FK__PurchaseO__stati__18EBB532">
             <End Role="Stationery" EntitySet="Stationeries" />
             <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestDe__reque__3C69FB99" Association="Self.FK__RequestDe__reque__3C69FB99">
+          <AssociationSet Name="FK__RequestDe__reque__08B54D69" Association="Self.FK__RequestDe__reque__08B54D69">
             <End Role="Request" EntitySet="Requests" />
             <End Role="RequestDetail" EntitySet="RequestDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestBy__stati__4222D4EF" Association="Self.FK__RequestBy__stati__4222D4EF">
+          <AssociationSet Name="FK__RequestBy__stati__0E6E26BF" Association="Self.FK__RequestBy__stati__0E6E26BF">
             <End Role="Stationery" EntitySet="Stationeries" />
             <End Role="RequestByDept" EntitySet="RequestByDepts" />
           </AssociationSet>
-          <AssociationSet Name="FK__RequestDe__stati__3D5E1FD2" Association="Self.FK__RequestDe__stati__3D5E1FD2">
+          <AssociationSet Name="FK__RequestDe__stati__09A971A2" Association="Self.FK__RequestDe__stati__09A971A2">
             <End Role="Stationery" EntitySet="Stationeries" />
             <End Role="RequestDetail" EntitySet="RequestDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1BFD2C07" Association="Self.FK__Stationer__suppl__1BFD2C07">
+          <AssociationSet Name="FK__Stationer__suppl__68487DD7" Association="Self.FK__Stationer__suppl__68487DD7">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Stationery" EntitySet="Stationeries" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1CF15040" Association="Self.FK__Stationer__suppl__1CF15040">
+          <AssociationSet Name="FK__Stationer__suppl__693CA210" Association="Self.FK__Stationer__suppl__693CA210">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Stationery" EntitySet="Stationeries" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stationer__suppl__1DE57479" Association="Self.FK__Stationer__suppl__1DE57479">
+          <AssociationSet Name="FK__Stationer__suppl__6A30C649" Association="Self.FK__Stationer__suppl__6A30C649">
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Stationery" EntitySet="Stationeries" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__stati__2B3F6F97" Association="Self.FK__StockAdju__stati__2B3F6F97">
+          <AssociationSet Name="FK__StockAdju__stati__778AC167" Association="Self.FK__StockAdju__stati__778AC167">
             <End Role="Stationery" EntitySet="Stationeries" />
             <End Role="StockAdjustmentDetail" EntitySet="StockAdjustmentDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__StockAdju__repor__2A4B4B5E" Association="Self.FK__StockAdju__repor__2A4B4B5E">
+          <AssociationSet Name="FK__StockAdju__repor__76969D2E" Association="Self.FK__StockAdju__repor__76969D2E">
             <End Role="StockAdjustment" EntitySet="StockAdjustments" />
             <End Role="StockAdjustmentDetail" EntitySet="StockAdjustmentDetails" />
           </AssociationSet>
@@ -1314,9 +1336,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LogicUniversityModelStoreContainer" CdmEntityContainer="LogicUniversityEntities3">
+        <EntityContainerMapping StorageEntityContainer="LogicUniversityModelPermStoreContainer" CdmEntityContainer="LogicUniversityEntities4Perm">
           <EntitySetMapping Name="CollectionPoints">
-            <EntityTypeMapping TypeName="LogicUniversityModel.CollectionPoint">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.CollectionPoint">
               <MappingFragment StoreEntitySet="CollectionPoint">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="place" ColumnName="place" />
@@ -1326,8 +1348,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Department">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Department">
               <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="collectionPt" ColumnName="collectionPt" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="deptHead" ColumnName="deptHead" />
@@ -1335,12 +1358,11 @@
                 <ScalarProperty Name="contactName" ColumnName="contactName" />
                 <ScalarProperty Name="telNo" ColumnName="telNo" />
                 <ScalarProperty Name="faxNo" ColumnName="faxNo" />
-                <ScalarProperty Name="collectionPt" ColumnName="collectionPt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DisbursementLists">
-            <EntityTypeMapping TypeName="LogicUniversityModel.DisbursementList">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.DisbursementList">
               <MappingFragment StoreEntitySet="DisbursementList">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="deptCode" ColumnName="deptCode" />
@@ -1352,7 +1374,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Employee">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="empNo" ColumnName="empNo" />
                 <ScalarProperty Name="empName" ColumnName="empName" />
@@ -1368,7 +1390,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GCMs">
-            <EntityTypeMapping TypeName="LogicUniversityModel.GCM">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.GCM">
               <MappingFragment StoreEntitySet="GCM">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="empNo" ColumnName="empNo" />
@@ -1377,7 +1399,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Inventories">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Inventory">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
                 <ScalarProperty Name="stationeryCode" ColumnName="stationeryCode" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
@@ -1387,7 +1409,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PurchaseOrders">
-            <EntityTypeMapping TypeName="LogicUniversityModel.PurchaseOrder">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrder">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="dateOfOrder" ColumnName="dateOfOrder" />
@@ -1400,7 +1422,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PurchaseOrderDetails">
-            <EntityTypeMapping TypeName="LogicUniversityModel.PurchaseOrderDetail">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.PurchaseOrderDetail">
               <MappingFragment StoreEntitySet="PurchaseOrderDetail">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="orderID" ColumnName="orderID" />
@@ -1412,7 +1434,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Requests">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Request">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Request">
               <MappingFragment StoreEntitySet="Request">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="dateOfApp" ColumnName="dateOfApp" />
@@ -1426,7 +1448,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestByDepts">
-            <EntityTypeMapping TypeName="LogicUniversityModel.RequestByDept">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.RequestByDept">
               <MappingFragment StoreEntitySet="RequestByDept">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="stationeryCode" ColumnName="stationeryCode" />
@@ -1438,7 +1460,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestDetails">
-            <EntityTypeMapping TypeName="LogicUniversityModel.RequestDetail">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.RequestDetail">
               <MappingFragment StoreEntitySet="RequestDetail">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="requestID" ColumnName="requestID" />
@@ -1448,7 +1470,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stationeries">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Stationery">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Stationery">
               <MappingFragment StoreEntitySet="Stationery">
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="category" ColumnName="category" />
@@ -1466,20 +1488,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockAdjustments">
-            <EntityTypeMapping TypeName="LogicUniversityModel.StockAdjustment">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.StockAdjustment">
               <MappingFragment StoreEntitySet="StockAdjustment">
-                <ScalarProperty Name="Showto" ColumnName="Showto" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="submittedBy" ColumnName="submittedBy" />
                 <ScalarProperty Name="reviewedBy" ColumnName="reviewedBy" />
                 <ScalarProperty Name="reviewDate" ColumnName="reviewDate" />
                 <ScalarProperty Name="reviewReason" ColumnName="reviewReason" />
+                <ScalarProperty Name="showTo" ColumnName="showTo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockAdjustmentDetails">
-            <EntityTypeMapping TypeName="LogicUniversityModel.StockAdjustmentDetail">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.StockAdjustmentDetail">
               <MappingFragment StoreEntitySet="StockAdjustmentDetail">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="reportID" ColumnName="reportID" />
@@ -1491,7 +1513,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="LogicUniversityModel.Supplier">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
                 <ScalarProperty Name="supplierCode" ColumnName="supplierCode" />
                 <ScalarProperty Name="supplierName" ColumnName="supplierName" />
@@ -1501,6 +1523,17 @@
                 <ScalarProperty Name="telNo" ColumnName="telNo" />
                 <ScalarProperty Name="faxNo" ColumnName="faxNo" />
                 <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LogicUniversityModelPerm.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

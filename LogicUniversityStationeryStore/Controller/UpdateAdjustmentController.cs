@@ -19,14 +19,14 @@ namespace LogicUniversityStationeryStore.Controller
             if (role.Equals("storeMan"))
             {
                 var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
-                         where x.Showto.Equals("Manager")
+                         where x.showTo.Equals("Manager")
                          select new { x.Employee1.empName, x.status, x.id };
                 return q1.ToList();
             }
             else
             {
                 var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
-                         where x.Showto.Equals("Supervisor")
+                         where x.showTo.Equals("Supervisor")
                          select new { x.Employee1.empName, x.status, x.id };
                 return q1.ToList();
             }

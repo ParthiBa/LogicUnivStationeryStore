@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+
 using LogicUniversityStationeryStore.DAO;
 
 
@@ -28,10 +29,11 @@ namespace LogicUniversityStationeryStore.Controller
             return q;
         }
        
-        //for binding dropdownlist inside gridview
-        public dynamic getItemDescription()
+        //for binding dropdownlist inside gridview      
+        public dynamic getItemDescription(string supplierCode)
         {
             var q = (from s in EntityBroker.getMyEntities().Stationeries
+                     where s.supplier1==supplierCode || s.supplier2==supplierCode || s.supplier3==supplierCode
                      select new
                      {
                          s.description,
@@ -107,8 +109,6 @@ namespace LogicUniversityStationeryStore.Controller
             
         }
 
-
-
         //get price according to ItemDescription and Supplier 
         public dynamic getPrice(string despCode, string supplier)
         {
@@ -161,6 +161,7 @@ namespace LogicUniversityStationeryStore.Controller
             EntityBroker.getMyEntities().PurchaseOrders.Add(p);
             EntityBroker.getMyEntities().SaveChanges();           
         }
+
         //insert new purchase order detail
         internal void createPurchaseOrderDetail(DataTable dt)
         {
@@ -175,6 +176,121 @@ namespace LogicUniversityStationeryStore.Controller
             }
             EntityBroker.getMyEntities().SaveChangesAsync();
         }
+
+       //--for ListOfPurchaseOrderUI page--//
+            //for grid binding//     
+        public dynamic bindGrdListPurchaseOrder()
+        {
+            var query = (from p in EntityBroker.getMyEntities().PurchaseOrders
+                         join pd in EntityBroker.getMyEntities().PurchaseOrderDetails on p.id equals pd.orderID
+                         join e in EntityBroker.getMyEntities().Employees on p.empNo equals e.empNo 
+                         join s in EntityBroker.getMyEntities().Suppliers on p.supplierCode equals s.supplierCode
+                         group pd by new
+                                {
+                                    oid     =p.id,
+                                    DO      =p.dateOfOrder,
+                                    DR      =p.dateReqDue,
+                                    DD      =p.dateOfDelivery,
+                                    empNo   =p.empNo,
+                                    empName =e.empName,
+                                    SC      =p.supplierCode,
+                                    SName   =s.supplierName,
+                                    ST      =p.status                                  
+                                } into PO
+                         orderby PO.Key.ST descending
+                         select new
+                         {
+                             OrderID      =PO.Key.oid,
+                             OrderDate    =PO.Key.DO,
+                             DueDate      =PO.Key.DR,
+                             DeliveryDate =PO.Key.DD,
+                             EmpName      =PO.Key.empName,
+                             SupCode      =PO.Key.SC,
+                             SupName      =PO.Key.SName,
+                             Total        =PO.Sum(pr => pr.amount),
+                             status       =PO.Key.ST                          
+                         }).ToList();
+            return query;
+        }
+        //--for ConfirmPurchaseOrderUI.aspx--//
+        //grid binding//
+        public dynamic bindGrdConfirmPurchaseOrder(int orderID)
+        {
+            var query = (from p in EntityBroker.getMyEntities().PurchaseOrders
+                         join pd in EntityBroker.getMyEntities().PurchaseOrderDetails on p.id equals pd.orderID
+                         join s in EntityBroker.getMyEntities().Stationeries on pd.stationeryCode equals s.code
+                         where pd.orderID == orderID
+                         select new
+                         {
+                             itemid = pd.id,
+                             itemDesp = s.description,                           
+                             SupCode  = p.supplierCode,
+                             Quantity = pd.requestedQuantity,
+                             Amount = pd.amount,
+                             UOM = s.unitOfMeasure
+                         }).ToList();
+            string desp;
+            decimal price;
+
+                DataTable dt = new DataTable();
+            dt.Columns.Add("Key1", typeof(int));
+            dt.Columns.Add("itemid", typeof(string));
+            dt.Columns.Add("ItemDesp", typeof(string));
+            dt.Columns.Add("Quantity", typeof(string));
+            dt.Columns.Add("UOM", typeof(string));
+            dt.Columns.Add("Price", typeof(decimal));
+            dt.Columns.Add("Amount", typeof(string));
+            foreach(var item in query)
+            {
+                desp = getDespCode(item.itemDesp);
+                price = getPrice(desp, item.SupCode);
+                DataRow dr = dt.NewRow();
+                dr["itemid"] = item.itemid;
+                dr["ItemDesp"] = item.itemDesp;
+                dr["Quantity"] = item.Quantity;
+                dr["UOM"] = item.UOM;
+                dr["Price"] = price;
+                dr["Amount"] = item.Amount;
+                dt.Rows.Add(dr);
+            }          
+           
+            return dt;
+        }
+        //get description code to check condition
+        public String getDespCode(string despName)
+        {
+            var q = (from s in EntityBroker.getMyEntities().Stationeries
+                     where s.description == despName
+                     select s.code).Single();
+            return q.ToString();
+        }
+
+        //Cancel purchase order (update the purchase order status =Cancelled)
+        public void CancelOrder(int orderId)
+        {           
+            PurchaseOrder p = EntityBroker.getMyEntities().PurchaseOrders.FirstOrDefault(po => po.id == orderId);
+            p.status = "Cancelled";
+            EntityBroker.getMyEntities().SaveChanges();
+        }
+        //confirm purchase order(update the purchase order status=Delivered)
+        public void ConfirmOrder(int orderId,string sCode,DateTime d,int receivedQty,int id,decimal amt)
+        {
+            PurchaseOrder p =EntityBroker.getMyEntities().PurchaseOrders.FirstOrDefault(po=>po.id==orderId);
+            p.status ="Delivered";
+            p.dateOfDelivery =d;            
+
+            PurchaseOrderDetail pd = EntityBroker.getMyEntities().PurchaseOrderDetails.FirstOrDefault(pod =>pod.id ==id);            
+            pd.receivedQuantity = receivedQty;
+            pd.amount = amt;
+                
+                Inventory i = EntityBroker.getMyEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == sCode);
+                i.quantity += pd.receivedQuantity;
+                i.availableQty += pd.receivedQuantity;
+            
+            EntityBroker.getMyEntities().SaveChanges();
+
+        }
+      
      
     }
     

@@ -49,13 +49,13 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder {
         protected global::System.Web.UI.WebControls.Label lblDeliveryDateTitle;
         
         /// <summary>
-        /// txtDeliveryDate control.
+        /// deliveryDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeliveryDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl deliveryDate;
         
         /// <summary>
         /// lblDeliveryDate control.
@@ -85,13 +85,13 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder {
         protected global::System.Web.UI.WebControls.DropDownList ddlItemDescription;
         
         /// <summary>
-        /// lblQuantity control.
+        /// lblQuantityTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantity;
+        protected global::System.Web.UI.WebControls.Label lblQuantityTitle;
         
         /// <summary>
         /// spinner1 control.
@@ -128,5 +128,17 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new LogicUniversityStationeryStore.Home.StationeryMaster Master {
+            get {
+                return ((LogicUniversityStationeryStore.Home.StationeryMaster)(base.Master));
+            }
+        }
     }
 }

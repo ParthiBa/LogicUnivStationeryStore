@@ -37,7 +37,7 @@
         <tr>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style3">
-                <asp:GridView ID="CPGridView" runat="server"  Width="83px" AutoGenerateColumns="false">
+                <asp:GridView ID="CPGridView" runat="server"  Width="83px" AutoGenerateColumns="false" OnSelectedIndexChanged="CPGridView_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField HeaderText="Select">
                             <ItemTemplate>

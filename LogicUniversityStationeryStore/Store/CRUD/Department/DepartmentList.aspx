@@ -6,13 +6,10 @@
 
     <br />
     <br />
-    <div style="text-align:center ">
+    <div style="text-align:left">
             <asp:Label ID="lblHeader" runat="server" Font-Bold="True" 
-                       Font-Size="XX-Large" ForeColor="#FF3300" Text="All Department Details"></asp:Label>
-        </div>
-   
-    <p>
-    </p>
+                       Font-Size="XX-Large" ForeColor="#FF3300" Text="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp All Department Details"></asp:Label>
+        
     <center>
     <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" >
         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
@@ -26,5 +23,5 @@
         <SortedDescendingHeaderStyle BackColor="#93451F" />
     </asp:GridView>
         </center>
-        
+       </div> 
 </asp:Content>

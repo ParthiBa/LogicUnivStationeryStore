@@ -54,7 +54,7 @@ namespace LogicUniversityStationeryStore.Controller
             if(isMorethan250)
             {
 
-                newAdjustment.Showto = "Manager";
+                newAdjustment.showTo = "Manager";
              helper.sendEmailbyClerk("sheldonLogiCManager@gmail.com",NotificationHelper.informStockAdjustment(newAdjustment.Employee1.empName),"New Stock adjustment Rrequest is waiting for your approval");
                 // inform Manager
             
@@ -62,7 +62,7 @@ namespace LogicUniversityStationeryStore.Controller
             else
             {
 
-                newAdjustment.Showto = "Supervisor";
+                newAdjustment.showTo = "Supervisor";
                 helper.sendEmailbyClerk("amyfarrahlogicsupervisor@gmail.com", NotificationHelper.informStockAdjustment(newAdjustment.Employee1.empName), "New Stock adjustment Rrequest is waiting for your approval");
 
             }

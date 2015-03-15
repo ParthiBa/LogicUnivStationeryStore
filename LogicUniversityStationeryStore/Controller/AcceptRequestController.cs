@@ -57,7 +57,7 @@ namespace LogicUniversityStationeryStore.Controller
         public string getCollPBySession(string dept)
         {
             var collPoint = from x in EntityBroker.getMyEntities().Departments
-                            join c in EntityBroker.getMyEntities().CollectionPoints on x.collectionPt equals c.id
+                            join c in EntityBroker.getMyEntities().CollectionPoints on x.collectionPt  equals c.id
                             where x.code == dept
                             select c;
             CollectionPoint deptCp = collPoint.FirstOrDefault();
@@ -74,7 +74,7 @@ namespace LogicUniversityStationeryStore.Controller
         public List<ApprovedRequest> getApprovedReq(string dept)
         {
             var data = (from x in EntityBroker.getMyEntities().Requests
-                        where x.deptCode == dept && x.status == "Approved"
+                        where x.deptCode == dept && x.status == "Approved" && x.dateOfApp <= DateTime.Today.Date
                         join rd in EntityBroker.getMyEntities().RequestDetails on x.id equals rd.requestID
                         join d in EntityBroker.getMyEntities().Departments on x.deptCode equals d.code
                         join s in EntityBroker.getMyEntities().Stationeries on rd.stationeryCode equals s.code
@@ -166,13 +166,11 @@ namespace LogicUniversityStationeryStore.Controller
                                where n.deptCode == dept && n.empRole == "deptRep"
                                select n;
             Employee Rep = emailAddress.FirstOrDefault();
-            string hyperlink = "http://localhost:3285/Dep/updateCollectionPoint/CollectionPointbyOrder.aspx?erid=" + createDisb.id;
-            //string To = Rep.email;
-            string to = "LogicZoolrep@gmail.com";        
-            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has been accepted. Please be present during delivery at " + place + " on " + deliverD.ToString("dd/MM/yyyy")  + 
-                " \n If you want to change the collection point , you can do so by following hyperlink" +  hyperlink ;
+            string To = Rep.email;
+            string Email = "Dear " + Rep.designation + "." + Rep.empName + ", " + "The request from your department has been accepted. Please be present during delivery at " + place + " on " + deliverD.ToString("dd/MM/yyyy") +
+                "." + "Please check here: ";
             string Subject = "Your requisition has been accepted!";
-            note.sendEmailbyClerk(to, Email, Subject); 
+            note.sendEmailbyClerk(To, Email, Subject); 
         
         
         }

@@ -282,9 +282,12 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
         protected void Button1_Click(object sender, EventArgs e)
         {
             DataTable dt = (DataTable)ViewState["currentCreate"];
-            NrController.createRequest(empId);
-            NrController.createRequestDetail(dt);
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request Has been added Sucessfully '); window.location = '"+ Page.ResolveUrl("~/Home/DeptEmpHome.aspx")  +"';", true);
+            if (dt.Rows[0] != null)
+            {
+                NrController.createRequest(empId);
+                NrController.createRequestDetail(dt);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request Has been added Sucessfully '); window.location = '" + Page.ResolveUrl("~/Home/DeptEmpHome.aspx") + "';", true);
+            }
            // Response.Write("<script language="'javascript'">window.alert('Your Message');window.location='yourpage.aspx';</script>");
         }
 

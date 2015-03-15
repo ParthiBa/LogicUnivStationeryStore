@@ -1,0 +1,2 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationerySupervisor.master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Report.WebForm1" %>
+<asp:Content ID="content2" ContentPlaceHolderID="cont"></asp:Content>

@@ -11,7 +11,7 @@ namespace LogicUniversityStationeryStore.Controller
     {
         public void createDept(string codeB, string nameB, string contactB, string telB, string faxB, string drop1, string drop2, string drop1name, string drop2name)
         {
-            using (LogicUniversityEntities3 ctx = EntityBroker.getMyEntities())
+            using (LogicUniversityEntities4Perm ctx = EntityBroker.getMyEntities())
             {
                 LogicUniversityStationeryStore.Department createdpt = new LogicUniversityStationeryStore.Department();
                 createdpt.code = codeB;
@@ -42,7 +42,7 @@ namespace LogicUniversityStationeryStore.Controller
         }
         public void updateDept(string codeB, string nameB, string contactB, string telB, string drop1, string drop2, string faxB, string drop1name, string drop2name)
         {
-            LogicUniversityEntities3 ctx = new LogicUniversityEntities3();
+            LogicUniversityEntities4Perm ctx = new LogicUniversityEntities4Perm();
             // Department department = ctx.Departments.Where(d => d.code == codebox.Text).FirstOrDefault();
             LogicUniversityStationeryStore.Department department = ctx.Departments.Where(d => d.code == codeB).FirstOrDefault();
 
@@ -80,7 +80,7 @@ namespace LogicUniversityStationeryStore.Controller
         }
         public DeptInfor retre(string dcode)
         {
-            using (LogicUniversityEntities3 ctx = new LogicUniversityEntities3())
+            using (LogicUniversityEntities4Perm ctx = new LogicUniversityEntities4Perm())
             {
                 var dpt = ctx.Departments.FirstOrDefault(m => m.code == dcode);
                 Employee a = ctx.Employees.Where(x => x.empNo == dpt.deptHead).FirstOrDefault();
@@ -102,7 +102,7 @@ namespace LogicUniversityStationeryStore.Controller
         public List<Department> getDataforDepartmentLIst()
         {
 
-            using (LogicUniversityEntities3 ctx = new LogicUniversityEntities3())
+            using (LogicUniversityEntities4Perm ctx = new LogicUniversityEntities4Perm())
             {
 
                 var q = from x in ctx.Departments

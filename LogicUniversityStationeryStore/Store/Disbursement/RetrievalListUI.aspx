@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:GridView ID="GrdRetrievalList" runat="server" AutoGenerateColumns="False" OnRowDataBound="hightLightRow" >
+                <asp:GridView ID="GrdRetrievalList" runat="server" AutoGenerateColumns="False" OnRowDataBound="hightLightRow" AllowPaging="True" OnPageIndexChanging="GrdRetrievalList_PageIndexChanging" >
                     <Columns>
                         <asp:BoundField DataField="binNo" HeaderText="Bin No" SortExpression="binNo" />                       
                         <asp:TemplateField HeaderText="Item Number">

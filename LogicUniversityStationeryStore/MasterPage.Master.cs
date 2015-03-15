@@ -13,8 +13,9 @@ namespace LogicUniversityStationeryStore
     
         public void setOff()
         {
-            lbLogOut.Enabled = false;
             lbLogOut.Visible = false;
+            lbLogOut.Enabled = false;
+      
             lblLoginName.Visible = false;
             Label1.Visible = false;
         }

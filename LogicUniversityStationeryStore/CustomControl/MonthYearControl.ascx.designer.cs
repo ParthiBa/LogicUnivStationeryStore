@@ -31,13 +31,22 @@ namespace LogicUniversityStationeryStore.customControl {
         protected global::System.Web.UI.WebControls.DropDownList year;
         
         /// <summary>
-        /// ListBox1 control.
+        /// btnAddMY control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        protected global::System.Web.UI.WebControls.Button btnAddMY;
+        
+        /// <summary>
+        /// listDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox listDate;
         
         /// <summary>
         /// btnRemoveMY control.
@@ -47,14 +56,5 @@ namespace LogicUniversityStationeryStore.customControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRemoveMY;
-        
-        /// <summary>
-        /// btnAddMY control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddMY;
     }
 }
