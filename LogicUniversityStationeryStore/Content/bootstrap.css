@@ -1410,7 +1410,9 @@ table {
   max-width: 100%;
   background-color: transparent;
     margin-right: 443px;
-    }
+    width: 822px;
+    margin-top: 0px;
+}
 
 th {
   text-align: left;

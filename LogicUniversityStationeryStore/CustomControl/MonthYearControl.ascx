@@ -15,7 +15,7 @@
 </asp:DropDownList>
 <asp:DropDownList ID ="year" runat="server">
 </asp:DropDownList>
-    <asp:Button ID="btnAddMY" runat="server" Text="Add" OnClick="btnAddMY_Click"  CssClass="btn btn-sucess"/>
+    <asp:Button ID="btnAddMY" runat="server" Text="Add" OnClick="btnAddMY_Click"  CssClass="btn btn-success"/>
 
 <br/>
     <asp:ListBox ID="listDate" runat="server" SelectionMode="Multiple" Height="83px" Width="199px">

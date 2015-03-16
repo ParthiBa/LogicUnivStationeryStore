@@ -28,10 +28,8 @@
                     <asp:Label ID="Label1" runat="server" Text="Department Code :"></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="codebox" runat="server" DataSourceID="SqlDataSource3" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="codebox_SelectedIndexChanged">
+                    <asp:DropDownList ID="codebox" runat="server" DataTextField="code" DataValueField="code" OnSelectedIndexChanged="codebox_SelectedIndexChanged">
                     </asp:DropDownList>
-
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString %>" SelectCommand="SELECT [code] FROM [Department]"></asp:SqlDataSource>
 
                     <asp:Button ID="BtnRetrieve" Text="Retrieve" runat="server" OnClick="BtnRetrieve_Click" Width="83px" />
 
@@ -76,9 +74,8 @@
                 </td>
                 <td class="auto-style11">
 
-                    <asp:DropDownList ID="Drop2" runat="server" DataSourceID="SqlDataSource1" DataTextField="empName" DataValueField="empName" Width="136px">
+                    <asp:DropDownList ID="Drop2" runat="server" DataTextField="empName" DataValueField="empName" Width="136px">
                     </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString %>" SelectCommand="SELECT [empName] FROM [Employee]"></asp:SqlDataSource>
 
                 </td>
                 <td class="auto-style2">&nbsp;</td>

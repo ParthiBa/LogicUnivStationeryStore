@@ -14,7 +14,7 @@
     <RootNamespace>LogicUniversityStationeryStore</RootNamespace>
     <AssemblyName>LogicUniversityStationeryStore</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -1263,8 +1263,9 @@
     <Content Include="CustomControl\Spinner2.ascx" />
     <Content Include="CustomControl\StatDropdown2.ascx" />
     <Content Include="CustomControl\StationeryDropDown1.ascx" />
-    <Content Include="Dep\Delegation\AuthorisedListing.aspx" />
+    <Content Include="Dep\Delegation\ChangeRep.aspx" />
     <Content Include="Dep\Delegation\DelegateAuthorityUI.aspx" />
+    <Content Include="Dep\Delegation\RemoveAuthorizationUI.aspx" />
     <Content Include="Dep\Requisition\ApproveRequisistionUI.aspx" />
     <Content Include="Dep\Requisition\CreateRequsistionUI.aspx" />
     <Content Include="Dep\Requisition\denote list of Orders.aspx" />
@@ -1346,8 +1347,8 @@
     <Content Include="Home\StationeryClerk.master" />
     <Content Include="Home\StationeryManager.master" />
     <Content Include="Home\StationerySupervisor.master" />
-    <Content Include="Store\CRUD\Stationery\CreateStationeryUI.aspx" />
-    <Content Include="Store\CRUD\Stationery\ManageStationeryUI.aspx" />
+    <Content Include="Store\CRUD\StationeryPages\CreateStationeryUI.aspx" />
+    <Content Include="Store\CRUD\StationeryPages\ManageStationeryUI.aspx" />
     <Content Include="Store\CRUD\SupplierPages\CreateSupplierUI.aspx" />
     <Content Include="Store\CRUD\SupplierPages\ManageSupplierUI.aspx" />
     <Content Include="Store\MasterPage.Master" />
@@ -1445,8 +1446,6 @@
     <Content Include="Store\CRUD\Department\CreateDepartment.aspx" />
     <Content Include="Store\CRUD\Department\DepartmentList.aspx" />
     <Content Include="Store\CRUD\Department\ManageDepartment.aspx" />
-    <Content Include="Store\CRUD\Stationery\StationeryList.aspx" />
-    <Content Include="Store\CRUD\SupplierPages\ManageSupplier.aspx" />
     <Content Include="Store\Disbursement\AcceptRequestUI.aspx" />
     <Content Include="Store\Disbursement\CreateDisburListUI.aspx" />
     <Content Include="Store\Disbursement\ListOfApprovedRequestUI.aspx" />
@@ -1456,9 +1455,11 @@
     <Content Include="Store\PurchaseOrder\CreatePurchaseOrderUI.aspx" />
     <Content Include="Store\PurchaseOrder\ListOfPurchaseOrderUI.aspx" />
     <Content Include="Store\Report\ReorderAnalysisUI.aspx" />
+    <Content Include="Store\Report\ReorderAnaylsisUIN.aspx" />
     <Content Include="Store\Report\ReorderReportUI.aspx" />
     <Content Include="Store\Report\RequisitionAnalysisUI.aspx" />
     <Content Include="Store\Report\RequisitionReportUI.aspx" />
+    <Content Include="Store\Report\RequsistionAnaylsisUIN.aspx" />
     <Content Include="Store\Report\WebForm1.aspx" />
     <Content Include="Store\StockAdjustment\ApproveStockAdjustment.aspx" />
     <Content Include="Store\StockAdjustment\CreateDiscrepUI.aspx" />
@@ -1622,12 +1623,12 @@
     <Compile Include="Department.cs">
       <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dep\Delegation\AuthorisedListing.aspx.cs">
-      <DependentUpon>AuthorisedListing.aspx</DependentUpon>
+    <Compile Include="Dep\Delegation\ChangeRep.aspx.cs">
+      <DependentUpon>ChangeRep.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dep\Delegation\AuthorisedListing.aspx.designer.cs">
-      <DependentUpon>AuthorisedListing.aspx</DependentUpon>
+    <Compile Include="Dep\Delegation\ChangeRep.aspx.designer.cs">
+      <DependentUpon>ChangeRep.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dep\Delegation\DelegateAuthorityUI.aspx.cs">
       <DependentUpon>DelegateAuthorityUI.aspx</DependentUpon>
@@ -1635,6 +1636,13 @@
     </Compile>
     <Compile Include="Dep\Delegation\DelegateAuthorityUI.aspx.designer.cs">
       <DependentUpon>DelegateAuthorityUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dep\Delegation\RemoveAuthorizationUI.aspx.cs">
+      <DependentUpon>RemoveAuthorizationUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dep\Delegation\RemoveAuthorizationUI.aspx.designer.cs">
+      <DependentUpon>RemoveAuthorizationUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dep\Requisition\ApproveRequisistionUI.aspx.cs">
       <DependentUpon>ApproveRequisistionUI.aspx</DependentUpon>
@@ -1852,18 +1860,18 @@
     <Compile Include="StockAdjustmentDetail.cs">
       <DependentUpon>LogicUnivPermanet.tt</DependentUpon>
     </Compile>
-    <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.cs">
+    <Compile Include="Store\CRUD\StationeryPages\CreateStationeryUI.aspx.cs">
       <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\CRUD\Stationery\CreateStationeryUI.aspx.designer.cs">
+    <Compile Include="Store\CRUD\StationeryPages\CreateStationeryUI.aspx.designer.cs">
       <DependentUpon>CreateStationeryUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Store\CRUD\Stationery\ManageStationeryUI.aspx.cs">
+    <Compile Include="Store\CRUD\StationeryPages\ManageStationeryUI.aspx.cs">
       <DependentUpon>ManageStationeryUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Store\CRUD\Stationery\ManageStationeryUI.aspx.designer.cs">
+    <Compile Include="Store\CRUD\StationeryPages\ManageStationeryUI.aspx.designer.cs">
       <DependentUpon>ManageStationeryUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\CRUD\SupplierPages\CreateSupplierUI.aspx.cs">
@@ -1907,20 +1915,6 @@
     </Compile>
     <Compile Include="Store\CRUD\Department\ManageDepartment.aspx.designer.cs">
       <DependentUpon>ManageDepartment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\CRUD\Stationery\StationeryList.aspx.cs">
-      <DependentUpon>StationeryList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\Stationery\StationeryList.aspx.designer.cs">
-      <DependentUpon>StationeryList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Store\CRUD\SupplierPages\ManageSupplier.aspx.cs">
-      <DependentUpon>ManageSupplier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Store\CRUD\SupplierPages\ManageSupplier.aspx.designer.cs">
-      <DependentUpon>ManageSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Disbursement\AcceptRequestUI.aspx.cs">
       <DependentUpon>AcceptRequestUI.aspx</DependentUpon>
@@ -1987,6 +1981,13 @@
     <Compile Include="Store\Report\ReorderAnalysisUI.aspx.designer.cs">
       <DependentUpon>ReorderAnalysisUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Store\Report\ReorderAnaylsisUIN.aspx.cs">
+      <DependentUpon>ReorderAnaylsisUIN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\Report\ReorderAnaylsisUIN.aspx.designer.cs">
+      <DependentUpon>ReorderAnaylsisUIN.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Store\Report\ReorderRep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2019,6 +2020,13 @@
     </Compile>
     <Compile Include="Store\Report\RequisitionReportUI.aspx.designer.cs">
       <DependentUpon>RequisitionReportUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\Report\RequsistionAnaylsisUIN.aspx.cs">
+      <DependentUpon>RequsistionAnaylsisUIN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\Report\RequsistionAnaylsisUIN.aspx.designer.cs">
+      <DependentUpon>RequsistionAnaylsisUIN.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\Report\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -2158,9 +2166,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3285</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/T4 - LogicUniversityStationeryStore</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:3285/</IISAppRootUrl>
+          <IISUrl>http://localhost:3285/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

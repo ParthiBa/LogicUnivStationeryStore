@@ -13,9 +13,13 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
 {
     public partial class ManageDepartment : System.Web.UI.Page
     {
+        CreateAndUpdateDeptController create;
         protected void Page_Load(object sender, EventArgs e)
         {
+          create    = new CreateAndUpdateDeptController();;
 
+          codebox.DataSource = create.getDataforDepartmentLIst();
+          codebox.DataBind();
 
             string role = Request.Cookies["UserRole"].Value.ToString();
             CheckRoleController.setStationaryMaster(this.Master, role);
@@ -72,9 +76,10 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
         protected void BtnRetrieve_Click(object sender, EventArgs e)
         {
             string dcode= codebox.Text;
-            CreateAndUpdateDeptController create = new CreateAndUpdateDeptController();
+            
             DeptInfor d=create.retre(dcode);
-         
+         Drop2.DataSource= create.giveListforemp( dcode);
+         Drop2.DataBind();
                     codebox.Text = d.Code;
                     namebox.Text = d.Name;
                     Drop2.Text = d.HempName;
@@ -83,7 +88,7 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department
                     faxNobox.Text = d.FaxNo;
                     Drop1.Text =d.RempName;
           
-           
+             
         }
 
         //protected void btnDelete_Click(object sender, EventArgs e)

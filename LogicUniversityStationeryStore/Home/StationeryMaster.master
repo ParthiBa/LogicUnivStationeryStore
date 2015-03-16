@@ -49,8 +49,8 @@
                     <asp:MenuItem NavigateUrl="~/Store/StockAdjustment/ListOfStockAdjustmentUI.aspx" Text="Approve Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                 </asp:MenuItem>
                   <asp:MenuItem Text="Report" Value="Report">
-                    <asp:MenuItem NavigateUrl="~/Store/Report/ReorderAnalysisUI.aspx" Text="Reorder trend Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
-                      <asp:MenuItem NavigateUrl="~/Store/Report/RequisitionAnalysisUI.aspx" Text="Requisition Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Store/Report/ReorderAnaylsisUIN.aspx" Text="Reorder trend Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Store/Report/RequsistionAnaylsisUIN.aspx" Text="Requisition Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
 
                 </asp:MenuItem>
             </Items>

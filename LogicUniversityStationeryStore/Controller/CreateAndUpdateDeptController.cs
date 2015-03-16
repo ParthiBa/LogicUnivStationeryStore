@@ -115,5 +115,22 @@ namespace LogicUniversityStationeryStore.Controller
 
 
         }
+
+
+        public List<Employee> giveListforemp(string dcode)
+        {
+
+            using (LogicUniversityEntities4Perm ctx = new LogicUniversityEntities4Perm())
+            {
+
+                var q = from x in ctx.Employees
+                        where x.deptCode.Equals(dcode)
+                        select x;
+                return q.ToList<Employee>();
+
+            }
+
+
+        }
     }
 }

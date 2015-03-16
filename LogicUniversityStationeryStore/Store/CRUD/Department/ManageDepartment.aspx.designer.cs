@@ -40,15 +40,6 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department {
         protected global::System.Web.UI.WebControls.DropDownList codebox;
         
         /// <summary>
-        /// SqlDataSource3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
-        
-        /// <summary>
         /// BtnRetrieve control.
         /// </summary>
         /// <remarks>
@@ -101,15 +92,6 @@ namespace LogicUniversityStationeryStore.Store.CRUD.Department {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Drop2;
-        
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// Label3 control.
