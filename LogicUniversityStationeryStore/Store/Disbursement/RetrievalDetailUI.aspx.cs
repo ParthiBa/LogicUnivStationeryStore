@@ -19,14 +19,13 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         String UnitOfMeasure;
         String empDeptCode;      
         int count = 0;
+        string role;
 
         RetrievalController rtController = new RetrievalController();
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
-
-            string role = Request.Cookies["UserRole"].Value.ToString();
+            role = Request.Cookies["UserRole"].Value.ToString();
             CheckRoleController.setStationaryMaster(this.Master, role);
 
 
@@ -60,35 +59,69 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         }
         public void BindingGrid()
         {
-            var RetrieveDetail =(from dl in EntityBroker.getMyEntities().DisbursementLists
-                                 join rbd in EntityBroker.getMyEntities().RequestByDepts on dl.id equals rbd.deliveryID
-                                 join d in EntityBroker.getMyEntities().Departments on dl.deptCode equals d.code
-                                 where rbd.stationeryCode == StationeryCode && dl.status =="Accepted" && dl.clerkEmpNo == empNo
-                                 orderby d.name
-                                 group rbd by new
-                                 {
-                                     DepName =d.name,
-                                     SCode =rbd.stationeryCode,      
-                                     neededQuantity =rbd.neededQuantity,
-                                     Deliver= dl.id,
-                                     RetrivedQty = rbd.retrievedQuantity,
-                                     //rdbID = rbd.id,
-                                     DepCode = d.code                                    
-                                   
-                                  } into RD
-                                  select new
-                                  {
-                                      DeptName = RD.Key.DepName,                                     
-                                      QtyNeeded =RD.Key.neededQuantity,
-                                      DeliverId =RD.Key.Deliver,
-                                      RetrievedQty = RD.Key.RetrivedQty,                                     
-                                      deptCode = RD.Key.DepCode  //for Checking condition of inserting new Request                                    
+            EntityBroker broker = new EntityBroker();
+            if (role == "storeClerk")
+            {
+                var RetrieveDetail = (from dl in broker.getEntities().DisbursementLists
+                                      join rbd in broker.getEntities().RequestByDepts on dl.id equals rbd.deliveryID
+                                      join d in broker.getEntities().Departments on dl.deptCode equals d.code
+                                      where rbd.stationeryCode == StationeryCode && dl.status == "Accepted" && dl.clerkEmpNo == empNo
+                                      orderby d.name
+                                      group rbd by new
+                                      {
+                                          DepName = d.name,
+                                          SCode = rbd.stationeryCode,
+                                          neededQuantity = rbd.neededQuantity,
+                                          Deliver = dl.id,
+                                          RetrivedQty = rbd.retrievedQuantity,
+                                          //rdbID = rbd.id,
+                                          DepCode = d.code
 
-                                  }).ToList();
-      
-            GrdRetrievalDetail.DataSource = RetrieveDetail;
-            GrdRetrievalDetail.DataBind();
+                                      } into RD
+                                      select new
+                                      {
+                                          DeptName = RD.Key.DepName,
+                                          QtyNeeded = RD.Key.neededQuantity,
+                                          DeliverId = RD.Key.Deliver,
+                                          RetrievedQty = RD.Key.RetrivedQty,
+                                          deptCode = RD.Key.DepCode  //for Checking condition of inserting new Request                                    
 
+                                      }).ToList();
+
+                GrdRetrievalDetail.DataSource = RetrieveDetail;
+                GrdRetrievalDetail.DataBind();
+            }
+            else if (role == "storeSup" || role == "storeMan")
+            {
+                var RetrieveDetail = (from dl in broker.getEntities().DisbursementLists
+                                      join rbd in broker.getEntities().RequestByDepts on dl.id equals rbd.deliveryID
+                                      join d in broker.getEntities().Departments on dl.deptCode equals d.code
+                                      where rbd.stationeryCode == StationeryCode && dl.status == "Accepted" 
+                                      orderby d.name
+                                      group rbd by new
+                                      {
+                                          DepName = d.name,
+                                          SCode = rbd.stationeryCode,
+                                          neededQuantity = rbd.neededQuantity,
+                                          Deliver = dl.id,
+                                          RetrivedQty = rbd.retrievedQuantity,
+                                          //rdbID = rbd.id,
+                                          DepCode = d.code
+
+                                      } into RD
+                                      select new
+                                      {
+                                          DeptName = RD.Key.DepName,
+                                          QtyNeeded = RD.Key.neededQuantity,
+                                          DeliverId = RD.Key.Deliver,
+                                          RetrievedQty = RD.Key.RetrivedQty,
+                                          deptCode = RD.Key.DepCode  //for Checking condition of inserting new Request                                    
+
+                                      }).ToList();
+
+                GrdRetrievalDetail.DataSource = RetrieveDetail;
+                GrdRetrievalDetail.DataBind();
+            }
             foreach (GridViewRow r in GrdRetrievalDetail.Rows)
             {                
                 //to take the Needed qty to set the maximum value that store clerk can enter
@@ -110,6 +143,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                     ucActualQty.txtQty = lblRetrievedFromRBD.Text;
                 }              
             }
+            broker.dispose();
 
         }    
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -119,6 +153,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            EntityBroker broker = new EntityBroker();
             int RequestedId = 0;//for pass the value and check in RequestDetail
             int DeliveryID =0;
             foreach (GridViewRow r in GrdRetrievalDetail.Rows)
@@ -131,7 +166,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                 WebUserControl1 ucActualQty = (WebUserControl1)r.FindControl("spinner1");
 
                 //update RequestByDepartment Table according to deliveryID(disbursementList) and stationeryCode(come from RetrievalListUI page)
-                RequestByDept rdb = EntityBroker.getMyEntities().RequestByDepts.FirstOrDefault(rd => rd.deliveryID==DeliveryID && rd.stationeryCode==StationeryCode);                           
+                RequestByDept rdb = broker.getEntities().RequestByDepts.FirstOrDefault(rd => rd.deliveryID==DeliveryID && rd.stationeryCode==StationeryCode);                           
                
                 //for checking codition when Actual quantity is lower than needed quantity
                  int actualQty = Convert.ToInt16(ucActualQty.txtQty);
@@ -146,7 +181,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                     empDeptCode = rtController.getOriginalDepartmentCode(delId);//get login employee department to assign into Request Table
                         
                     Request newr = rtController.insertNewRequest(empDeptCode, empNo, delId);
-                    EntityBroker.getMyEntities().Requests.Add(newr);                    
+                    broker.getEntities().Requests.Add(newr);                    
                     RequestedId = newr.id;  //for pass the value and check in RequestDetail                    
 
                     //send messages to other clerk when Advanced request happen
@@ -158,10 +193,10 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                     //save new Request Detail                                                
                     String SCode =rdb.stationeryCode;
                     RequestDetail newRd = rtController.insertNewRequestDetail(RequestedId, SCode, NeededQty, actualQty);
-                    EntityBroker.getMyEntities().RequestDetails.Add(newRd);                 
+                    broker.getEntities().RequestDetails.Add(newRd);                 
                    
                     //update Inventory quantity according to stationeryCode
-                    Inventory i = EntityBroker.getMyEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == SCode);                    
+                    Inventory i = broker.getEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == SCode);                    
                     i.quantity -= actualQty; 
 
                     //update RequestByDepartment
@@ -171,23 +206,25 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                 else
                 {
                     //update Inventory quantity according to stationeryCode
-                    Inventory i = EntityBroker.getMyEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == rdb.stationeryCode);
+                    Inventory i = broker.getEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == rdb.stationeryCode);
                     i.quantity -= actualQty; 
 
                     //update RequestByDepartment
                     rdb.retrievedQuantity = Convert.ToInt16(ucActualQty.txtQty);                    
                 }                
             }            
-            EntityBroker.getMyEntities().SaveChanges();
+            broker.getEntities().SaveChanges();
+            broker.dispose();
             GrdRetrievalDetail.EditIndex = -1;
             BindingGrid();
           
 
             
            //show alert box and go to next page
+            // user more likely to go this page rather than home page
             if (GrdRetrievalDetail.Rows.Count > 0)
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Update Successful!'); window.location = '" + Page.ResolveUrl("~/default.aspx") + "';", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Update Successful!'); window.location = '" + Page.ResolveUrl("~/Store/Disbursement/RetrievalListUI.aspx") + "';", true);
                
             }      
            

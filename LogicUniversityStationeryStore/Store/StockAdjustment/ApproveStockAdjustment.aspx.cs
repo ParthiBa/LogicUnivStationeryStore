@@ -17,6 +17,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
         UpdateAdjustmentController UAcontroller = new UpdateAdjustmentController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            RequiredFieldValidator1.Enabled = false;
             supervisorId = Request.Cookies["User"].Value.ToString();
             role = Request.Cookies["UserRole"].Value.ToString();
             CheckRoleController.setStationaryMaster(this.Master, role);
@@ -56,9 +57,9 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
                 lblApprovedPerson.Visible = true;
                 lblShowPersonName.Visible = true;
 
-               
 
-              if(status.Equals("Approved"))
+
+                if (status.Equals("approved"))
               {
                   lblApprovedPerson.Text = "This request was approved by:";
               }
@@ -94,7 +95,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
                 btnRjectSubmit.Enabled = true;
 
             }
-
+            RequiredFieldValidator1.Enabled = true;
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace LogicUniversityStationeryStore
 {
     public partial class UpdateCollectionPoint : System.Web.UI.Page
     { 
-         int selectedRadio=1;
+//int selectedRadio=1;
             string selectedstring="";
         UpdateCollectionPointController ucpc = new UpdateCollectionPointController();
         protected void Page_Load(object sender, EventArgs e)
@@ -32,10 +32,12 @@ namespace LogicUniversityStationeryStore
             {
        int  selectedRadio=Convert.ToInt32(Request.Form["radio"]);
 
-             Department dep=ucpc.UpdateDeptCollectionPt();
+             Department dep=ucpc.UpdateDeptCollectionPt(selectedRadio);
             dep.collectionPt=selectedRadio;
 
               selectedstring= ucpc.findCollectionPointName(selectedRadio);
+
+           
 
             ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert1312a", "alert('" + selectedstring + " has been chosen as the collection point!'); window.location = '" + Page.ResolveUrl("~/Home/DeptRepHome.aspx") + "';", true);
             }

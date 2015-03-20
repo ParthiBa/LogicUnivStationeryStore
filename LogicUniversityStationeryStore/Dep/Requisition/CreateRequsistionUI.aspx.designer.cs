@@ -49,24 +49,6 @@ namespace LogicUniversityStationeryStore.Dep.Requisition {
         protected global::System.Web.UI.WebControls.DropDownList ddlItemsbyCategories;
         
         /// <summary>
-        /// spinner2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::LogicUniversityStationeryStore.CustomControl.WebUserControl1 spinner2;
-        
-        /// <summary>
-        /// lblUom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUom;
-        
-        /// <summary>
         /// btnAddItem control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,42 @@ namespace LogicUniversityStationeryStore.Dep.Requisition {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField txtStationaryId;
+        
+        /// <summary>
+        /// lblQuantityTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuantityTitle;
+        
+        /// <summary>
+        /// spinner2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::LogicUniversityStationeryStore.CustomControl.WebUserControl1 spinner2;
+        
+        /// <summary>
+        /// lblUnitOfMeasureTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitOfMeasureTitle;
+        
+        /// <summary>
+        /// lblUom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUom;
         
         /// <summary>
         /// grdCreateItem control.

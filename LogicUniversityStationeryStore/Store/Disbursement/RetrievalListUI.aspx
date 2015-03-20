@@ -5,13 +5,11 @@
 
     <table class="auto-style3">
         <tr>
-            <td>
-                <asp:Label ID="lblPageTitle" runat="server" Font-Bold="True" Text="Stationery Retrieval List"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style2">
-                <asp:GridView ID="GrdRetrievalList" runat="server" AutoGenerateColumns="False" OnRowDataBound="hightLightRow" AllowPaging="True" OnPageIndexChanging="GrdRetrievalList_PageIndexChanging" >
+            <td class="auto-style4">
+                <asp:Label ID="lblPageTitle" runat="server" Font-Bold="True" Text="Stationery Retrieval List" style="text-align: left"></asp:Label>
+                <div style="width:100%">
+                <asp:GridView ID="GrdRetrievalList" ForeColor="#333333" GridLines="None" runat="server" AutoGenerateColumns="False" OnRowDataBound="hightLightRow" AllowPaging="True" OnPageIndexChanging="GrdRetrievalList_PageIndexChanging" Width="774px" >
+                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="binNo" HeaderText="Bin No" SortExpression="binNo" />                       
                         <asp:TemplateField HeaderText="Item Number">
@@ -59,11 +57,25 @@
                         </asp:TemplateField>
                         
                     </Columns>
-                </asp:GridView>    
-            </td>            
+                      <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                     <RowStyle BackColor="#EFF3FB" /> 
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />                    
+                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>  
+                    </div>  
+            </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style5">
+                &nbsp;</td>            
+        </tr>
+        <tr>
+            <td class="auto-style4">
                  &nbsp;</td>
         </tr>
      
@@ -79,6 +91,14 @@
         }
         .auto-style2 {
             height: 23px;
+        }
+        .auto-style4 {
+            text-align: left;
+        }
+        .auto-style5 {
+            height: 23px;
+            width: 144%;
+            text-align: left;
         }
     </style>
 </asp:Content>

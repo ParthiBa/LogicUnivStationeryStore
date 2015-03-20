@@ -13,12 +13,13 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
     public partial class RetrievalListUI : System.Web.UI.Page
     {
         String empNo;
+        string role;
         protected void Page_Load(object sender, EventArgs e)
         {
 
 
 
-            string role = Request.Cookies["UserRole"].Value.ToString();
+            role = Request.Cookies["UserRole"].Value.ToString();
             CheckRoleController.setStationaryMaster(this.Master, role);
 
 
@@ -46,40 +47,75 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         }
         public void BindingGrid()
         {
-            var RetrieveList = (from i in EntityBroker.getMyEntities().Inventories
-                                join s in EntityBroker.getMyEntities().Stationeries on i.stationeryCode equals s.code
-                                join rdb in EntityBroker.getMyEntities().RequestByDepts on s.code equals rdb.stationeryCode
-                                join dl in EntityBroker.getMyEntities().DisbursementLists on rdb.deliveryID equals dl.id
-                                where dl.status == "Accepted" && dl.clerkEmpNo == empNo
-                                orderby i.binNo descending
-                                group rdb by new
-                                {
-                                    SCode = rdb.stationeryCode,                                                                   
-                                    B = i.binNo,
-                                    SDesp = s.description,
-                                    qty = i.quantity,
-                                    avaqty = i.availableQty,
-                                    UOM = s.unitOfMeasure
+            EntityBroker broker = new EntityBroker();
+            if (role == "storeClerk")
+            {
+                var RetrieveList = (from i in  broker.getEntities().Inventories
+                                    join s in broker.getEntities().Stationeries on i.stationeryCode equals s.code
+                                    join rdb in broker.getEntities().RequestByDepts on s.code equals rdb.stationeryCode
+                                    join dl in broker.getEntities().DisbursementLists on rdb.deliveryID equals dl.id
+                                    where dl.status == "Accepted" && dl.clerkEmpNo == empNo
+                                    orderby i.binNo descending
+                                    group rdb by new
+                                    {
+                                        SCode = rdb.stationeryCode,
+                                        B = i.binNo,
+                                        SDesp = s.description,
+                                        qty = i.quantity,
+                                        avaqty = i.availableQty,
+                                        UOM = s.unitOfMeasure
 
-                                } into RL
-                                select new
-                                {
-                                    BinNo = RL.Key.B,
-                                    ItemNo = RL.Key.SCode,
-                                    StationeryDescription = RL.Key.SDesp,
-                                    Qtyneeded = RL.Sum(qty => qty.neededQuantity),
-                                    Rqty  =RL.Sum(rqty=>rqty.retrievedQuantity), //sum the retrievedQty from RequestByDepartment table
-                                    Qty = RL.Key.qty,
-                                    AvaQty = RL.Key.avaqty, //for check condition in highlighting row 
-                                    UnitOM = RL.Key.UOM
+                                    } into RL
+                                    select new
+                                    {
+                                        BinNo = RL.Key.B,
+                                        ItemNo = RL.Key.SCode,
+                                        StationeryDescription = RL.Key.SDesp,
+                                        Qtyneeded = RL.Sum(qty => qty.neededQuantity),
+                                        Rqty = RL.Sum(rqty => rqty.retrievedQuantity), //sum the retrievedQty from RequestByDepartment table
+                                        Qty = RL.Key.qty,
+                                        AvaQty = RL.Key.avaqty, //for check condition in highlighting row 
+                                        UnitOM = RL.Key.UOM
 
-                                }).ToList();
+                                    }).ToList();
 
+                GrdRetrievalList.DataSource = RetrieveList;
+                GrdRetrievalList.DataBind();
+            }
+            else if (role == "storeSup" || role == "storeMan")
+            {
+                var RetrieveList = (from i in broker.getEntities().Inventories
+                                    join s in broker.getEntities().Stationeries on i.stationeryCode equals s.code
+                                    join rdb in broker.getEntities().RequestByDepts on s.code equals rdb.stationeryCode
+                                    join dl in broker.getEntities().DisbursementLists on rdb.deliveryID equals dl.id
+                                    where dl.status == "Accepted" 
+                                    orderby i.binNo descending
+                                    group rdb by new
+                                    {
+                                        SCode = rdb.stationeryCode,
+                                        B = i.binNo,
+                                        SDesp = s.description,
+                                        qty = i.quantity,
+                                        avaqty = i.availableQty,
+                                        UOM = s.unitOfMeasure
 
-          
-            GrdRetrievalList.DataSource = RetrieveList;
-            GrdRetrievalList.DataBind();
+                                    } into RL
+                                    select new
+                                    {
+                                        BinNo = RL.Key.B,
+                                        ItemNo = RL.Key.SCode,
+                                        StationeryDescription = RL.Key.SDesp,
+                                        Qtyneeded = RL.Sum(qty => qty.neededQuantity),
+                                        Rqty = RL.Sum(rqty => rqty.retrievedQuantity), //sum the retrievedQty from RequestByDepartment table
+                                        Qty = RL.Key.qty,
+                                        AvaQty = RL.Key.avaqty, //for check condition in highlighting row 
+                                        UnitOM = RL.Key.UOM
 
+                                    }).ToList();
+                
+                GrdRetrievalList.DataSource = RetrieveList;
+                GrdRetrievalList.DataBind();
+            }
 
             foreach (GridViewRow r in GrdRetrievalList.Rows)
             {
@@ -96,6 +132,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
                 }
                              
             }
+            broker.dispose();
         }
         //highlight the row in the grid when Stock qty in inventory running low
        protected void hightLightRow(object sender,GridViewRowEventArgs e)

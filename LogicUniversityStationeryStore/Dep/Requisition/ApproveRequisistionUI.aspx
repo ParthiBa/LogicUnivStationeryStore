@@ -2,29 +2,31 @@
 <%@ MasterType VirtualPath="~/Home/DepartMentMaster.master" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
+
     <style type="text/css">
-        .auto-style4 {
-            height: 22px;
-            width: 81px;
-        }
+
         .auto-style5 {
-            width: 122px;
+            text-align: right;
         }
-        .auto-style7 {
-            width: 548px;
+        .auto-style4 {
+            text-align: left;
         }
-        .auto-style8 {
-            height: 22px;
-            width: 122px;
+
+        .auto-style6 {
+            width: 512px;
         }
-        .auto-style9 {
-            width: 548px;
-            height: 38px;
-        }
+
         .auto-style10 {
+            text-align: left;
             height: 38px;
         }
+        .auto-style11 {
+            width: 512px;
+            height: 38px;
+        }
+
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
 
@@ -32,20 +34,27 @@
 
     <table class="auto-style2">
         <tr>
-            <td class="auto-style8"> <asp:Label ID="lblEmployeeName" runat="server" Text="RequestBy:"></asp:Label></td>
+            <td class="auto-style5"> <asp:Label ID="lblEmployeeName" runat="server" Text="RequestBy:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td class="auto-style4"><asp:Label ID="lblShowEmpName" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td class="auto-style5">  
                 &nbsp;</td>
-            <td></td>
+            <td class="text-left"></td>
         </tr>
     </table>
 
  
     <asp:GridView ID="GrdViewItems" runat="server" CssClass="table-hover" AutoGenerateColumns="False" Width="1029px">
+        <EmptyDataTemplate>
+
+            NO more orders awaiting  for your approval
+
+        </EmptyDataTemplate>
         <Columns>
+          
             <asp:TemplateField HeaderText="ItemId" Visible="False">
+                
                 <EditItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("stationeryCode") %>'></asp:Label>
                 </EditItemTemplate>
@@ -73,7 +82,7 @@
 
         <table class="auto-style2">
         <tr>
-            <td class="auto-style9">
+            <td class="auto-style11">
                 <asp:Button ID="btnReject" runat="server" Text="Reject" CssClass="btn btn-danger" OnClick="btnReject_Click" />
             </td>
             <td class="auto-style10">
@@ -82,12 +91,14 @@
                
         </tr>
         <tr>
-            <td class="auto-style7"> <asp:TextBox ID="TxtReason" runat="server" CssClass="form-control" placeholder="Please type the reason for Rejection" Width="493px" Height="69px" OnTextChanged="TxtReason_TextChanged"></asp:TextBox></td>
-            <td> &nbsp;</td>
+            <td class="auto-style6"> <span><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please fill the reason" ForeColor="#FF3300" ControlToValidate="TxtReason"></asp:RequiredFieldValidator><asp:TextBox ID="TxtReason" runat="server" CssClass="form-control" placeholder="Please type the reason for Rejection" Width="493px" Height="69px" OnTextChanged="TxtReason_TextChanged"></asp:TextBox></span> 
+            </td>
+            <td>                 
+</td>
              
         </tr>
               <tr>
-            <td class="auto-style7"> <asp:Button ID="btnOkReject" runat="server" Text="Ok" CssClass="btn btn-primary" Height="26px" OnClick="btnOkReject_Click" /></td>
+            <td class="auto-style6"> <asp:Button ID="btnOkReject" runat="server" Text="Ok" CssClass="btn btn-primary" Height="39px" OnClick="btnOkReject_Click" Width="82px" /></td>
             <td>
                              </td>
              

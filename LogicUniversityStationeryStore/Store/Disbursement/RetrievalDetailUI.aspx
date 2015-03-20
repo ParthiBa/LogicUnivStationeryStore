@@ -15,7 +15,7 @@
             <td class="auto-style12">
 &nbsp;<asp:Label ID="Label1" runat="server" Text="Stationery Code :"></asp:Label>
             </td>
-            <td class="auto-style13">
+            <td class="text-left">
                 <asp:Label ID="lblStationeryCode" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
@@ -24,7 +24,7 @@
                 &nbsp;
                 <asp:Label ID="Label2" runat="server" Text="Stationery Description :"></asp:Label>
             </td>
-            <td class="auto-style15">
+            <td class="text-left">
                 <asp:Label ID="lblStationeryDesp" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
@@ -33,13 +33,15 @@
                 &nbsp;
                 <asp:Label ID="Label3" runat="server" Text="Unit Of Measure :"></asp:Label>
             </td>
-            <td class="auto-style17">
+            <td class="text-left">
                 <asp:Label ID="lblUnitOfMeasure" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="auto-style7" colspan="2">
-                <asp:GridView ID="GrdRetrievalDetail" runat="server" AutoGenerateColumns="False" >
+            <td></td>
+            <td class="auto-style7">
+                <asp:GridView ID="GrdRetrievalDetail" ForeColor="#333333" GridLines="None" runat="server" AutoGenerateColumns="False" >
+                    <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="DeptName" HeaderText="Department Name" SortExpression="name" />
                         <asp:TemplateField HeaderText="Quantity Needed">
@@ -57,7 +59,7 @@
                                 <asp:Label ID="lblRetrievedQty" runat="server" Text =""></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="DeliverId" Visible="True">
+                        <asp:TemplateField HeaderText="DeliverId" Visible="False">
                             <ItemTemplate>
                                 <asp:Label ID="lblDeliverId" runat="server" Text ='<%#Bind("DeliverId")%>'></asp:Label>
                             </ItemTemplate>
@@ -68,14 +70,24 @@
                             </ItemTemplate>
                         </asp:TemplateField>                                                                               
                     </Columns>
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                     <RowStyle BackColor="#EFF3FB" /> 
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />                    
+                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
            </td>
         </tr>
         <tr>
-            <td class="auto-style8" colspan="2">                
-                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            <td></td>
+            <td class="text-left">                
+                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" CssClass="btn btn-danger"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click"  />
+                 <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="btn btn-primary" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
         </tr>

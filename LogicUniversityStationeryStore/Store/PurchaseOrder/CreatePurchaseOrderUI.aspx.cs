@@ -17,23 +17,31 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
         string currentValue;
         string empId ;
         string maxQty = "5";
+        string maxQty1 = "30";
 
         NewPurchaseController newPController = new NewPurchaseController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //set  Master Page
+       
+
+
             if(Request.Cookies["User"]!=null)
             {
+                string role = Request.Cookies["UserRole"].Value.ToString();
                 empId = Request.Cookies["User"].Value.ToString();
-                string role = Request.Cookies["User"].Value.ToString();
                 CheckRoleController.setStationaryMaster(this.Master, role);
             }
 
             GrdPurchaseOrder.RowDataBound += new GridViewRowEventHandler(this.GrdPurchaseOrder_RowDataBound);
-
+            if ((ddlItemDescription.SelectedValue != "0")&&(ddlItemDescription.SelectedValue != ""))
+            {
+                maxQty1 = newPController.getMaxQty(ddlItemDescription.SelectedValue);
+            }
             if (!IsPostBack)
             {
                 BindingDropDownList();               
-                spinner1.setLimit("1", "1000");
+                spinner1.setLimit("1", "1000000000");
 
             }
         }
@@ -56,19 +64,26 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
         //add button click event
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
-            btnSubmit.Visible = true;
-            ddlSupplier.Enabled = false;
-            string itemN = ddlItemDescription.SelectedValue;
-            string itemDesp = ddlItemDescription.SelectedItem.Text;
-            string qty = spinner1.getValue();
+            if (ddlSupplier.SelectedItem.Text == "--Select Supplier--")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select Supplier!');", true);
+            }
+            if ((ddlItemDescription.SelectedItem.Text != "") && (ddlSupplier.SelectedItem.Text != "--Select Supplier--"))
+            {
+                btnSubmit.Visible = true;
+                ddlSupplier.Enabled = false;
+                string itemN = ddlItemDescription.SelectedValue;
+                string itemDesp = ddlItemDescription.SelectedItem.Text;
+                string qty = spinner1.getValue();
 
-            string unitOfMeasure = newPController.getUnitOfMeasure(ddlItemDescription.SelectedValue);//get unit of measure according to the item Description
-            decimal p = newPController.getPrice(ddlItemDescription.SelectedValue, ddlSupplier.SelectedValue);
-            decimal q = Convert.ToDecimal(qty);
-            decimal amt = q * p;
-            string amount = Convert.ToString(amt);
-            string price = Convert.ToString(p);
-            setIntitialRow(itemN, itemDesp, qty, unitOfMeasure, price, amount);
+                string unitOfMeasure = newPController.getUnitOfMeasure(ddlItemDescription.SelectedValue);//get unit of measure according to the item Description
+                decimal p = newPController.getPrice(ddlItemDescription.SelectedValue, ddlSupplier.SelectedValue);
+                decimal q = Convert.ToDecimal(qty);
+                decimal amt = q * p;
+                string amount = Convert.ToString(amt);
+                string price = Convert.ToString(p);
+                setIntitialRow(itemN, itemDesp, qty, unitOfMeasure, price, amount);
+            }
         }
 
         //set initial data row
@@ -129,7 +144,7 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
                 maxQty = newPController.getMaxQty(ddlItemDescription.SelectedValue);
                 if (spinner2 != null)
                 {
-                    spinner2.setLimit("1", maxQty);
+                    spinner2.setLimit("1", "1000000000");
                     spinner2.setValue(currentValue);
                 }
             }
@@ -201,23 +216,39 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
         //drop down list selected index changed event
         protected void ddlItemDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
-            maxQty = newPController.getMaxQty(ddlItemDescription.SelectedValue);
-            spinner1.setLimit("0", maxQty);
-            btnAddNew.Visible = true;
-            //show unit of measure here 
+            if (ddlSupplier.SelectedItem.Text == "--Select Supplier--")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select Supplier!');", true);
+            }
+            else
+            {
+                maxQty = newPController.getMaxQty(ddlItemDescription.SelectedValue);
+                spinner1.setLimit("0", "1000000000");
+                btnAddNew.Visible = true;
+            }
+
         }
 
         protected void ddlSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblItemDescriptionTitle.Visible = true;
-            ddlItemDescription.Visible = true;
-            lblQuantityTitle.Visible = true;
-            spinner1.Visible = true;
-            //btnAddNew.Visible = true;
+            if (ddlSupplier.SelectedItem.Text == "--Select Supplier--")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select Supplier!');", true);
+            }
+            else
+            {
+                lblItemDescriptionTitle.Visible = true;
+                ddlItemDescription.Visible = true;
+                lblQuantityTitle.Visible = true;
+                spinner1.Visible = true;
 
-            ddlItemDescription.DataSource = newPController.getItemDescription(ddlSupplier.SelectedValue);//only select according to supplier 
-            ddlItemDescription.DataBind();
-         }
+                ddlItemDescription.Items.Clear();
+                ddlItemDescription.DataSource = newPController.getItemDescription(ddlSupplier.SelectedValue);//only select according to supplier 
+                ddlItemDescription.DataBind();
+
+
+            }
+        }
     }
     
 }

@@ -33,8 +33,10 @@
     
         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="RangeValidator" MaximumValue="10" MinimumValue="1" Type="Integer"></asp:RangeValidator>
     
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+    
     </div>
-        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
     </form>
 </body>
 </html>

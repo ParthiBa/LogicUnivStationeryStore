@@ -10,22 +10,25 @@
    <%--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>--%>
-    <script type="text/javascript">
-        $(function () {
-
-            console.log("hello");
-            console.log($(".myodatepicker"));
-            var c = $(".myodatepicker");
-            c.datepicker();
-
-
-        });
-    </script>
-
+    <link href="http://localhost/T4%20-%20LogicUniversityStationeryStore/Content/bootstrap.css" rel="stylesheet" />
+    <link href="http://localhost/T4%20-%20LogicUniversityStationeryStore/Content/bootstrap.min.css" rel="stylesheet" />
 
 
     <asp:ContentPlaceHolder ID="Mainhead" runat="server">
     </asp:ContentPlaceHolder>
+        <script type="text/javascript">
+            $(function () {
+
+                console.log("hello");
+                console.log($(".myodatepicker"));
+                var c = $(".myodatepicker");
+                var d = $(".datepicker");
+                d.datepicker({ minDate: +1, beforeShowDay: $.datepicker.noWeekends });
+                c.datepicker();
+
+
+            });
+    </script>
         <style type="text/css">
             .name:hover
             {
@@ -71,7 +74,7 @@
             /*background:url('/Images/bg.jpg') ;*/
         }
          #footer {
-            position:absolute;
+           
 		    bottom:0;
 		    width:100%;
 		    height:60px;
@@ -91,13 +94,16 @@
                 height: 100%;
                 width: 144%;
             }
+
     </style>
  
     <link rel="stylesheet" href="Home/DropDownMenu.css" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="main" runat="server" style ="width:100%;height:100%;text-align:left; vertical-align:middle">
+        <div class="row" id="main" runat="server" style ="width:100%;height:100%;text-align:left; vertical-align:middle">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
             <table>
                 <tr>
                     <td class="auto-style1">
@@ -126,12 +132,8 @@
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
                         </asp:ContentPlaceHolder></div>      
                     </div>
-              
-        <div id="footer">
-		    <!-- Footer start -->
-		    <p>Copyright@2014, Singapore Logic University Stationery INC./All Rights Reserved.</p>
-		    <!-- Footer end -->
-	    </div>
-    </form>
+              </div>
+        <div class="col-md-2">
+        </form>
 </body>
 </html>

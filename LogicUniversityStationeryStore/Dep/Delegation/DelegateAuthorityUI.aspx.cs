@@ -42,7 +42,10 @@ namespace LogicUniversityStationeryStore.Dep.Delegation
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-
+            if(txtFromDate.Text.Equals("") || txtToDate.Text.Equals(""))
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "Authorizatio", "alert('Date is empty , please select the values');", true);
+            }
                       
 
             string auth = ddAuthorizeTo.Text;
@@ -55,15 +58,27 @@ namespace LogicUniversityStationeryStore.Dep.Delegation
                
                 NotificationHelper mail = new NotificationHelper();
                 mail.sendEmail("mikelogichead@gmail.com", "MikeLogicHead123", "MickeyZoolEmp@gmail.com", NotificationHelper.SelectedtempHeadOfDepartment(), "Department Representative notification");
-                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+             //   Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                ClientScript.RegisterClientScriptBlock(Page.GetType(), "myalert123", "alert('Request Has been added Sucessfully '); window.location.href = '" + Page.ResolveUrl("~/Home/DeptHeadHome.aspx") + "';", true);
+
                 //ClientScript.RegisterStartupScript(Page.GetType(), "Authorization", "alert('Record saved sucessfully');", true);
             }
             else
+            {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Authorization", "alert('Authorized to other person during this period');", true);
+        }
+
+
+
 
         }
 
         protected void ddAuthorizeTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtFromDate_TextChanged(object sender, EventArgs e)
         {
 
         }

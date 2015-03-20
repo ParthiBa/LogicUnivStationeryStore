@@ -27,21 +27,32 @@ namespace LogicUniversityStationeryStore.Controller
         //    CollectionPoint c=
         //    return cp;
         //}
-        public Department UpdateDeptCollectionPt()
+        public Department UpdateDeptCollectionPt(int collectionPoint)
         {
-            var department = from dp in EntityBroker.getMyEntities().Departments
+
+            EntityBroker broker = new EntityBroker();
+            var department = from dp in broker.getEntities().Departments
                              select dp;
             Department de = department.FirstOrDefault();
+            de.collectionPt = collectionPoint;
+            broker.getEntities().SaveChanges();
+
+
+            broker.dispose();
+
             return de;
         }
 
         public string findCollectionPointName(int id)
         {
-            var q = from x in EntityBroker.getMyEntities().CollectionPoints
+            EntityBroker broker = new EntityBroker();
+            var q = from x in broker.getEntities().CollectionPoints
                     where x.id == id
                     select x.place;
-            return q.FirstOrDefault();
-
+       
+            var q1= q.FirstOrDefault();
+                 broker.dispose();
+                 return q1;
 
         }
     }

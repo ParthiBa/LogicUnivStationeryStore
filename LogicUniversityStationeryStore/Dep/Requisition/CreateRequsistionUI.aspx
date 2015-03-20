@@ -19,36 +19,29 @@
             height: 90px;
         }
     .auto-style4 {
-        width: 302px;
+        width: 466px;
         height: 22px;
     }
-    .auto-style5 {
-        height: 22px;
-            width: 14px;
-        }
     .auto-style6 {
         height: 22px;
-        width: 53px;
+        width: 60px;
     }
     .auto-style7 {
-        width: 53px;
+        width: 60px;
             height: 90px;
         }
         .auto-style8 {
             width: 14px;
             height: 90px;
         }
-        .auto-style9 {
-            height: 22px;
-        }
         .auto-style10 {
             height: 90px;
         }
         .auto-style11 {
-            width: 302px;
+            width: 466px;
             height: 100%;
         }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
 
@@ -56,37 +49,58 @@
 <table class="auto-style2">
     <tr>
         <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-        <td class="auto-style6">Quantity</td>
-        <td class="auto-style5"></td>
-        <td class="auto-style9"></td>
+        <td class="auto-style6" colspan="3">&nbsp;</td>
 
+    </tr>
+    <tr>
+        <td class="text-left">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <asp:Label ID="lblCategory" runat="server" Text="Choose Category:" Font-Bold="True"></asp:Label>     
+       
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;     
+       
+    <asp:DropDownList ID="ddlStationeryCategories" runat="server" AutoPostBack="True" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddlStationeryCategories_SelectedIndexChanged1" Height="26px" Width="189px"></asp:DropDownList>
+        </td>
+        <td class="auto-style13" colspan="3">
+            </td>
     </tr>
     <tr>
         <td class="auto-style11">
 
-            <asp:Label ID="lblCategory" runat="server" Text="Choose Category"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
 
-    <asp:DropDownList ID="ddlStationeryCategories" runat="server" AutoPostBack="True" DataTextField="category" DataValueField="category" OnSelectedIndexChanged="ddlStationeryCategories_SelectedIndexChanged1" Height="26px" Width="189px"></asp:DropDownList>
-            <br />
-            <br />
-            <asp:Label ID="lblCategory0" runat="server" Text="Choose Items"></asp:Label>
-    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True" Width="197px" Height="24px"></asp:DropDownList>
+            <asp:Label ID="lblCategory0" runat="server" Text="Choose Items:" Font-Bold="True"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:DropDownList ID="ddlItemsbyCategories" runat="server" DataTextField="description" DataValueField="code" OnSelectedIndexChanged="ddlItemsbyCategories_SelectedIndexChanged" AutoPostBack="True" Width="248px" Height="24px"></asp:DropDownList>
         </td>
-        <td class="auto-style7">
-    &nbsp;&nbsp;<span>
-            <div style="height: 48px; width: 116px;">
-                <uc2:spinner ID="spinner2" runat="server" />
-
-            </div>                <asp:Label ID="lblUom" runat="server">Dozen</asp:Label> </span>
+        <td class="auto-style7">    
         </td>
         <td class="auto-style8">
             <asp:Button ID="btnAddItem" runat="server" Text="Add"  CssClass="btn btn-success"
                 OnClick="btnAddItem_Click" Width="79px"  />
         </td>
-        <td class="auto-style10">
-         
+        <td class="auto-style10">         
             <asp:HiddenField ID="txtStationaryId" runat="server" />
          
+        </td>
+    </tr>
+    <tr>
+        <td class="text-left">
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;
+             <asp:Label ID="lblQuantityTitle" runat="server" Text="Quantity:" Font-Bold="True">                 
+             </asp:Label>
+             &nbsp;&nbsp;&nbsp;
+             &nbsp;
+             <uc2:spinner ID="spinner2" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td class="text-left">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblUnitOfMeasureTitle" runat="server" Text="Unit Of Measure:" Font-Bold="True"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblUom" runat="server">Dozen</asp:Label>
         </td>
     </tr>
 </table>

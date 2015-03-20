@@ -66,11 +66,6 @@
                          </asp:ContentPlaceHolder>
                      </div>
         </div>
-        <div id="footer">
-		    <!-- Footer start -->
-		    <p>Copyright@2014, Singapore Logic University Stationery INC./All Rights Reserved.</p>
-		    <!-- Footer end -->
-	    </div>
     </form>
 </body>
 </html>

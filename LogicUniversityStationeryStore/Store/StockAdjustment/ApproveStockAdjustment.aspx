@@ -3,19 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="StationeryHead" runat="server">
     <style type="text/css">
-        .auto-style2 {
-            width: 100%;
-        }
-        .auto-style3 {
-            width: 417px;
-        }
-        .auto-style4 {
-            width: 417px;
-            height: 55px;
-        }
-        .auto-style5 {
-            height: 55px;
-        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="StationeryBody" runat="server">
@@ -50,14 +38,15 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">
+            <td class="auto-style6">
                
                 <asp:TextBox ID="txtReviewReason" CssClass="form-control" runat="server" placeholder="Please enter the reason for rejection the request" Visible="false" Height="105px" Width="427px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtReviewReason" ErrorMessage="Please enter the reason" ForeColor="#FF3300" ValidateRequestMode="Enabled"></asp:RequiredFieldValidator>
               </td> 
             <td>&nbsp;</td>
         </tr>
              <tr>
-            <td class="auto-style3">
+            <td class="auto-style6">
                 <asp:Button ID="btnRjectSubmit" runat="server" Text="Submit Reject" Width="240px" CssClass="btn btn-primary" Enabled="False" Visible="False" OnClick="btnRjectSubmit_Click"  />
                 </td>
             <td>&nbsp;</td>

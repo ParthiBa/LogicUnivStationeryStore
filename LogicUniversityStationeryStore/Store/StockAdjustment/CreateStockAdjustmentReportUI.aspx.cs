@@ -32,9 +32,15 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
 
             Spinner21.txtSpinChanged += new EventHandler(AmountChanged);
             ViewState["price"] = LinqHelper.findPricebtItemCode("C001");
+
+            if (GrdDiscrepDetails.Rows.Count == 0)
+            {
+                btnSubmitAdjustment.Enabled = false;
+            }
          //   spinner1.txtSpinChanged += new EventHandler(AmountChanged);
             if (!IsPostBack)
             {
+          
                 lblShowDate.Text = DateTime.Now.ToShortDateString();
                 Spinner21.setLimit("-10000", "10000");
 
@@ -81,7 +87,7 @@ namespace LogicUniversityStationeryStore.Store.StockAdjustment
                 addNextRow(ddlStationarItemsbyCat.SelectedValue, ddlStationarItemsbyCat.SelectedItem.Text, Spinner21.getValues(), txtReason.Text, Convert.ToDecimal(lblAmountDisp.Text));
 
             }
-
+            btnSubmitAdjustment.Enabled = true;
         }
 
         protected void stationaryDropDownList_SelectedIndexChanged(object sender, EventArgs e)

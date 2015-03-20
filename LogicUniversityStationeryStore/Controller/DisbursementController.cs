@@ -14,21 +14,25 @@ namespace LogicUniversityStationeryStore.Controller
         //for binding into Representative Name and Collection Point according to Department 
         public Department getDepartmentData(string deptCode)
         {
-             var q = from dp in EntityBroker.getMyEntities().Departments        
+            EntityBroker broker = new EntityBroker();
+             var q = from dp in broker.getEntities().Departments        
                     where dp.code.Equals(deptCode)
                     select dp;
             Department m = q.FirstOrDefault<Department>();
+            broker.dispose();
             return m;
         }
 
         //for binding Delivery Date according to Department
         public DateTime getDeliveryDate(String deptName)
         {
-            var date = from d in EntityBroker.getMyEntities().DisbursementLists
-                       join dp in EntityBroker.getMyEntities().Departments on d.deptCode equals dp.code
+            EntityBroker broker = new EntityBroker();
+            var date = from d in broker.getEntities().DisbursementLists
+                       join dp in broker.getEntities().Departments on d.deptCode equals dp.code
                        where dp.code == deptName
                        select d.deliveryDate;
             DateTime dt = date.First<DateTime>();
+            broker.dispose();
             return dt;
         }
         //--Inserting and updating case in CreateDisburListUI.asp.cs--//
@@ -61,6 +65,28 @@ namespace LogicUniversityStationeryStore.Controller
             String message = NotificationHelper.CLerkLowItemsInStock(StationeryDescription);
             String subject = "Low Items in Stock";
             bool status = n.EmailtoClerk(message, subject);
+        }
+        //get collection point name
+        public String getCollectionName(int collPt)
+        {
+            EntityBroker broker = new EntityBroker();
+            var q = (from c in broker.getEntities().CollectionPoints
+                     where c.id == collPt
+                     select c.place).Single();
+            broker.dispose();
+            return q;
+
+        }
+        //for Retrieval Detail Page get original department code
+        public String getOriginalDepartmentCode(int delid)
+        {
+            EntityBroker broker = new EntityBroker();
+            var e = from dl in broker.getEntities().DisbursementLists
+                    where dl.id == delid
+                    select dl.deptCode;
+            String deptCode = e.First<String>();
+            broker.dispose();
+            return deptCode;
         }
       }
 }

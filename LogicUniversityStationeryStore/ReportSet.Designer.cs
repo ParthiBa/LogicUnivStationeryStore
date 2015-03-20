@@ -624,11 +624,13 @@ namespace LogicUniversityStationeryStore {
             
             private global::System.Data.DataColumn columncategory;
             
-            private global::System.Data.DataColumn columnneededQuantity;
-            
             private global::System.Data.DataColumn columnmonth;
             
             private global::System.Data.DataColumn columnyear;
+            
+            private global::System.Data.DataColumn columnreceivedQuantity;
+            
+            private global::System.Data.DataColumn columndateOfDelivery;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -673,14 +675,6 @@ namespace LogicUniversityStationeryStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn neededQuantityColumn {
-                get {
-                    return this.columnneededQuantity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn monthColumn {
                 get {
                     return this.columnmonth;
@@ -692,6 +686,22 @@ namespace LogicUniversityStationeryStore {
             public global::System.Data.DataColumn yearColumn {
                 get {
                     return this.columnyear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn receivedQuantityColumn {
+                get {
+                    return this.columnreceivedQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dateOfDeliveryColumn {
+                get {
+                    return this.columndateOfDelivery;
                 }
             }
             
@@ -732,13 +742,14 @@ namespace LogicUniversityStationeryStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string category, int neededQuantity, string month, string year) {
+            public DataTable1Row AddDataTable1Row(string category, string month, string year, int receivedQuantity, System.DateTime dateOfDelivery) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         category,
-                        neededQuantity,
                         month,
-                        year};
+                        year,
+                        receivedQuantity,
+                        dateOfDelivery};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -762,9 +773,10 @@ namespace LogicUniversityStationeryStore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columncategory = base.Columns["category"];
-                this.columnneededQuantity = base.Columns["neededQuantity"];
                 this.columnmonth = base.Columns["month"];
                 this.columnyear = base.Columns["year"];
+                this.columnreceivedQuantity = base.Columns["receivedQuantity"];
+                this.columndateOfDelivery = base.Columns["dateOfDelivery"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -772,15 +784,16 @@ namespace LogicUniversityStationeryStore {
             private void InitClass() {
                 this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncategory);
-                this.columnneededQuantity = new global::System.Data.DataColumn("neededQuantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnneededQuantity);
                 this.columnmonth = new global::System.Data.DataColumn("month", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmonth);
                 this.columnyear = new global::System.Data.DataColumn("year", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnyear);
+                this.columnreceivedQuantity = new global::System.Data.DataColumn("receivedQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreceivedQuantity);
+                this.columndateOfDelivery = new global::System.Data.DataColumn("dateOfDelivery", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateOfDelivery);
                 this.columncategory.AllowDBNull = false;
                 this.columncategory.MaxLength = 20;
-                this.columnneededQuantity.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1038,17 +1051,6 @@ namespace LogicUniversityStationeryStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int neededQuantity {
-                get {
-                    return ((int)(this[this.tableDataTable1.neededQuantityColumn]));
-                }
-                set {
-                    this[this.tableDataTable1.neededQuantityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string month {
                 get {
                     try {
@@ -1081,6 +1083,38 @@ namespace LogicUniversityStationeryStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int receivedQuantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.receivedQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'receivedQuantity\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.receivedQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime dateOfDelivery {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableDataTable1.dateOfDeliveryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dateOfDelivery\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.dateOfDeliveryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsmonthNull() {
                 return this.IsNull(this.tableDataTable1.monthColumn);
             }
@@ -1101,6 +1135,30 @@ namespace LogicUniversityStationeryStore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetyearNull() {
                 this[this.tableDataTable1.yearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsreceivedQuantityNull() {
+                return this.IsNull(this.tableDataTable1.receivedQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetreceivedQuantityNull() {
+                this[this.tableDataTable1.receivedQuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdateOfDeliveryNull() {
+                return this.IsNull(this.tableDataTable1.dateOfDeliveryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdateOfDeliveryNull() {
+                this[this.tableDataTable1.dateOfDeliveryColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1472,7 +1530,8 @@ FROM            Request INNER JOIN
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
             tableMapping.ColumnMappings.Add("category", "category");
-            tableMapping.ColumnMappings.Add("neededQuantity", "neededQuantity");
+            tableMapping.ColumnMappings.Add("receivedQuantity", "receivedQuantity");
+            tableMapping.ColumnMappings.Add("dateOfDelivery", "dateOfDelivery");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1489,11 +1548,10 @@ FROM            Request INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        RequestByDept.neededQuantity, Stationery.category
-FROM            Request INNER JOIN
-                         RequestByDept ON Request.id = RequestByDept.id INNER JOIN
-                         DisbursementList ON Request.deliveryID = DisbursementList.id AND RequestByDept.deliveryID = DisbursementList.id INNER JOIN
-                         Stationery ON RequestByDept.stationeryCode = Stationery.code";
+            this._commandCollection[0].CommandText = @"SELECT        PurchaseOrder.dateOfDelivery, PurchaseOrderDetail.receivedQuantity, Stationery.category
+FROM            PurchaseOrder INNER JOIN
+                         PurchaseOrderDetail ON PurchaseOrder.id = PurchaseOrderDetail.orderID INNER JOIN
+                         Stationery ON PurchaseOrderDetail.stationeryCode = Stationery.code";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

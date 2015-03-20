@@ -53,9 +53,11 @@ namespace LogicUniversityStationeryStore.Controller
 
         public List<string> ddPageLoad()
         {
+
+            EntityBroker entitybroker = new EntityBroker();
             List<string> staSuppList = new List<string>();
 
-            var supplierName = from o in EntityBroker.getMyEntities().Suppliers
+            var supplierName = from o in entitybroker.getEntities().Suppliers
                                select o.supplierName;
 
             foreach (string name in supplierName)
@@ -63,25 +65,34 @@ namespace LogicUniversityStationeryStore.Controller
                 staSuppList.Add(name);
                 
             }
+            entitybroker.dispose();
             return staSuppList;
+           
+
         }
 
 
         public List<string> rudPageLoad()
         {
+
+            EntityBroker entitybroker = new EntityBroker();
+
             List<string> categoryList = new List<string>();
-            var stationeryCatogary = (from o in EntityBroker.getMyEntities().Stationeries
+            var stationeryCatogary = (from o in entitybroker.getEntities().Stationeries
                                       select o.category).Distinct();
 
             foreach (string s in stationeryCatogary)
             {
                 categoryList.Add(s);
             }
+            entitybroker.dispose();
             return categoryList;
         }
 
         public void create()
         {
+            EntityBroker entitybroker = new EntityBroker();
+
             Stationery sta = new Stationery();
             //string supp1  = "";
             sta.code = staCode;
@@ -95,27 +106,28 @@ namespace LogicUniversityStationeryStore.Controller
             sta.price3 = Price3;
 
             //supplier1
-            var sup1 = from o in EntityBroker.getMyEntities().Suppliers
+            var sup1 = from o in entitybroker.getEntities().Suppliers
                        where Supplier1 == o.supplierName
                        select o;
             Supplier supp1 = sup1.FirstOrDefault<Supplier>();
             sta.supplier1 = supp1.supplierCode; 
 
             //supplier2
-            var sup2 = from o in EntityBroker.getMyEntities().Suppliers
+            var sup2 = from o in entitybroker.getEntities().Suppliers
                        where Supplier2 == o.supplierName
                        select o;
             Supplier supp2 = sup2.FirstOrDefault<Supplier>();
             sta.supplier2 = supp2.supplierCode;
 
             //supplier3
-            var sup3 = from o in EntityBroker.getMyEntities().Suppliers
+            var sup3 = from o in entitybroker.getEntities().Suppliers
                        where Supplier3 == o.supplierName
                        select o;
             Supplier supp3 = sup3.FirstOrDefault<Supplier>();
             sta.supplier3 = supp3.supplierCode;
-            EntityBroker.getMyEntities().Stationeries.Add(sta);
-            EntityBroker.getMyEntities().SaveChanges();
+            entitybroker.getEntities().Stationeries.Add(sta);
+            entitybroker.getEntities().SaveChanges();
+            entitybroker.dispose();
  
         }
         public string clear()
@@ -125,29 +137,38 @@ namespace LogicUniversityStationeryStore.Controller
         }
 
         public Stationery rudPageLoad(string categoryName, string itemName)
-        { 
-            var stationeryDt1= from o in EntityBroker.getMyEntities().Stationeries
+        {
+            EntityBroker entitybroker = new EntityBroker();
+
+            var stationeryDt1 = from o in entitybroker.getEntities().Stationeries
                                where o.category == categoryName && o.description==itemName
                               select o;
 
             Stationery stationeryDetails = stationeryDt1.FirstOrDefault<Stationery>();
+            entitybroker.dispose();
 
             return stationeryDetails;
         }
 
         public string getSupplierName(string supCode)
         {
-            var sup = from o in EntityBroker.getMyEntities().Suppliers
+            EntityBroker entitybroker = new EntityBroker();
+
+            var sup = from o in entitybroker.getEntities().Suppliers
                        where supCode == o.supplierCode
                        select o.supplierName;
             string supp = sup.FirstOrDefault<string>();
+            entitybroker.dispose();
+
             return supp;
         }
 
         public List<string> getAllSupplierName(string supCode)
         {
+            EntityBroker entitybroker = new EntityBroker();
+
             List<string> supAllNames = new List<string>();
-             var supplierDtl = (from o in EntityBroker.getMyEntities().Suppliers
+             var supplierDtl = (from o in entitybroker.getEntities().Suppliers
                                 where supCode != o.supplierCode
                                select o.supplierName).Distinct();
 
@@ -155,13 +176,17 @@ namespace LogicUniversityStationeryStore.Controller
              {
                  supAllNames.Add(s);
              }
+             entitybroker.dispose();
+
              return supAllNames;
         }
 
         public List<string> ddCategoryChanged(string categoryName)
         {
+            EntityBroker entitybroker = new EntityBroker();
+
             List<string> stationeryNames = new List<string>();
-            var stationeryDescription = from o in EntityBroker.getMyEntities().Stationeries
+            var stationeryDescription = from o in entitybroker.getEntities().Stationeries
                                         where o.category == categoryName
                                         select o.description;
 
@@ -169,12 +194,16 @@ namespace LogicUniversityStationeryStore.Controller
             {
                 stationeryNames.Add(s);
             }
+            entitybroker.dispose();
+
             return stationeryNames;
         }
 
         public void update(Stationery s)
         {
-            var stationeryDtl = from o in EntityBroker.getMyEntities().Stationeries
+            EntityBroker entitybroker = new EntityBroker();
+
+            var stationeryDtl = from o in entitybroker.getEntities().Stationeries
                                 where o.category == s.category && o.description == s.description
                                 select o;
 
@@ -188,16 +217,23 @@ namespace LogicUniversityStationeryStore.Controller
             sta.supplier1 = getSuplierCode(s.supplier1);
             sta.supplier2 = getSuplierCode(s.supplier2);
             sta.supplier3 = getSuplierCode(s.supplier3);
-            EntityBroker.getMyEntities().SaveChanges();
+           entitybroker.getEntities().SaveChanges();
+           entitybroker.dispose();
+
           
         }
 
         public string getSuplierCode(string name)
         {
-            var sup1 = from o in EntityBroker.getMyEntities().Suppliers
+            EntityBroker entitybroker = new EntityBroker();
+
+            var sup1 = from o in entitybroker.getEntities().Suppliers
                        where name == o.supplierName
                        select o;
             Supplier supp1 = sup1.FirstOrDefault<Supplier>();
+
+            entitybroker.dispose();
+
             return supp1.supplierCode;
         }
 

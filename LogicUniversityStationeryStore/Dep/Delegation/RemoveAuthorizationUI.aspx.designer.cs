@@ -13,13 +13,13 @@ namespace LogicUniversityStationeryStore.Dep.Delegation {
     public partial class RemoveAuthorizationUI {
         
         /// <summary>
-        /// lblRemoveAuthorization control.
+        /// lblMessage2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRemoveAuthorization;
+        protected global::System.Web.UI.WebControls.Label lblMessage2;
         
         /// <summary>
         /// lblAuthorizedPerson control.

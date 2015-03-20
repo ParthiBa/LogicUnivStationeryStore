@@ -170,6 +170,14 @@ namespace LogicUniversityStationeryStore.Controller
                           select o;
                 Employee emp1 = emp.FirstOrDefault<Employee>();
                 emp1.empRole = "deptRep";
+
+                var dep = from o in EntityBroker.getMyEntities().Departments
+                          where o.code.Equals(CurrentEmployee.deptCode)
+                          select o;
+                Department depa = dep.FirstOrDefault<Department>();
+                depa.deptRep = emp1.empNo;
+
+
                 EntityBroker.getMyEntities().SaveChanges();/// remove from here
 
                 var emp2 = from o in EntityBroker.getMyEntities().Employees
@@ -177,6 +185,9 @@ namespace LogicUniversityStationeryStore.Controller
                            select o;
                 Employee emp3 = emp2.FirstOrDefault<Employee>();
                 emp3.empRole = "deptEmp";
+
+
+
                 EntityBroker.getMyEntities().SaveChanges();
                 return true;
             }

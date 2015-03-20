@@ -11,21 +11,28 @@
             height: 920px;
         }
         .auto-style8 {
-            height: 612px;
+            height: 316px;
+            width: 270px;
         }
         .auto-style9 {
-            width: 372px;
-        }
+            width: 211px;
+        height: 374px;
+    }
         .auto-style10 {
-            height: 612px;
-            width: 372px;
+            height: 316px;
+            width: 211px;
         }
-        .auto-style11 {
-            width: 372px;
-            height: 91px;
+        .auto-style13 {
+            width: 270px;
+        height: 374px;
+    }
+        .auto-style14 {
+            width: 211px;
+            height: 26px;
         }
-        .auto-style12 {
-            height: 91px;
+        .auto-style15 {
+            width: 270px;
+            height: 26px;
         }
   
     </style>
@@ -36,7 +43,7 @@
 
     <table class="auto-style7">
         <tr>
-            <td class="auto-style9"><h3> Please Choose Category:</h3>
+            <td class="auto-style14"><h3> Please Choose Category:</h3>
 
        
             <asp:LinkButton ID="lkAll" runat="server" OnClick="lkAll_Click">Select All</asp:LinkButton>&nbsp;
@@ -46,15 +53,17 @@
             <asp:ListItem Value="itemNone">None</asp:ListItem>
                          </asp:CheckBoxList>
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style15"></td>
         </tr>
         <tr>
-            <td class="auto-style11">      <h3><label for="myDate">Please Choose Month and Year :</label>&nbsp;</h3>
-            <p style="text-align: justify">   
+            <td class="auto-style9">      <h3><label for="myDate">Please Choose Month and Year :</label>&nbsp;</h3>
+      
                 <uc2:MonthYearControl ID="MonthYearControl1" runat="server" />
         <asp:Button ID="btnRodAly" runat="server" Text="Submit" OnClick="btnRodAly_Click" CssClass="btn btn-primary" Width="79px"/><asp:Label ID="lbMessage" runat="server"></asp:Label>
-            </p></td>
-            <td class="auto-style12"></td>
+            </td>
+            <td class="auto-style13">
+                <CR:CrystalReportViewer ID="CrystalReporttest1" runat="server"  />
+            </td>
         </tr>
         <tr>
             <td class="auto-style10">
@@ -66,8 +75,7 @@
            <br/>
         </td>
             <td class="auto-style8">
-                <CR:CrystalReportViewer ID="CrystalReporttest1" runat="server"  />
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
 

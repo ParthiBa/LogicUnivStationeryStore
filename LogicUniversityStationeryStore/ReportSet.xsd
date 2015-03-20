@@ -35,11 +35,10 @@ FROM            Request INNER JOIN
               <DbSource ConnectionRef="LogicUniversityConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        RequestByDept.neededQuantity, Stationery.category
-FROM            Request INNER JOIN
-                         RequestByDept ON Request.id = RequestByDept.id INNER JOIN
-                         DisbursementList ON Request.deliveryID = DisbursementList.id AND RequestByDept.deliveryID = DisbursementList.id INNER JOIN
-                         Stationery ON RequestByDept.stationeryCode = Stationery.code</CommandText>
+                    <CommandText>SELECT        PurchaseOrder.dateOfDelivery, PurchaseOrderDetail.receivedQuantity, Stationery.category
+FROM            PurchaseOrder INNER JOIN
+                         PurchaseOrderDetail ON PurchaseOrder.id = PurchaseOrderDetail.orderID INNER JOIN
+                         Stationery ON PurchaseOrderDetail.stationeryCode = Stationery.code</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -47,7 +46,8 @@ FROM            Request INNER JOIN
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="category" DataSetColumn="category" />
-              <Mapping SourceColumn="neededQuantity" DataSetColumn="neededQuantity" />
+              <Mapping SourceColumn="receivedQuantity" DataSetColumn="receivedQuantity" />
+              <Mapping SourceColumn="dateOfDelivery" DataSetColumn="dateOfDelivery" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -59,7 +59,7 @@ FROM            Request INNER JOIN
   <xs:element name="ReportSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportSet" msprop:Generator_UserDSName="ReportSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
@@ -82,7 +82,7 @@ FROM            Request INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category">
@@ -92,9 +92,10 @@ FROM            Request INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="neededQuantity" msprop:Generator_ColumnVarNameInTable="columnneededQuantity" msprop:Generator_ColumnPropNameInRow="neededQuantity" msprop:Generator_ColumnPropNameInTable="neededQuantityColumn" msprop:Generator_UserColumnName="neededQuantity" type="xs:int" />
               <xs:element name="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:string" minOccurs="0" />
               <xs:element name="year" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_UserColumnName="year" type="xs:string" minOccurs="0" />
+              <xs:element name="receivedQuantity" msprop:Generator_ColumnVarNameInTable="columnreceivedQuantity" msprop:Generator_ColumnPropNameInRow="receivedQuantity" msprop:Generator_ColumnPropNameInTable="receivedQuantityColumn" msprop:Generator_UserColumnName="receivedQuantity" type="xs:int" minOccurs="0" />
+              <xs:element name="dateOfDelivery" msprop:Generator_ColumnVarNameInTable="columndateOfDelivery" msprop:Generator_ColumnPropNameInRow="dateOfDelivery" msprop:Generator_ColumnPropNameInTable="dateOfDeliveryColumn" msprop:Generator_UserColumnName="dateOfDelivery" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

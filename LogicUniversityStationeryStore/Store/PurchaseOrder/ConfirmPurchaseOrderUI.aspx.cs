@@ -21,10 +21,17 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
         string supCode;
         string despCode;
         int OID;
-        string maxQty = "10";
+        string maxQty = "1000000000";
         string currentValue;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            //set Master Page
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
             //catch data values from list of purchaseOrder page
             getDataFromListPage();
             if (!IsPostBack)           {
@@ -131,17 +138,20 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
             if ((e.Row.RowState & DataControlRowState.Edit) == DataControlRowState.Edit)
             {
                 WebUserControl1 spinner2 = e.Row.FindControl("spinner2") as WebUserControl1;
-                Label lblItemDesp = e.Row.FindControl("lblItemDesp") as Label;
-                //set maximum value for quantity
-                despCode = newPController.getDespCode(lblItemDesp.Text);
+
+                Label lblStationeryCode = e.Row.FindControl("lblStationeryCode") as Label;
+
+                //set maximum value for quantity               
+                despCode = lblStationeryCode.Text;
                 maxQty = newPController.getMaxQty(despCode);
                 if (spinner2 != null)
                 {
-                    spinner2.setLimit("1", maxQty);
+                    spinner2.setLimit("1", "1000000000");
                     spinner2.setValue(currentValue);
                 }
             }
         }
+
 
         protected void grdConfirmPurchaseOrder_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -188,7 +198,7 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
 
             //if user don't choose delivery date ,show msg let to choose it first
             if (deliveryDate.Value == "")
-            {               
+            {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please choose delivery Date!');", true);
             }
             else
@@ -196,8 +206,8 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
                 DateTime date = Convert.ToDateTime(deliveryDate.Value);
                 foreach (GridViewRow r in grdConfirmPurchaseOrder.Rows)
                 {
-                    Label lblItemDesp = (Label)r.FindControl("lblItemDesp");
-                    stationeryCode = newPController.getDespCode(lblItemDesp.Text);
+                    Label lblStationeryCode = (Label)r.FindControl("lblStationeryCode");
+                    stationeryCode = lblStationeryCode.Text;
 
                     Label lblItemid = (Label)r.FindControl("lblItemID");
                     id = Convert.ToInt32(lblItemid.Text);
@@ -209,7 +219,7 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
                     d = Convert.ToDecimal(lblamount.Text);
 
                     OID = Convert.ToInt32(orderId);
-                    newPController.ConfirmOrder(OID, stationeryCode, date, qty,id,d);
+                    newPController.ConfirmOrder(OID, stationeryCode, date, qty, id, d);
 
                 }
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Confirm Order Successful.'); window.location = '" + Page.ResolveUrl("~/Store/PurchaseOrder/ListOfPurchaseOrderUI.aspx") + "';", true);

@@ -67,6 +67,15 @@ namespace LogicUniversityStationeryStore.Store.Report {
         protected global::LogicUniversityStationeryStore.customControl.MonthYearControl MonthYearControl1;
         
         /// <summary>
+        /// lbMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbMessage;
+        
+        /// <summary>
         /// CrystalReportViewer1 control.
         /// </summary>
         /// <remarks>
@@ -85,21 +94,12 @@ namespace LogicUniversityStationeryStore.Store.Report {
         protected global::System.Web.UI.WebControls.Button btnRodAly;
         
         /// <summary>
-        /// lbMessage control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMessage;
-        
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

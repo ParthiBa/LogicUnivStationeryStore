@@ -14,6 +14,11 @@ namespace LogicUniversityStationeryStore.Store.PurchaseOrder
         NewPurchaseController newPController = new NewPurchaseController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //set  Master Page
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            CheckRoleController.setStationaryMaster(this.Master, role);
+
+
             if (!IsPostBack)
             {
                 BindGrid();

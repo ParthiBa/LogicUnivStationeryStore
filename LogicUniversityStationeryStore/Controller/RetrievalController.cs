@@ -11,29 +11,37 @@ namespace LogicUniversityStationeryStore.Controller
     {
         public String getStationeryDescription(String stationeryCode)
         {
-            var sc = from s in EntityBroker.getMyEntities().Stationeries
+            EntityBroker broker = new EntityBroker();
+            var sc = from s in broker.getEntities().Stationeries
                      where s.code == stationeryCode
                      select s.description;
             String stationeryDesp = sc.First<String>();
+            broker.dispose();
             return stationeryDesp;
         }
 
         //for Retrieval Detail page
         public String getDepartmentOfLoginPerson(String empNo)
         {
-            var e = from emp in EntityBroker.getMyEntities().Employees
+
+            EntityBroker broker = new EntityBroker();
+
+            var e = from emp in broker.getEntities().Employees
                     where emp.empNo == empNo
                     select emp.deptCode;
             String empDeptCode = e.First<String>();
+            broker.dispose();
             return empDeptCode;
         }
         //for Retrieval Detail Page get original department code
         public String getOriginalDepartmentCode(int delid)
         {
-            var e = from dl in EntityBroker.getMyEntities().DisbursementLists
+            EntityBroker broker = new EntityBroker();
+            var e = from dl in broker.getEntities().DisbursementLists
                     where dl.id == delid
                     select dl.deptCode;
             String deptCode = e.First<String>();
+            broker.dispose();
             return deptCode;
             
             

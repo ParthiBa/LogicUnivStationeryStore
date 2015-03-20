@@ -25,7 +25,7 @@
         </asp:GridView>
     
         <br />
-        <asp:Button ID="Button1" runat="server" Text="OK" Width="51px" />
+        <asp:Button ID="Button1" runat="server" Text="OK" Width="51px" CssClass="btn btn-success" />
     
     </div>
     </form>

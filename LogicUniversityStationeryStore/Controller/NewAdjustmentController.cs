@@ -14,12 +14,14 @@ namespace LogicUniversityStationeryStore.Controller
         StockAdjustment newAdjustment;
         LinqHelper linqhelper = new LinqHelper();
         NotificationHelper helper = new NotificationHelper();
+        Employee storeEmployee;
 
         public void  createStockAdjustment(string Clerkid)
         {
             newAdjustment = new StockAdjustment();
             newAdjustment.status = "Pending";
-            newAdjustment.Employee1 = LinqHelper.findEmpbyId(Clerkid);
+            storeEmployee =LinqHelper.findEmpbyId(Clerkid);
+            newAdjustment.submittedBy = storeEmployee.empNo;
 
             EntityBroker.getMyEntities().StockAdjustments.Add(newAdjustment);
                    
@@ -32,7 +34,9 @@ namespace LogicUniversityStationeryStore.Controller
         {
             decimal sum=0;
             bool isMorethan250=false;
-            foreach(DataRow r in dt.Rows)
+            if(dt.Rows.Count!=0)
+            {
+                foreach(DataRow r in dt.Rows)
             {
                 StockAdjustmentDetail StockAdjusmentDetails = new StockAdjustmentDetail();
                 StockAdjusmentDetails.StockAdjustment = newAdjustment;
@@ -51,11 +55,12 @@ namespace LogicUniversityStationeryStore.Controller
 
             }
 
+        }
             if(isMorethan250)
             {
 
                 newAdjustment.showTo = "Manager";
-             helper.sendEmailbyClerk("sheldonLogiCManager@gmail.com",NotificationHelper.informStockAdjustment(newAdjustment.Employee1.empName),"New Stock adjustment Rrequest is waiting for your approval");
+                helper.sendEmailbyClerk("sheldonLogiCManager@gmail.com", NotificationHelper.informStockAdjustment(storeEmployee.empName), "New Stock adjustment Rrequest is waiting for your approval");
                 // inform Manager
             
             }
@@ -63,7 +68,7 @@ namespace LogicUniversityStationeryStore.Controller
             {
 
                 newAdjustment.showTo = "Supervisor";
-                helper.sendEmailbyClerk("amyfarrahlogicsupervisor@gmail.com", NotificationHelper.informStockAdjustment(newAdjustment.Employee1.empName), "New Stock adjustment Rrequest is waiting for your approval");
+                helper.sendEmailbyClerk("amyfarrahlogicsupervisor@gmail.com", NotificationHelper.informStockAdjustment(storeEmployee.empName), "New Stock adjustment Rrequest is waiting for your approval");
 
             }
             //inform superivisor

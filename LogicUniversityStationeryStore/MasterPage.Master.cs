@@ -46,7 +46,7 @@ namespace LogicUniversityStationeryStore
                 Response.Cookies["UserRole"].Expires = DateTime.Now.AddDays(-1);
             }
             Session.Clear();
-            Response.Write("<script>window.location.href='/LogInUI.aspx'</script>");
+            Response.Write("<script>window.location.href='http://10.10.1.192/LUStationeryStore/LoginUI'</script>");
         }
     }
 }

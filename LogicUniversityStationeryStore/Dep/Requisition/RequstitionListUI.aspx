@@ -5,7 +5,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DepartmentHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
+    <h2></h2>
+<p></p>
     <asp:GridView ID="grdPendingRequest" runat="server" Height="116px" Width="423px" AutoGenerateColumns="False">
+              <EmptyDataTemplate>
+
+            NO more orders awaiting  for your approval
+
+        </EmptyDataTemplate>
         <Columns>
             <asp:BoundField DataField="dateOfApp" HeaderText="Requsted Date" ReadOnly="True" SortExpression="Date"  DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField DataField="empName" HeaderText="Requsted by" ReadOnly="True" SortExpression="empName" />

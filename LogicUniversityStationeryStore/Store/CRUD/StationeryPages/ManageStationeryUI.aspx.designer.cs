@@ -346,15 +346,6 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages {
         protected global::System.Web.UI.WebControls.DropDownList ddSupplier3;
         
         /// <summary>
-        /// btnClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
-        
-        /// <summary>
         /// btnUpdate control.
         /// </summary>
         /// <remarks>
@@ -362,6 +353,15 @@ namespace LogicUniversityStationeryStore.Store.CRUD.StationeryPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// Master property.

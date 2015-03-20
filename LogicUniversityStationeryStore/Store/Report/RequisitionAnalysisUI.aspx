@@ -36,10 +36,13 @@
             <uc2:MonthYearControl ID="MonthYearControl1" runat="server" />
         </p>
         <asp:Button ID="btnReqAly" runat="server" Text="Submit" OnClick="btnReqAly_Click" CssClass="btn btn-primary"/>
-        <asp:Label ID="lblMessage1" runat="server"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" Text="back" OnClientClick= "window.history.go(-1);return false;" />
     </td>
 
         <td>
+        
+        <asp:Label ID="lblMessage1" runat="server"></asp:Label>
         
         <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" GroupTreeStyle-BackColor="White" HasCrystalLogo="False" Height="50px" ViewStateMode="Enabled" Width="350px" />
         </td>

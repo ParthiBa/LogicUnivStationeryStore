@@ -14,52 +14,73 @@ namespace LogicUniversityStationeryStore.Controller
         Employee Currentemp;
         public dynamic getDataforGrid(string role)
         {
-
-
+            EntityBroker entitybroker = new EntityBroker();
             if (role.Equals("storeMan"))
             {
-                var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
+                var q1 = from x in entitybroker.getEntities().StockAdjustments
                          where x.showTo.Equals("Manager")
                          select new { x.Employee1.empName, x.status, x.id };
-                return q1.ToList();
+                var q = q1.ToList();
+                entitybroker.dispose();
+                return q;
             }
             else
             {
-                var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
+                var q1 = from x in entitybroker.getEntities().StockAdjustments
                          where x.showTo.Equals("Supervisor")
-                         select new { x.Employee1.empName, x.status, x.id };
-                return q1.ToList();
+              select new { x.Employee1.empName, x.status, x.id };
+                var q = q1.ToList();
+                entitybroker.dispose();
+                return q;
             }
-
+          
            
         }
 
 
         public dynamic getStockAdjustmentDetails(int reportId)
         {
-            var re = from x in EntityBroker.getMyEntities().StockAdjustmentDetails
+            EntityBroker entitybroker = new EntityBroker();
+            var re = from x in entitybroker.getEntities().StockAdjustmentDetails
                      where x.StockAdjustment.id == reportId
                      select new { x.Stationery.description,x.reason,x.quantity,x.amount};
-            return re.ToList();
+            var qq = re.ToList();
+            entitybroker.dispose();
+            return qq;
         }
 
 
         public string  getCuurentRequest(int ReportId,string empid)
         {
             Currentemp = LinqHelper.findEmpbyId(empid);
-            var q1 = from x in EntityBroker.getMyEntities().StockAdjustments
+            EntityBroker entitybroker = new EntityBroker();
+            var q1 = from x in entitybroker.getEntities().StockAdjustments
                      where x.id == ReportId
                      select x;
             currentStockAdjustment = q1.FirstOrDefault();
+            entitybroker.dispose();
          
             return currentStockAdjustment.status;
         }
+        private List<StockAdjustmentDetail> findStockAdjustmentDetails(int stockAdjustmentId)
+        {
 
+            EntityBroker broker = new EntityBroker();
+            var qq = from x in broker.getEntities().StockAdjustmentDetails
+                     where x.reportID.Equals(stockAdjustmentId)
+                     select x;
+            var q1 = qq.ToList();
+            broker.dispose();
+            return q1;
+    
+
+        }
 
         public void ApproveCurrentRequest()
         {
             currentStockAdjustment.status = "Approved";
-            ICollection<StockAdjustmentDetail> list = currentStockAdjustment.StockAdjustmentDetails;
+            EntityBroker entitybroker = new EntityBroker();
+            List<StockAdjustmentDetail> list = findStockAdjustmentDetails(currentStockAdjustment.id);
             foreach(StockAdjustmentDetail st in list)
             {
                 Inventory In = findIventory(st.stationeryCode);
@@ -69,7 +90,13 @@ namespace LogicUniversityStationeryStore.Controller
 
             }
 
-            setInfo();
+            currentStockAdjustment.reviewDate = DateTime.Now;
+            currentStockAdjustment.reviewedBy = Currentemp.empNo;
+            currentStockAdjustment.Employee = Currentemp;
+            entitybroker.getEntities().Entry(currentStockAdjustment).State = System.Data.Entity.EntityState.Modified;
+
+            entitybroker.getEntities().SaveChanges(); 
+            entitybroker.dispose();
 
 
              
@@ -77,21 +104,29 @@ namespace LogicUniversityStationeryStore.Controller
 
         private Inventory findIventory(string  code)
         {
-            var q = from x in EntityBroker.getMyEntities().Inventories
+            EntityBroker entitybroker = new EntityBroker();
+            var q = from x in entitybroker.getEntities().Inventories
                     where x.stationeryCode.Equals(code)
                     select x;
-
-            return q.FirstOrDefault();
-
+         
+            var q1 =q.FirstOrDefault();
+            entitybroker.dispose();
+            return q1;
         }
 
         private void setInfo()
         {
 
+            EntityBroker entitybroker = new EntityBroker();
             //Employee Reviewed by
             currentStockAdjustment.reviewDate = DateTime.Now;
+            currentStockAdjustment.reviewedBy = Currentemp.empNo;
+
             currentStockAdjustment.Employee = Currentemp;
-            EntityBroker.getMyEntities().SaveChanges();
+            entitybroker.getEntities().Entry(currentStockAdjustment).State = System.Data.Entity.EntityState.Modified;
+           entitybroker.getEntities().SaveChanges();
+  
+           entitybroker.dispose();
         }
 
 
@@ -106,7 +141,9 @@ namespace LogicUniversityStationeryStore.Controller
         public string getStockAdjustmentReviwedByName()
         {
 
-           return currentStockAdjustment.Employee.empName;
+
+            return LinqHelper.findEmpName(currentStockAdjustment.reviewedBy);
+
         }
 
 

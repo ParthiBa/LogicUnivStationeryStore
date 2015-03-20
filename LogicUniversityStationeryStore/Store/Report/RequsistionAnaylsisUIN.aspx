@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="RequsistionAnaylsisUIN.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Report.RequsistionAnaylsisUI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/Home/StationeryMaster.master" AutoEventWireup="true" CodeBehind="RequsistionAnaylsisUIN.aspx.cs" Inherits="LogicUniversityStationeryStore.Store.Report.RequsistionAnaylsisUI" %>
 
 <%@ Register src="../../customControl/MonthYearControl.ascx" tagname="MonthYearControl" tagprefix="uc2" %>
 
@@ -13,12 +13,15 @@
         .auto-style4 {
             width: 352px;
         }
+        .auto-style5 {
+            width: 370px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="StationeryBody" runat="server">
           <table>
             <tr>
-    <td>
+    <td class="auto-style5" style="text-align: left">
            <h3> Please Choose Departments :</h3>
         <asp:CheckBoxList ID="chxDept" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="code">
             <asp:ListItem></asp:ListItem>

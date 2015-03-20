@@ -7,15 +7,16 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="nav">
-                <asp:Menu ID="DeptRepsMenu" runat="server" Visible="False" Enabled="False">
+    <div class="container">
+    <div id="logicMenu" class="col-md-12">
+                <asp:Menu ID="DeptRepsMenu" runat="server" Visible="False" Enabled="False" OnMenuItemClick="DeptRepsMenu_MenuItemClick" style="width:200%">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptRepHome.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmpHome.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Change" Value="Confirm">
                     <asp:MenuItem NavigateUrl="~/Dep/Delegation/DelegateAuthorityUI.aspx" Text="Change "></asp:MenuItem>
-                    <asp:MenuItem Text="Stationery Collected" Value="Stationery Collected"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Dep/updateCollectionPoint/UpdateCollectionPoint.aspx" Text="Change Collection Point" Value="Collection Point"></asp:MenuItem>
                 </asp:MenuItem>
+                <asp:MenuItem Text="Change Representative" NavigateUrl="~/Dep/Delegation/ChangeRep.aspx"></asp:MenuItem>
                <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition"></asp:MenuItem>
 
             </Items>
@@ -25,9 +26,9 @@
 
 
 
-               <asp:Menu ID="DeptEmployeeMenu" runat="server" Visible="False" Enabled="False">
+               <asp:Menu ID="DeptEmployeeMenu" runat="server" Visible="False" Enabled="False" style="width:200%">
             <Items>
-                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmp.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptEmpHome.aspx"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Dep/Requisition/CreateRequsistionUI.aspx" Text="New Requisition" Value="New Requisition">
 
                 </asp:MenuItem>
@@ -37,7 +38,7 @@
 
 
 
-              <asp:Menu ID="DeptHeadsMenu" runat="server"  Orientation="Horizontal"  Visible="False" Enabled="False">
+              <asp:Menu ID="DeptHeadsMenu" runat="server"  Orientation="Horizontal"  Visible="False" Enabled="False" style="width:200%">
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/DeptHeadHome.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="View" Value="View">
@@ -57,7 +58,7 @@
             </asp:Menu>
 
 
-
+        </div>
 
 
 

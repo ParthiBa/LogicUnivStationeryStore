@@ -47,6 +47,8 @@ namespace LogicUniversityStationeryStore.Controller
         }
         public void createbutton()//Create Button//
         {
+            EntityBroker entitybroker = new EntityBroker();
+
             Supplier sup = new Supplier();
             sup.supplierCode = supplierCode;
             sup.supplierName = supplierName;
@@ -56,21 +58,26 @@ namespace LogicUniversityStationeryStore.Controller
             sup.faxNo = faxNo;
             sup.address = address;
             sup.email = email;
-            EntityBroker.getMyEntities().Suppliers.Add(sup);
-            EntityBroker.getMyEntities().SaveChanges();
+            entitybroker.getEntities().Suppliers.Add(sup);
+           entitybroker.getEntities().SaveChanges();
+
+            entitybroker.dispose();
         }
 
         public List<string> ddPageLoad()//Create Page Load//
         {
+            EntityBroker entitybroker = new EntityBroker();
+
             List<string> SupCodeList = new List<string>();
 
-            var supplierName = from o in EntityBroker.getMyEntities().Suppliers
+            var supplierName = from o in entitybroker.getEntities().Suppliers
                                select o.supplierCode;
 
             foreach (string name in supplierName)
             {
                 SupCodeList.Add(name);
             }
+            entitybroker.dispose();
             return SupCodeList;
 
         }
@@ -82,10 +89,13 @@ namespace LogicUniversityStationeryStore.Controller
 
         public List<Supplier> retriveBtn()//Retrive Button//
         {
-            List<Supplier> suppDetail = (from o in EntityBroker.getMyEntities().Suppliers
+            EntityBroker entitybroker = new EntityBroker();
+
+            List<Supplier> suppDetail = (from o in entitybroker.getEntities().Suppliers
                                          where o.supplierCode == supplierCode
                                          select o).ToList();
 
+            entitybroker.dispose();
             return suppDetail;
         }
         public void callUpdate()//Update Button//
@@ -94,7 +104,8 @@ namespace LogicUniversityStationeryStore.Controller
         }
         public void updateButton()//Update Button//
         {
-            var supplierDtl = from o in EntityBroker.getMyEntities().Suppliers
+            EntityBroker entitybroker = new EntityBroker();
+            var supplierDtl = from o in entitybroker.getEntities().Suppliers
                               where o.supplierCode == supplierCode
                               select o;
 
@@ -110,8 +121,10 @@ namespace LogicUniversityStationeryStore.Controller
                 sup.address = address;
                 sup.email = email;
 
-                EntityBroker.getMyEntities().SaveChanges();
+               entitybroker.getEntities().SaveChanges();
+              
             }
+            entitybroker.dispose();
         }
 
     }

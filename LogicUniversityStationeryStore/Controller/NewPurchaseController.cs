@@ -20,41 +20,48 @@ namespace LogicUniversityStationeryStore.Controller
         //for binding in ddlpurchaseOrder
         public dynamic getSupplier()
         {
-            var q = (from s in EntityBroker.getMyEntities().Suppliers
+            EntityBroker broker = new EntityBroker();
+            var q = (from s in broker.getEntities().Suppliers
                      select new
                      {
                           s.supplierName,
                           s.supplierCode
                      }).Distinct().ToList();
+            broker.dispose();
             return q;
         }
        
         //for binding dropdownlist inside gridview      
         public dynamic getItemDescription(string supplierCode)
         {
-            var q = (from s in EntityBroker.getMyEntities().Stationeries
+            EntityBroker broker = new EntityBroker();
+            var q = (from s in broker.getEntities().Stationeries
                      where s.supplier1==supplierCode || s.supplier2==supplierCode || s.supplier3==supplierCode
                      select new
                      {
                          s.description,
                          s.code
                      }).Distinct().ToList();
+            broker.dispose();
             return q;
         }
 
         //get Unit Of measure according to Item description 
         public string getUnitOfMeasure(string despCode)
         {
-            var q = (from s in EntityBroker.getMyEntities().Stationeries
+            EntityBroker broker = new EntityBroker();
+            var q = (from s in broker.getEntities().Stationeries
                      where s.code == despCode
-                     select s.unitOfMeasure).Single();                   
+                     select s.unitOfMeasure).Single();
+            broker.dispose();       
             return q.ToString();
         }
 
         //check supplier1 or supplier2 or supplier3
         public string getSupplierStatus(string supplier,string despCode)
-        {            
-            var q = (from s in EntityBroker.getMyEntities().Stationeries
+        {
+            EntityBroker broker = new EntityBroker();
+            var q = (from s in broker.getEntities().Stationeries
                      where s.supplier1 == supplier && s.code == despCode
                      select s.supplier1).Distinct().ToList();
             //if there is no match with supplier1
@@ -65,7 +72,7 @@ namespace LogicUniversityStationeryStore.Controller
                 //check for supplier2
                 if (status == null)
                 {
-                    var q1 = (from s1 in EntityBroker.getMyEntities().Stationeries
+                    var q1 = (from s1 in broker.getEntities().Stationeries
                               where s1.supplier2 == supplier && s1.code == despCode
                               select s1.supplier2).Distinct().ToList();
                     //if there is no match with supplier2
@@ -76,7 +83,7 @@ namespace LogicUniversityStationeryStore.Controller
                         //check for supplier3
                         if (status == null)
                         {
-                            var q2 = (from s2 in EntityBroker.getMyEntities().Stationeries
+                            var q2 = (from s2 in broker.getEntities().Stationeries
                                       where s2.supplier3 == supplier && s2.code == despCode
                                       select s2.supplier3).Distinct().ToList();
                             //if there is no  match with supplier 3
@@ -105,6 +112,7 @@ namespace LogicUniversityStationeryStore.Controller
             {
                 status = "s1";
             }
+            broker.dispose();
                 return status;
             
         }
@@ -112,46 +120,50 @@ namespace LogicUniversityStationeryStore.Controller
         //get price according to ItemDescription and Supplier 
         public dynamic getPrice(string despCode, string supplier)
         {
+            EntityBroker broker = new EntityBroker();
             //check exactly supplier
             s = this.getSupplierStatus(supplier, despCode);
            
             if (s == "s1")
             {
-                var q = (from st in EntityBroker.getMyEntities().Stationeries
+                var q = (from st in broker.getEntities().Stationeries
                          where st.code == despCode && st.supplier1 == supplier
                          select st.price1);
                price = Convert.ToDecimal(q.FirstOrDefault());
             }
             if (s == "s2")
             {
-                var q = (from st in EntityBroker.getMyEntities().Stationeries
+                var q = (from st in broker.getEntities().Stationeries
                          where st.code == despCode && st.supplier2 == supplier
                          select st.price2);
                 price = Convert.ToDecimal(q.FirstOrDefault());
             }
             if (s == "s3")
             {
-                var q = (from st in EntityBroker.getMyEntities().Stationeries
+                var q = (from st in broker.getEntities().Stationeries
                          where st.code == despCode && st.supplier3 == supplier
                          select st.price3);
                 price = Convert.ToDecimal(q.FirstOrDefault()); 
             }
+            broker.dispose();
             return price;
         }
 
         //get maximum quantity to enter
         public String getMaxQty(string stationeryCode)
         {
-            var q = (from i in EntityBroker.getMyEntities().Inventories
+            EntityBroker broker = new EntityBroker();
+            var q = (from i in broker.getEntities().Inventories
                      where i.stationeryCode == stationeryCode
                      select i.availableQty).Single();
+            broker.dispose();
             return q.ToString();            
                  
         }
         
         //insert new purchase order 
         internal void createPurchaseOrder(string empID,DateTime reqDate,string supplier)
-        {
+        {          
             p = new PurchaseOrder();
             p.dateOfOrder = DateTime.Now;
             p.dateReqDue = reqDate;
@@ -159,12 +171,13 @@ namespace LogicUniversityStationeryStore.Controller
             p.supplierCode = supplier;
             p.status = "Pending";
             EntityBroker.getMyEntities().PurchaseOrders.Add(p);
-            EntityBroker.getMyEntities().SaveChanges();           
+            EntityBroker.getMyEntities().SaveChanges();
+           
         }
 
         //insert new purchase order detail
         internal void createPurchaseOrderDetail(DataTable dt)
-        {
+        {           
             foreach(DataRow dr in dt.Rows)
             {
                 PurchaseOrderDetail pd = new PurchaseOrderDetail();
@@ -174,17 +187,18 @@ namespace LogicUniversityStationeryStore.Controller
                 pd.amount = Convert.ToDecimal(dr["Amount"].ToString());
                 EntityBroker.getMyEntities().PurchaseOrderDetails.Add(pd);
             }
-            EntityBroker.getMyEntities().SaveChangesAsync();
+             EntityBroker.getMyEntities().SaveChangesAsync();            
         }
 
        //--for ListOfPurchaseOrderUI page--//
             //for grid binding//     
         public dynamic bindGrdListPurchaseOrder()
         {
-            var query = (from p in EntityBroker.getMyEntities().PurchaseOrders
-                         join pd in EntityBroker.getMyEntities().PurchaseOrderDetails on p.id equals pd.orderID
-                         join e in EntityBroker.getMyEntities().Employees on p.empNo equals e.empNo 
-                         join s in EntityBroker.getMyEntities().Suppliers on p.supplierCode equals s.supplierCode
+            EntityBroker broker = new EntityBroker();
+            var query = (from p in broker.getEntities().PurchaseOrders
+                         join pd in broker.getEntities().PurchaseOrderDetails on p.id equals pd.orderID
+                         join e in broker.getEntities().Employees on p.empNo equals e.empNo 
+                         join s in broker.getEntities().Suppliers on p.supplierCode equals s.supplierCode
                          group pd by new
                                 {
                                     oid     =p.id,
@@ -210,21 +224,24 @@ namespace LogicUniversityStationeryStore.Controller
                              Total        =PO.Sum(pr => pr.amount),
                              status       =PO.Key.ST                          
                          }).ToList();
+            broker.dispose();
             return query;
         }
         //--for ConfirmPurchaseOrderUI.aspx--//
         //grid binding//
         public dynamic bindGrdConfirmPurchaseOrder(int orderID)
         {
-            var query = (from p in EntityBroker.getMyEntities().PurchaseOrders
-                         join pd in EntityBroker.getMyEntities().PurchaseOrderDetails on p.id equals pd.orderID
-                         join s in EntityBroker.getMyEntities().Stationeries on pd.stationeryCode equals s.code
+            EntityBroker broker = new EntityBroker();
+            var query = (from p in broker.getEntities().PurchaseOrders
+                         join pd in broker.getEntities().PurchaseOrderDetails on p.id equals pd.orderID
+                         join s in broker.getEntities().Stationeries on pd.stationeryCode equals s.code
                          where pd.orderID == orderID
                          select new
                          {
                              itemid = pd.id,
-                             itemDesp = s.description,                           
-                             SupCode  = p.supplierCode,
+                             itemCode = s.code,
+                             itemDesp = s.description,
+                             SupCode = p.supplierCode,
                              Quantity = pd.requestedQuantity,
                              Amount = pd.amount,
                              UOM = s.unitOfMeasure
@@ -232,7 +249,7 @@ namespace LogicUniversityStationeryStore.Controller
             string desp;
             decimal price;
 
-                DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             dt.Columns.Add("Key1", typeof(int));
             dt.Columns.Add("itemid", typeof(string));
             dt.Columns.Add("ItemDesp", typeof(string));
@@ -240,9 +257,10 @@ namespace LogicUniversityStationeryStore.Controller
             dt.Columns.Add("UOM", typeof(string));
             dt.Columns.Add("Price", typeof(decimal));
             dt.Columns.Add("Amount", typeof(string));
-            foreach(var item in query)
+            dt.Columns.Add("ItemCode", typeof(string));
+            foreach (var item in query)
             {
-                desp = getDespCode(item.itemDesp);
+                desp = item.itemCode;
                 price = getPrice(desp, item.SupCode);
                 DataRow dr = dt.NewRow();
                 dr["itemid"] = item.itemid;
@@ -251,43 +269,40 @@ namespace LogicUniversityStationeryStore.Controller
                 dr["UOM"] = item.UOM;
                 dr["Price"] = price;
                 dr["Amount"] = item.Amount;
+                dr["ItemCode"] = item.itemCode;
                 dt.Rows.Add(dr);
-            }          
-           
+            }
+            broker.dispose();
             return dt;
-        }
-        //get description code to check condition
-        public String getDespCode(string despName)
-        {
-            var q = (from s in EntityBroker.getMyEntities().Stationeries
-                     where s.description == despName
-                     select s.code).Single();
-            return q.ToString();
-        }
+        }           
 
         //Cancel purchase order (update the purchase order status =Cancelled)
         public void CancelOrder(int orderId)
-        {           
-            PurchaseOrder p = EntityBroker.getMyEntities().PurchaseOrders.FirstOrDefault(po => po.id == orderId);
+        {
+            EntityBroker broker = new EntityBroker();
+            PurchaseOrder p = broker.getEntities().PurchaseOrders.FirstOrDefault(po => po.id == orderId);
             p.status = "Cancelled";
-            EntityBroker.getMyEntities().SaveChanges();
+            broker.getEntities().SaveChanges();
+            broker.dispose();
         }
         //confirm purchase order(update the purchase order status=Delivered)
         public void ConfirmOrder(int orderId,string sCode,DateTime d,int receivedQty,int id,decimal amt)
         {
-            PurchaseOrder p =EntityBroker.getMyEntities().PurchaseOrders.FirstOrDefault(po=>po.id==orderId);
+            EntityBroker broker = new EntityBroker();
+            PurchaseOrder p =broker.getEntities().PurchaseOrders.FirstOrDefault(po=>po.id==orderId);
             p.status ="Delivered";
-            p.dateOfDelivery =d;            
+            p.dateOfDelivery =d;
 
-            PurchaseOrderDetail pd = EntityBroker.getMyEntities().PurchaseOrderDetails.FirstOrDefault(pod =>pod.id ==id);            
+            PurchaseOrderDetail pd = broker.getEntities().PurchaseOrderDetails.FirstOrDefault(pod => pod.id == id);            
             pd.receivedQuantity = receivedQty;
             pd.amount = amt;
-                
-                Inventory i = EntityBroker.getMyEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == sCode);
+
+            Inventory i = broker.getEntities().Inventories.FirstOrDefault(iv => iv.stationeryCode == sCode);
                 i.quantity += pd.receivedQuantity;
                 i.availableQty += pd.receivedQuantity;
-            
-            EntityBroker.getMyEntities().SaveChanges();
+
+                broker.getEntities().SaveChanges();
+            broker.dispose();
 
         }
       

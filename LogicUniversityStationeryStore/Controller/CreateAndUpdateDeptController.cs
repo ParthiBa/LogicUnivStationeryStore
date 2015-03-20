@@ -11,7 +11,8 @@ namespace LogicUniversityStationeryStore.Controller
     {
         public void createDept(string codeB, string nameB, string contactB, string telB, string faxB, string drop1, string drop2, string drop1name, string drop2name)
         {
-            using (LogicUniversityEntities4Perm ctx = EntityBroker.getMyEntities())
+            EntityBroker broker= new EntityBroker();
+            using (LogicUniversityEntities4Perm ctx =broker.getEntities() )
             {
                 LogicUniversityStationeryStore.Department createdpt = new LogicUniversityStationeryStore.Department();
                 createdpt.code = codeB;
@@ -126,8 +127,16 @@ namespace LogicUniversityStationeryStore.Controller
                 var q = from x in ctx.Employees
                         where x.deptCode.Equals(dcode)
                         select x;
-                return q.ToList<Employee>();
+                var result = q.ToList<Employee>();
+                if(result==null)
+                {
+                    var other = from x in ctx.Employees
+                                select x;
+                    result = other.ToList<Employee>();
 
+
+                }
+                return result;
             }
 
 

@@ -402,8 +402,8 @@ hr {
 
 p {
   margin: 223px 0 10px 0;
-    height: 28px;
-    width: 614px;
+    height: 44px;
+    width: 330px;
 }
 
 .lead {
@@ -519,6 +519,7 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+    width: 887px;
 }
 
 h3,
@@ -1410,8 +1411,9 @@ table {
   max-width: 100%;
   background-color: transparent;
     margin-right: 443px;
-    width: 822px;
+    width: 32%;
     margin-top: 0px;
+    height: 55px;
 }
 
 th {
@@ -1660,6 +1662,8 @@ label {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
+    width: 233px;
+    margin-top: 0px;
 }
 
 input[type="search"] {

@@ -49,7 +49,15 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
                 var aa = LinqHelper.getItemByCategory("Clip");
                 ddlItemsbyCategories.DataSource = aa;
                 ddlItemsbyCategories.DataBind();
-                spinner2.setLimit("1", "3");
+                    string MaxQuantity = NrController.getAvailabeQuantity(ddlItemsbyCategories.Items[0].Value);
+             
+                    spinner2.setLimit("1", MaxQuantity);
+           
+            }
+            if (grdCreateItem.Rows.Count == 0)
+            {
+
+                Button1.Enabled = false;
             }
         }
 
@@ -107,7 +115,8 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
 
             BindData();
 
-            
+            btnAddItem.Enabled = false;
+            Button1.Enabled = false;
           
            
         }
@@ -154,6 +163,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
             string sid = txtStationaryId.Value;
            
             addInitialRow(item, quantity,sid);
+            Button1.Enabled = true;
         }
 
         protected void grdCreateItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -248,7 +258,8 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
 
         protected void grdCreateItem_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
-
+            btnAddItem.Enabled = true;
+            Button1.Enabled = true;
         }
 
         protected void grdCreateItem_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -261,6 +272,10 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
 
             grdCreateItem.EditIndex = -1;
             BindData();
+
+            Button1.Enabled = true;
+            btnAddItem.Enabled = true;
+          
         }
 
         protected void grdCreateItem_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -269,7 +284,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
             dt.Rows.Remove(dt.Rows[e.RowIndex]);
             grdCreateItem.DataSource = dt;
             grdCreateItem.DataBind();
-            
+           
         }
         private void BindData()
         {

@@ -26,7 +26,15 @@ namespace LogicUniversityStationeryStore.Store.Report
         protected void Page_Load(object sender, EventArgs e)
         {
           
-            lbMessage.Text = string.Empty;     
+            lbMessage.Text = string.Empty;
+            string role = Request.Cookies["UserRole"].Value.ToString();
+            if (!IsPostBack) 
+            {
+                if (role.Equals("storeMan"))
+                Button1.PostBackUrl = Page.ResolveUrl("~/Home/StationeryManagerHome");
+                else if  (role.Equals("storeSup"))
+                Button1.PostBackUrl = Page.ResolveUrl("~/Home/StationerySupervisorHome");
+            }
         }
 
        
@@ -117,9 +125,6 @@ namespace LogicUniversityStationeryStore.Store.Report
             CrystalReportViewer1.ReportSource = rep2;
 
         }
-
-     
-
 
     }
 }

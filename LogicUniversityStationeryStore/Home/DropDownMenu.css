@@ -1,39 +1,41 @@
 ﻿ #nav{
         margin:0;
         text-align:center;
-        width:100%;
+        width:1160px;
         vertical-align:central;
-    }
-    #nav ul{
+    top: 0px;
+    left: 0px;
+}
+    #logicMenu ul{
         padding:0;
         list-style:none;
         width:100%;
     }
-    #nav ul li {
-        float:right;
+    #logicMenu ul li {
+        float:left;
         text-align:center;
-        width:300px;
+        width:auto;
 	    white-space: nowrap;
         margin:1px;
       
     }
-    #nav ul li a {
+    #logicMenu ul li a {
         color:whitesmoke;
         text-decoration:none;
         display:block;
         font-family:Calibri;
-        font-size:medium
-        padding:10px;
+        font-size:medium;
         background:#2d82ea;
         
     }
-    #nav ul li a:hover {
+    #logicMenu ul li a:hover {
         background:#0015ff;
         color:white;
     }
-    #nav ul li ul{
+    #logicMenu ul li ul{
+        background:#2d82ea;
         display:none;
     }
-    #nav ul li:hover ul{
+    #logicMenu ul li:hover ul{
         display:block;
     }

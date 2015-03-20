@@ -9,7 +9,6 @@
             <tr>
                 <td >
                     &nbsp;</td>
-                <td ></td>
             </tr>
             <tr>
                 <td>
@@ -28,7 +27,6 @@
         </asp:GridView>
     
                 </td>
-                <td>&nbsp;</td>
             </tr>
         </table>
     

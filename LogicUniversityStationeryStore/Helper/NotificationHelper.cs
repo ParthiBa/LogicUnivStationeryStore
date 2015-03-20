@@ -251,10 +251,10 @@ namespace LogicUniversityStationeryStore.Helper
         }
 
 
-                public bool sendEmail(string from1 , string password1 ,string to, string Email, string subject)
+                public bool sendEmailtoDepRep(string to, string Email, string subject)
         {
-            string from = from1;
-            string password = password1;
+            string from = "logicrusselclerk@gmail.com";
+            string password = "LogicRusselClerk345";
             string To = to;
             string Subject = subject;
             string Body =Email ;
@@ -283,6 +283,42 @@ namespace LogicUniversityStationeryStore.Helper
                 return false;
             }
         }
+                public bool sendEmail(string from1, string password1, string to, string Email, string subject)
+                {
+                    string from = from1;
+                    string password = password1;
+                    string To = to;
+                    string Subject = subject;
+                    string Body = Email;
+                    MailMessage msg = new MailMessage();
+                    msg.From = new MailAddress(from);
+                    msg.To.Add(new MailAddress(To));
+                    msg.Subject = Subject;
+                    msg.Body = Body;
+                    msg.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 25;
+                    //	    smtp.Port = 587;
+                    smtp.Credentials = new NetworkCredential(from, password);
+                    smtp.EnableSsl = true;
+
+                    try
+                    {
+                        smtp.Send(msg);
+                        return true;
+                    }
+                    catch (SmtpException err)
+                    {
+                        Console.WriteLine(err);
+                        Console.Read();
+                        return false;
+                    }
+                }
+      
+
+
+
 
     }
 }

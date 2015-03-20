@@ -31,7 +31,7 @@
                             <asp:BoundField DataField="timeSlot" HeaderText="timeSlot" SortExpression="timeSlot" />
                             <asp:TemplateField HeaderText="Select">
                                <ItemTemplate>
-                                    <input type="radio" name="radio" value="<%#Eval("id") %>">"
+                                    <input type="radio" name="radio" value="<%#Eval("id") %>" />
                                
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -48,7 +48,7 @@
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style5">
                     <br />
-                    <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click"  />
+                    <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" CssClass="btn btn-primary" />
                 </td>
             </tr>
         </table>

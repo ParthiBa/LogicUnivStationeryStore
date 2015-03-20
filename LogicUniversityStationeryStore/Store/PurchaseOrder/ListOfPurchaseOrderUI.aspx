@@ -5,12 +5,13 @@
     <table class="auto-style2">
         <tr>
             <td class="auto-style3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblListOfPurchaseOrderTitle" runat="server" Font-Bold="True" Text="List Of Purchase Order"></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style3">
-                <asp:GridView ID="grdListPurchaseOrder" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="grdListPurchaseOrder" runat="server" AutoGenerateColumns="False" Width="855px" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <Columns>
             <asp:TemplateField HeaderText="No">
               <ItemTemplate>
@@ -59,6 +60,15 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
+                     <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                     <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+                     <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+                     <RowStyle BackColor="White" ForeColor="#003399" /> 
+                    <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />                    
+                     <SortedAscendingCellStyle BackColor="#EDF6F6" />
+                     <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+                     <SortedDescendingCellStyle BackColor="#D6DFDF" />
+                     <SortedDescendingHeaderStyle BackColor="#002876" />
     </asp:GridView></td>
         </tr>
     </table>
@@ -71,8 +81,9 @@
    
     <style type="text/css">
         .auto-style2 {
-            width: 100%;
-        }
+            width: 200%;
+        text-align: left;
+    }
         .auto-style3 {}
     </style>
     

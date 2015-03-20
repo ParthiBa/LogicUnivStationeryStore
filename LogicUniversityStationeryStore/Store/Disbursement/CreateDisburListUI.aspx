@@ -7,46 +7,48 @@
 
     <table class="auto-style1">
     <tr>
-        <td colspan="2">
+        <td colspan="2" class="auto-style11">
             <asp:Label ID="lblPageTitle" runat="server" Font-Bold="True" Text="Generate Stationery Disbursement List"></asp:Label>
         </td>
     </tr>
     <tr>
-        <td class="auto-style2">
+        <td class="auto-style9">
             <asp:Label ID="lblDepNameTitle" runat="server" Text="Department Name:"></asp:Label>
         </td>
-        <td>
+        <td class="auto-style13">
            <%-- <asp:DropDownList ID="ddlDepName" runat="server" AutoPostBack="True" DataSourceID="DepartmentNameDS" DataTextField="name" DataValueField="code" OnSelectedIndexChanged="ddlDepName_SelectedIndexChanged" AppendDataBoundItems="True">
             <asp:ListItem Text="--Select a department--" Value="0"></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="DepartmentNameDS" runat="server" ConnectionString="<%$ ConnectionStrings:LogicStationeryConnectionString %>" SelectCommand="select name,code from Department"></asp:SqlDataSource>--%>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <asp:DropDownList ID="ddlDepName" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="Code"  OnSelectedIndexChanged="ddlDepName_SelectedIndexChanged" AppendDataBoundItems="True">
             <asp:ListItem Text="--Select a department--" Value="0"></asp:ListItem>
             </asp:DropDownList>
         </td>      
     </tr>
     <tr>
-        <td class="auto-style2">
-            <asp:Label ID="lblRepNameTitle" runat="server" Text="Representative Name:"></asp:Label>
+        <td class="auto-style9">
+            <asp:Label ID="lblRepNameTitle" runat="server" Text="Representative Name:" style="text-align: right"></asp:Label>
         </td>
-        <td>
-            <asp:Label ID="lblRepName" runat="server"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="auto-style2">
-            <asp:Label ID="lblCollectionPointTitle" runat="server" Text="Collection Point:"></asp:Label>
-        </td>
-        <td>
-            <asp:Label ID="lblCollectionPoint" runat="server"></asp:Label>
+        <td class="auto-style13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblRepName" runat="server" style="text-align: left"></asp:Label>
         </td>
     </tr>
     <tr>
-        <td class="auto-style3">
-            <asp:Label ID="lblDate" runat="server" Text="Delivery Date for the week:"></asp:Label>
+        <td class="auto-style9">
+            <asp:Label ID="lblCollectionPointTitle" runat="server" Text="Collection Point:" style="text-align: right"></asp:Label>
         </td>
-        <td class="auto-style4">
-            <asp:Label ID="lblDeliveryDate" runat="server"></asp:Label>
+        <td class="auto-style13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblCollectionPoint" runat="server" style="text-align: left"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td class="auto-style10">
+            <asp:Label ID="lblDate" runat="server" Text="Delivery Date for the week:" style="text-align: right"></asp:Label>
+        </td>
+        <td class="auto-style12">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblDeliveryDate" runat="server" style="text-align: left"></asp:Label>
         </td>
     </tr>
     <tr>
@@ -56,7 +58,8 @@
     <tr>
         <td class="auto-style7"></td>
         <td class="auto-style8">
-            <asp:GridView ID="GrdDisbursementList" runat="server" EmptyDataText="No Records" AutoGenerateColumns="False" Height="82px">
+            <asp:GridView ID="GrdDisbursementList" runat="server" ForeColor="#333333" GridLines="None" EmptyDataText="No Records" AutoGenerateColumns="False" Height="82px" Width="371px">
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="Stationery Description">
                         <ItemTemplate>
@@ -89,19 +92,28 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                     <RowStyle BackColor="#EFF3FB" /> 
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />                    
+                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
         </td>
     </tr>
     <tr>
-        <td class="auto-style3"></td>
-        <td class="auto-style4">
-            &nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" Visible="False" OnClick="btnCancel_Click" />
+        <td class="auto-style10"></td>
+        <td class="text-left">
+            &nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" Visible="False" OnClick="btnCancel_Click" CssClass="btn btn-danger" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnSave" runat="server" Text="Save" Visible="False" OnClick="btnSave_Click" />
+            <asp:Button ID="btnSave" runat="server" Text="Save" Visible="False" OnClick="btnSave_Click" CssClass="btn btn-success" />
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="2" class="auto-style11">
             &nbsp;</td>
     </tr>
 </table>
@@ -124,18 +136,39 @@
             height: 23px;
         }
         .auto-style5 {
-            width: 333px;
+            width: 611px;
             height: 14px;
+            text-align: right;
         }
         .auto-style6 {
             height: 14px;
         }
         .auto-style7 {
-            width: 333px;
+            width: 611px;
             height: 137px;
+            text-align: right;
         }
         .auto-style8 {
             height: 137px;
+        }
+    .auto-style9 {
+            width: 611px;
+            text-align: right;
+        }
+    .auto-style10 {
+            width: 611px;
+            height: 100%;
+            text-align: right;
+        }
+        .auto-style11 {
+            text-align: center;
+        }
+        .auto-style12 {
+            height: 23px;
+            text-align: left;
+        }
+        .auto-style13 {
+            text-align: left;
         }
     </style>
 </asp:Content>

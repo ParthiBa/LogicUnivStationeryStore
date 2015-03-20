@@ -18,7 +18,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
         bool isLessQuantity = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            RequiredFieldValidator1.Enabled = false;
 
 
 
@@ -128,7 +128,7 @@ namespace LogicUniversityStationeryStore.Dep.Requisition
         protected void btnOkReject_Click(object sender, EventArgs e)
         {
 
-
+            RequiredFieldValidator1.Enabled = true;
             ARController.rejectCurrentRequest(TxtReason.Text);
             ClientScript.RegisterClientScriptBlock(this.GetType(), "myalert", "alert('Request has been rejected!'); window.location = '" + Page.ResolveUrl("~/Home/DeptHeadHome.aspx") + "';", true);
 

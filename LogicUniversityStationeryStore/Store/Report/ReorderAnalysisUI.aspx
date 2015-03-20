@@ -31,14 +31,14 @@
                 <uc2:MonthYearControl ID="MonthYearControl1" runat="server" />
             </p></td>
                <td>
+        <asp:Label ID="lbMessage" runat="server"></asp:Label>
+        
                    <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" HasCrystalLogo="False" />
                </td>
     </tr></table>
         <asp:Button ID="btnRodAly" runat="server" Text="Submit" OnClick="btnRodAly_Click"/>
-        <asp:Label ID="lbMessage" runat="server"></asp:Label>
-        
-        <asp:GridView ID="GridView1" runat="server">
-        </asp:GridView>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" Text="Back" />
     </form>
 </body>
 </html>

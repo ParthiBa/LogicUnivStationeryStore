@@ -3,13 +3,11 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="StationeryBody" runat="server">
     <br/>
-        <p style="text-align:center">
-          <asp:Label ID="Label2" runat="server" Text="You Have Request From Departments Below" Style="color: #666699; text-align: center; font-size: large; font-weight: 700;"></asp:Label>
-        </p>
-
-    <br/>
-    <div style="margin-left:500px; margin-right:auto; height: 402px; width: 210px;">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <div>
+ 
+          <asp:Label ID="Label2" runat="server" Text="You Have Request From Departments Below" Style="color: #666699; text-align: left; font-size: large; font-weight: 700;"></asp:Label>
+        
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="506px">
                  <emptydatatemplate>
                     No Requisition Found.  
                  </emptydatatemplate>
@@ -33,9 +31,10 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString %>" SelectCommand="SELECT DISTINCT [deptCode] FROM [Request] WHERE ([status] = @status)">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LogicUniversityConnectionString %>" SelectCommand="SELECT DISTINCT [deptCode] FROM [Request] WHERE (([status] = @status) AND ([dateOfApp] &lt;= @dateOfApp))">
             <SelectParameters>
                 <asp:Parameter DefaultValue="Approved" Name="status" Type="String" />
+                <asp:SessionParameter DbType="Date" Name="dateOfApp" SessionField="NowTime" />
             </SelectParameters>
         </asp:SqlDataSource>
         </div>

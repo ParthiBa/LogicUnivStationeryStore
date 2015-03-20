@@ -13,7 +13,7 @@ namespace LogicUniversityStationeryStore.Store.Disbursement
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
+            Session["NowTime"] = DateTime.Now.ToString();
             string role = Request.Cookies["UserRole"].Value.ToString();
             CheckRoleController.setStationaryMaster(this.Master, role);
         }

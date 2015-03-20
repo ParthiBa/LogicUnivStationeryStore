@@ -32,25 +32,45 @@
   </script>
     <style type="text/css">
         .auto-style11 {
-            width: 100%;
+            width: 192%;
             margin-bottom: 0px;
-        }
+        height: 204px;
+    }
         .auto-style2 {
             width: 359px;
         }
         .auto-style3 {
             width: 276px;
         }
-    </style>
+        .auto-style13 {
+            width: 10%;
+            text-align: left;
+        }
+        .auto-style14 {
+        width: 10%;
+        text-align: left;
+        height: 41px;
+    }
+        .auto-style15 {
+            text-align: left;
+            height: 36px;
+        }
+        .auto-style16 {
+            width: 10%;
+            text-align: left;
+            height: 102px;
+        }
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DepartmentContent" runat="server">
     <table class="auto-style11">
             <tr>
-                <td class="auto-style2">
-        <asp:Label ID="lblAuthorizeTO" runat="server" Text="Authorize TO"></asp:Label>
-                </td>
-                <td class="auto-style3">
-        <asp:DropDownList ID="ddAuthorizeTo" runat="server" Height="16px" OnSelectedIndexChanged="ddAuthorizeTo_SelectedIndexChanged" >
+                <td class="auto-style16">
+                    <h2>DELEGATE AUTHORITY</h2>
+
+                    <br />
+        <asp:Label ID="lblAuthorizeTO" runat="server" Text="Authorize To:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="ddAuthorizeTo" runat="server" Height="21px" OnSelectedIndexChanged="ddAuthorizeTo_SelectedIndexChanged" Width="178px" >
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
                 </td>
@@ -65,37 +85,32 @@
             <asp:ListItem>Department Representative</asp:ListItem>
             <asp:ListItem Selected="True"></asp:ListItem>
         </asp:DropDownList>--%>
+                <%--</td>--%>
+            </tr>
+            <tr>
+                <td class="auto-style15">&nbsp;<asp:Label ID="Label5" runat="server" Text="Authorize Date Range:" style="text-align: left" Font-Bold="True"></asp:Label>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">
-        <asp:Label ID="Label5" runat="server" Text="Authorize Date Range"></asp:Label>
+                <td class="auto-style14">
+        From Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<asp:TextBox ID="txtFromDate" class="calender" runat="server" Width="148px" OnTextChanged="txtFromDate_TextChanged" />
+                   
                 </td>
-                <td class="auto-style3">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-        <p>From Date:</p>
-                </td>
-                <td class="auto-style3"><asp:TextBox ID="txtFromDate" class="calender" runat="server" />
+               <%-- <td class="auto-style12">--%>
                  <%--<td>  <asp:CompareValidator ID="cmpVal1" ControlToCompare="txtFromDate" 
                     ControlToValidate="txtToDate" class="calender" Operator="GreaterThanEqual"   
                    ErrorMessage="*Invalid Data" runat="server"></asp:CompareValidator>
                 </td>--%>
             </tr>
             <tr>
-                <td class="auto-style2">
-        <p>From Date:</p>
+                <td class="auto-style13">
+        To Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<asp:TextBox ID="txtToDate" class="calender" runat="server" Width="147px" />
                 </td>
-                <td class="auto-style3"><asp:TextBox ID="txtToDate" class="calender" runat="server" /></td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td class="auto-style13">
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" CssClass="btn btn-success" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
             </tr>
         </table>
 </asp:Content>

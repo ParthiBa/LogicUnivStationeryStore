@@ -29,6 +29,15 @@ namespace LogicUniversityStationeryStore.Store.Report
         {
             lblMessage1.Text = string.Empty;
            // btnReqAly.Enabled = false;
+            string role = Request.Cookies["UserRole"].Value.ToString();
+
+            if (!IsPostBack)
+            {
+                if (role.Equals("storeMan"))
+                    Button1.PostBackUrl = Page.ResolveUrl("~/Home/StationeryManagerHome");
+                else if (role.Equals("storeSup"))
+                    Button1.PostBackUrl = Page.ResolveUrl("~/Home/StationerySupervisorHome");
+            }
         }
 
 

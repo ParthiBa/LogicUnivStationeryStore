@@ -1,13 +1,14 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StationeryMaster.master.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryMaster" %>
+﻿ <%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StationeryMaster.master.cs" Inherits="LogicUniversityStationeryStore.Home.StationeryMaster" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Mainhead" runat="server">
     <asp:ContentPlaceHolder ID="StationeryHead" runat="server" ></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="nav">
-          <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" Enabled="False" Visible="False">
+    <div class="container">
+    <div id="logicMenu" class="col-md-12">
+          <asp:Menu ID="ClerkMenu" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" Enabled="False" Visible="False" style="width:200%">
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationeryClerkHome.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="Accept New Request" Value="accwpt" NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text=" Accept New Request" Value="accwpt" NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Generate" Value="Generate">
                         <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
@@ -18,7 +19,7 @@
                     </asp:MenuItem>
                     <asp:MenuItem Text="Supply" Value="Supply">
                         <asp:MenuItem Text="Order Items" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurchaseOrderUI.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Confirm Stock Received" Value="Confirm Stock Received" NavigateUrl="~/Store/PurchaseOrder/ConfirmPurchaseOrderUI.aspx"></asp:MenuItem>
+                   
                         <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/ListOfPurchaseOrderUI.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
                     </asp:MenuItem>
                      <asp:MenuItem Text="ManageInformation" Value="Supply">
@@ -28,8 +29,8 @@
                         </asp:MenuItem>
                         
                         <asp:MenuItem Text="Stationery" Value="Supplier Infomaration" >
-                            <asp:MenuItem Text="Add Stationery item" NavigateUrl="~/Store/CRUD/Stationery/CreateStationeryUI.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Manage Stationery  Info" NavigateUrl="~/Store/CRUD/Stationery/ManageStationeryUI.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add Stationery item" NavigateUrl="~/Store/CRUD/StationeryPages/CreateStationeryUI.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Manage Stationery  Info" NavigateUrl="~/Store/CRUD/StationeryPages/ManageStationeryUI.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                          <asp:MenuItem Text="Department" Value="Supplier Infomaration" >
                             <asp:MenuItem Text="Add new Department" NavigateUrl="~/Store/CRUD/Department/CreateDepartment.aspx"></asp:MenuItem>
@@ -42,41 +43,61 @@
             </asp:Menu>
 
 
-            <asp:Menu ID="ManagerMenu" runat="server" Orientation="Horizontal" Enabled="False" Visible="False">
+            <asp:Menu ID="ManagerMenu" runat="server" Orientation="Horizontal" Enabled="False" Visible="False" style="width:200%">
             <Items>
                 <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationeryManagerHome.aspx"></asp:MenuItem>
                 <asp:MenuItem Text="Approve" Value="Approve">
                     <asp:MenuItem NavigateUrl="~/Store/StockAdjustment/ListOfStockAdjustmentUI.aspx" Text="Approve Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                 </asp:MenuItem>
+                <asp:MenuItem Text="Accept New Request" Value="accwpt" NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx"></asp:MenuItem>
+                  <asp:MenuItem Text="Generate" Value="Generate">
+                        <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
                   <asp:MenuItem Text="Report" Value="Report">
-                    <asp:MenuItem NavigateUrl="~/Store/Report/ReorderAnaylsisUIN.aspx" Text="Reorder trend Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
-                      <asp:MenuItem NavigateUrl="~/Store/Report/RequsistionAnaylsisUIN.aspx" Text="Requisition Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
-
+                 
+      <%--                No master--%>
+                           <asp:MenuItem NavigateUrl="~/Store/Report/ReorderAnalysisUI.aspx" Text="Reorder trend Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Store/Report/RequisitionAnalysisUI.aspx" Text="Requisition Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
                 </asp:MenuItem>
+                
             </Items>
         </asp:Menu>
 
 
 
-             <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False" Visible="False">
+             <asp:Menu ID="SupervisorMenu" runat="server" Orientation="Horizontal" Width="100%" Enabled="False" Visible="False" style="width:200%">
               <Items>
+
         <%--         <asp:MenuItem Text="Generate" Value="Generate">
                         <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
                     </asp:MenuItem>--%>
                   <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home/StationerySupervisorHome.aspx"></asp:MenuItem>
-                  <asp:MenuItem Text="Generate" Value="Generate">
-                      <asp:MenuItem Text="Requisition Trend Analysis" Value="Requisition Trend Analysis"></asp:MenuItem>
-                      <asp:MenuItem Text="Reorder Trend Analysis" Value="Reorder Trend Analysis"></asp:MenuItem>
-                  </asp:MenuItem>
+                   <asp:MenuItem Text="    Accept New Request" Value="accwpt" NavigateUrl="~/Store/Disbursement/ListOfApprovedRequestUI.aspx"></asp:MenuItem>
+                                           <asp:MenuItem Text="Supply" Value="Supply">
+                        <asp:MenuItem Text="Order Items" Value="Order" NavigateUrl="~/Store/PurchaseOrder/CreatePurchaseOrderUI.aspx"></asp:MenuItem>
+                   
+                        <asp:MenuItem NavigateUrl="~/Store/PurchaseOrder/ListOfPurchaseOrderUI.aspx" Text="View Purchased Order" Value="View Purchased Order"></asp:MenuItem>
+                    </asp:MenuItem>
+                          <asp:MenuItem Text="Generate" Value="Generate">
+                        <asp:MenuItem Text="Retrival List" Value="Retrival List" NavigateUrl="~/Store/Disbursement/RetrievalListUI.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disbursement List" Value="Disbursement List" NavigateUrl="~/Store/Disbursement/CreateDisburListUI.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+
                   <asp:MenuItem Text="Approve" Value="Report">
                       <asp:MenuItem  NavigateUrl="~/Store/StockAdjustment/ListOfStockAdjustmentUI.aspx" Text="Stock Adjustment Voucher" Value="Stock Adjustment Voucher"></asp:MenuItem>
                   </asp:MenuItem>
+                 <asp:MenuItem Text="Report" Value="Report">
+                   <%--  without master--%>
+                     <asp:MenuItem NavigateUrl="~/Store/Report/ReorderAnalysisUI.aspx" Text="Reorder trend Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Store/Report/RequisitionAnalysisUI.aspx" Text="Requisition Analysis Report" Value="Stock Adjustment Voucher"></asp:MenuItem>
+                </asp:MenuItem>
               </Items>
           </asp:Menu>
 
 
-
+        </div>
 
 
 
